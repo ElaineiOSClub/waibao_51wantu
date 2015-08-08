@@ -7,6 +7,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewPresonViewController">
             <connections>
+                <outlet property="authImage" destination="bnp-g6-34A" id="F6i-wo-0Sc"/>
+                <outlet property="authTextF" destination="pZK-3o-OPZ" id="lfo-CT-SKy"/>
+                <outlet property="comfirmPwdTextF" destination="sN8-eP-bwt" id="hTQ-Ga-8Fk"/>
+                <outlet property="emailTextF" destination="0C0-JX-Ks5" id="f3z-jl-t0y"/>
+                <outlet property="loginBtn" destination="PBI-BI-ac6" id="YJ6-Q7-Khn"/>
+                <outlet property="phoneNumTextF" destination="dXd-3n-fE6" id="HVw-td-TUB"/>
+                <outlet property="pwdTextF" destination="VSO-bT-aYJ" id="GoI-Vz-uYe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -93,6 +100,9 @@
                     <state key="normal" title="立即注册">
                         <color key="titleColor" red="1" green="0.98364034639999998" blue="0.98309052740000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="keyPath" value="5"/>
+                    </userDefinedRuntimeAttributes>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>

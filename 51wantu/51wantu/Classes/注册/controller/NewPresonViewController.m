@@ -9,6 +9,13 @@
 #import "NewPresonViewController.h"
 
 @interface NewPresonViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *emailTextF;
+@property (weak, nonatomic) IBOutlet UITextField *pwdTextF;
+@property (weak, nonatomic) IBOutlet UITextField *comfirmPwdTextF;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumTextF;
+@property (weak, nonatomic) IBOutlet UITextField *authTextF;
+@property (weak, nonatomic) IBOutlet UIImageView *authImage;
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 
 @end
 
@@ -17,11 +24,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.emailTextF becomeFirstResponder];
+
 }
 
 /*
