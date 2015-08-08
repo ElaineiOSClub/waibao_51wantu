@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "MMDrawerController.h"
 
 @interface AppDelegate ()
 
@@ -18,9 +19,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    
+    
     MainViewController *tabBar = [[MainViewController alloc] init];
+    UIViewController *leftVC = [[UIViewController alloc] init];
+    MMDrawerController *drawer = [[MMDrawerController alloc] initWithCenterViewController:tabBar leftDrawerViewController:leftVC];
+
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = tabBar;
+    self.window.rootViewController = drawer;
     [self.window makeKeyAndVisible];
     return YES;
 }

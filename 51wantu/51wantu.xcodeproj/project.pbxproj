@@ -347,6 +347,8 @@
 		B994C1A61B75DBD2003577FD /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B994C1D31B75EF78003577FD /* 登录 */,
+				B994C1D71B75EF78003577FD /* 注册 */,
 				B994C1B71B75DE62003577FD /* 9.9包邮 */,
 				B994C1BB1B75DE62003577FD /* 分类搜索 */,
 				B994C1BF1B75DE62003577FD /* 明日预告 */,
@@ -544,6 +546,68 @@
 			sourceTree = "<group>";
 		};
 		B994C1C61B75DE62003577FD /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		B994C1D31B75EF78003577FD /* 登录 */ = {
+			isa = PBXGroup;
+			children = (
+				B994C1D41B75EF78003577FD /* controller */,
+				B994C1D51B75EF78003577FD /* model */,
+				B994C1D61B75EF78003577FD /* view */,
+			);
+			path = "登录";
+			sourceTree = "<group>";
+		};
+		B994C1D41B75EF78003577FD /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		B994C1D51B75EF78003577FD /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		B994C1D61B75EF78003577FD /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		B994C1D71B75EF78003577FD /* 注册 */ = {
+			isa = PBXGroup;
+			children = (
+				B994C1D81B75EF78003577FD /* controller */,
+				B994C1D91B75EF78003577FD /* model */,
+				B994C1DA1B75EF78003577FD /* view */,
+			);
+			path = "注册";
+			sourceTree = "<group>";
+		};
+		B994C1D81B75EF78003577FD /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		B994C1D91B75EF78003577FD /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		B994C1DA1B75EF78003577FD /* view */ = {
 			isa = PBXGroup;
 			children = (
 			);
