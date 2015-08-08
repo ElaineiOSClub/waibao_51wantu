@@ -39,6 +39,9 @@
 		0A89D4151B75A641003EAFB2 /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A89D3F51B75A641003EAFB2 /* MMDrawerVisualState.m */; };
 		0A89D4161B75A641003EAFB2 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A89D3F71B75A641003EAFB2 /* UIViewController+MMDrawerController.m */; };
 		0A89D41A1B75AC71003EAFB2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A89D4191B75AC71003EAFB2 /* libsqlite3.dylib */; };
+		B994C1A31B75AEEF003577FD /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C19E1B75AEEF003577FD /* UIBarButtonItem+Extension.m */; };
+		B994C1A41B75AEEF003577FD /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C1A01B75AEEF003577FD /* UIView+Extension.m */; };
+		B994C1A51B75AEEF003577FD /* UIViewController+PushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C1A21B75AEEF003577FD /* UIViewController+PushNotification.m */; };
 		B9FA9C5F1B75A22C00E1B03F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FA9C5E1B75A22C00E1B03F /* main.m */; };
 		B9FA9C621B75A22C00E1B03F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FA9C611B75A22C00E1B03F /* AppDelegate.m */; };
 		B9FA9C651B75A22C00E1B03F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FA9C641B75A22C00E1B03F /* ViewController.m */; };
@@ -123,6 +126,12 @@
 		0A89D3F71B75A641003EAFB2 /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
 		0A89D4191B75AC71003EAFB2 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		0A89D41B1B75ACE5003EAFB2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		B994C19D1B75AEEF003577FD /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		B994C19E1B75AEEF003577FD /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		B994C19F1B75AEEF003577FD /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		B994C1A01B75AEEF003577FD /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		B994C1A11B75AEEF003577FD /* UIViewController+PushNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PushNotification.h"; sourceTree = "<group>"; };
+		B994C1A21B75AEEF003577FD /* UIViewController+PushNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PushNotification.m"; sourceTree = "<group>"; };
 		B9FA9C591B75A22C00E1B03F /* 51wantu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 51wantu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9FA9C5D1B75A22C00E1B03F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9FA9C5E1B75A22C00E1B03F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -306,6 +315,19 @@
 			path = MMDrawerController;
 			sourceTree = "<group>";
 		};
+		B994C19C1B75AEEF003577FD /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				B994C19D1B75AEEF003577FD /* UIBarButtonItem+Extension.h */,
+				B994C19E1B75AEEF003577FD /* UIBarButtonItem+Extension.m */,
+				B994C19F1B75AEEF003577FD /* UIView+Extension.h */,
+				B994C1A01B75AEEF003577FD /* UIView+Extension.m */,
+				B994C1A11B75AEEF003577FD /* UIViewController+PushNotification.h */,
+				B994C1A21B75AEEF003577FD /* UIViewController+PushNotification.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		B9FA9C501B75A22C00E1B03F = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +350,7 @@
 		B9FA9C5B1B75A22C00E1B03F /* 51wantu */ = {
 			isa = PBXGroup;
 			children = (
+				B994C19C1B75AEEF003577FD /* Category */,
 				B9FA9C601B75A22C00E1B03F /* AppDelegate.h */,
 				B9FA9C611B75A22C00E1B03F /* AppDelegate.m */,
 				B9FA9C631B75A22C00E1B03F /* ViewController.h */,
@@ -471,11 +494,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A89D3FD1B75A641003EAFB2 /* MBProgressHUD+MJ.m in Sources */,
+				B994C1A51B75AEEF003577FD /* UIViewController+PushNotification.m in Sources */,
 				0A89D40D1B75A641003EAFB2 /* MJRefreshStateHeader.m in Sources */,
 				0A89D4131B75A641003EAFB2 /* MMDrawerBarButtonItem.m in Sources */,
 				0A89D4151B75A641003EAFB2 /* MMDrawerVisualState.m in Sources */,
 				B9FA9C651B75A22C00E1B03F /* ViewController.m in Sources */,
 				0A89D4121B75A641003EAFB2 /* UIView+MJExtension.m in Sources */,
+				B994C1A31B75AEEF003577FD /* UIBarButtonItem+Extension.m in Sources */,
 				0A89D3FA1B75A641003EAFB2 /* FMDatabasePool.m in Sources */,
 				B9FA9C621B75A22C00E1B03F /* AppDelegate.m in Sources */,
 				0A89D4111B75A641003EAFB2 /* UIScrollView+MJRefresh.m in Sources */,
@@ -491,6 +516,7 @@
 				0A89D4141B75A641003EAFB2 /* MMDrawerController.m in Sources */,
 				0A89D4051B75A641003EAFB2 /* MJRefreshAutoGifFooter.m in Sources */,
 				0A89D4101B75A641003EAFB2 /* UIScrollView+MJExtension.m in Sources */,
+				B994C1A41B75AEEF003577FD /* UIView+Extension.m in Sources */,
 				0A89D3F81B75A641003EAFB2 /* FMDatabase.m in Sources */,
 				0A89D4081B75A641003EAFB2 /* MJRefreshBackGifFooter.m in Sources */,
 				0A89D4021B75A641003EAFB2 /* MJRefreshComponent.m in Sources */,
