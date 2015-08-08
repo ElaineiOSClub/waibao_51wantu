@@ -39,6 +39,8 @@
 		0A89D4151B75A641003EAFB2 /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A89D3F51B75A641003EAFB2 /* MMDrawerVisualState.m */; };
 		0A89D4161B75A641003EAFB2 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A89D3F71B75A641003EAFB2 /* UIViewController+MMDrawerController.m */; };
 		0A89D41A1B75AC71003EAFB2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A89D4191B75AC71003EAFB2 /* libsqlite3.dylib */; };
+		0AA085C61B764FC000475429 /* NewPresonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA085C41B764FC000475429 /* NewPresonViewController.m */; };
+		0AA085C71B764FC000475429 /* NewPresonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA085C51B764FC000475429 /* NewPresonViewController.xib */; };
 		B994C1A31B75AEEF003577FD /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C19E1B75AEEF003577FD /* UIBarButtonItem+Extension.m */; };
 		B994C1A41B75AEEF003577FD /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C1A01B75AEEF003577FD /* UIView+Extension.m */; };
 		B994C1A51B75AEEF003577FD /* UIViewController+PushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C1A21B75AEEF003577FD /* UIViewController+PushNotification.m */; };
@@ -167,6 +169,9 @@
 		0A89D3F71B75A641003EAFB2 /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
 		0A89D4191B75AC71003EAFB2 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		0A89D41B1B75ACE5003EAFB2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		0AA085C31B764FC000475429 /* NewPresonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPresonViewController.h; sourceTree = "<group>"; };
+		0AA085C41B764FC000475429 /* NewPresonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPresonViewController.m; sourceTree = "<group>"; };
+		0AA085C51B764FC000475429 /* NewPresonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewPresonViewController.xib; sourceTree = "<group>"; };
 		B994C19D1B75AEEF003577FD /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		B994C19E1B75AEEF003577FD /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		B994C19F1B75AEEF003577FD /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -445,6 +450,31 @@
 			path = MMDrawerController;
 			sourceTree = "<group>";
 		};
+		0AA085C01B764F6D00475429 /* 登陆 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "登陆";
+			sourceTree = "<group>";
+		};
+		0AA085C11B764F6D00475429 /* 注册 */ = {
+			isa = PBXGroup;
+			children = (
+				0AA085C21B764FAA00475429 /* controller */,
+			);
+			path = "注册";
+			sourceTree = "<group>";
+		};
+		0AA085C21B764FAA00475429 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				0AA085C31B764FC000475429 /* NewPresonViewController.h */,
+				0AA085C41B764FC000475429 /* NewPresonViewController.m */,
+				0AA085C51B764FC000475429 /* NewPresonViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		B994C19C1B75AEEF003577FD /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,10 +491,10 @@
 		B994C1A61B75DBD2003577FD /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				B994C1D31B75EF78003577FD /* 登录 */,
-				B994C1D71B75EF78003577FD /* 注册 */,
-				B994C1B71B75DE62003577FD /* 9.9包邮 */,
+				0AA085C01B764F6D00475429 /* 登陆 */,
+				0AA085C11B764F6D00475429 /* 注册 */,
 				B994C1BB1B75DE62003577FD /* 分类搜索 */,
+				B994C1B71B75DE62003577FD /* 9.9包邮 */,
 				B994C1BF1B75DE62003577FD /* 明日预告 */,
 				B994C1C31B75DE62003577FD /* 品牌团 */,
 				B994C1A71B75DBD2003577FD /* Home(首页) */,
@@ -976,6 +1006,7 @@
 				0A89D3FE1B75A641003EAFB2 /* MBProgressHUD.bundle in Resources */,
 				B9FA9C6D1B75A22C00E1B03F /* LaunchScreen.xib in Resources */,
 				0A89D40E1B75A641003EAFB2 /* MJRefresh.bundle in Resources */,
+				0AA085C71B764FC000475429 /* NewPresonViewController.xib in Resources */,
 				B9FA9C6A1B75A22C00E1B03F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1021,6 +1052,7 @@
 				B994C2421B7606C5003577FD /* SDWebImageCompat.m in Sources */,
 				0A89D4111B75A641003EAFB2 /* UIScrollView+MJRefresh.m in Sources */,
 				0A89D3FB1B75A641003EAFB2 /* FMDatabaseQueue.m in Sources */,
+				0AA085C61B764FC000475429 /* NewPresonViewController.m in Sources */,
 				0A89D4091B75A641003EAFB2 /* MJRefreshBackNormalFooter.m in Sources */,
 				B994C1C91B75DEA6003577FD /* ExemptionPostageViewController.m in Sources */,
 				0A89D4161B75A641003EAFB2 /* UIViewController+MMDrawerController.m in Sources */,
