@@ -38,6 +38,7 @@
 		0A89D4141B75A641003EAFB2 /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A89D3F31B75A641003EAFB2 /* MMDrawerController.m */; };
 		0A89D4151B75A641003EAFB2 /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A89D3F51B75A641003EAFB2 /* MMDrawerVisualState.m */; };
 		0A89D4161B75A641003EAFB2 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A89D3F71B75A641003EAFB2 /* UIViewController+MMDrawerController.m */; };
+		0A89D4181B75AAE7003EAFB2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A89D4171B75AAE7003EAFB2 /* libsqlite3.dylib */; };
 		B9FA9C5F1B75A22C00E1B03F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FA9C5E1B75A22C00E1B03F /* main.m */; };
 		B9FA9C621B75A22C00E1B03F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FA9C611B75A22C00E1B03F /* AppDelegate.m */; };
 		B9FA9C651B75A22C00E1B03F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FA9C641B75A22C00E1B03F /* ViewController.m */; };
@@ -120,6 +121,7 @@
 		0A89D3F51B75A641003EAFB2 /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
 		0A89D3F61B75A641003EAFB2 /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
 		0A89D3F71B75A641003EAFB2 /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
+		0A89D4171B75AAE7003EAFB2 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		B9FA9C591B75A22C00E1B03F /* 51wantu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 51wantu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9FA9C5D1B75A22C00E1B03F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9FA9C5E1B75A22C00E1B03F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A89D4181B75AAE7003EAFB2 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +308,7 @@
 		B9FA9C501B75A22C00E1B03F = {
 			isa = PBXGroup;
 			children = (
+				0A89D4171B75AAE7003EAFB2 /* libsqlite3.dylib */,
 				B9FA9C5B1B75A22C00E1B03F /* 51wantu */,
 				B9FA9C751B75A22C00E1B03F /* 51wantuTests */,
 				B9FA9C5A1B75A22C00E1B03F /* Products */,
