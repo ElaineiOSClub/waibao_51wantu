@@ -7,14 +7,13 @@
 //
 
 #import "UIViewController+PushNotification.h"
-#import "LoginViewController.h"
 
 @implementation UIViewController (PushNotification)
 
 #pragma mark - 注册通知
 - (void)registerNotification
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(push:) name:MenuLeftPushNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(push:) name:@"" object:nil];
     
 }
 
@@ -32,9 +31,7 @@
 
 - (void)login
 {
-    LoginViewController *login = [[LoginViewController alloc] init];
-    login.isPresent = YES;
-    [self presentViewController:login animated:YES completion:nil];
+   
 }
 
 
