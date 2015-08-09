@@ -41,6 +41,9 @@
 		0A89D41A1B75AC71003EAFB2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A89D4191B75AC71003EAFB2 /* libsqlite3.dylib */; };
 		0AA085C61B764FC000475429 /* NewPresonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA085C41B764FC000475429 /* NewPresonViewController.m */; };
 		0AA085C71B764FC000475429 /* NewPresonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA085C51B764FC000475429 /* NewPresonViewController.xib */; };
+		0AA085EB1B765E6F00475429 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA085EA1B765E6F00475429 /* UIKit.framework */; };
+		0AA085ED1B76605C00475429 /* HTTPService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA085EC1B76605C00475429 /* HTTPService.m */; };
+		0AA085F11B76630A00475429 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA085F01B76630A00475429 /* Util.m */; };
 		B994C1A31B75AEEF003577FD /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C19E1B75AEEF003577FD /* UIBarButtonItem+Extension.m */; };
 		B994C1A41B75AEEF003577FD /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C1A01B75AEEF003577FD /* UIView+Extension.m */; };
 		B994C1A51B75AEEF003577FD /* UIViewController+PushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C1A21B75AEEF003577FD /* UIViewController+PushNotification.m */; };
@@ -175,6 +178,11 @@
 		0AA085C31B764FC000475429 /* NewPresonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPresonViewController.h; sourceTree = "<group>"; };
 		0AA085C41B764FC000475429 /* NewPresonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPresonViewController.m; sourceTree = "<group>"; };
 		0AA085C51B764FC000475429 /* NewPresonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewPresonViewController.xib; sourceTree = "<group>"; };
+		0AA085EA1B765E6F00475429 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0AA085EC1B76605C00475429 /* HTTPService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPService.m; sourceTree = "<group>"; };
+		0AA085EE1B76606A00475429 /* HTTPService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPService.h; sourceTree = "<group>"; };
+		0AA085EF1B76630A00475429 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		0AA085F01B76630A00475429 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		B994C19D1B75AEEF003577FD /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		B994C19E1B75AEEF003577FD /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		B994C19F1B75AEEF003577FD /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -292,6 +300,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AA085EB1B765E6F00475429 /* UIKit.framework in Frameworks */,
 				0A89D41A1B75AC71003EAFB2 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,6 +492,17 @@
 			path = controller;
 			sourceTree = "<group>";
 		};
+		0AA085C81B765C9C00475429 /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				0AA085EF1B76630A00475429 /* Util.h */,
+				0AA085F01B76630A00475429 /* Util.m */,
+				0AA085EE1B76606A00475429 /* HTTPService.h */,
+				0AA085EC1B76605C00475429 /* HTTPService.m */,
+			);
+			path = tool;
+			sourceTree = "<group>";
+		};
 		B994C19C1B75AEEF003577FD /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,6 +519,7 @@
 		B994C1A61B75DBD2003577FD /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0AA085C81B765C9C00475429 /* tool */,
 				0AA085C01B764F6D00475429 /* 登陆 */,
 				0AA085C11B764F6D00475429 /* 注册 */,
 				B994C1BB1B75DE62003577FD /* 分类搜索 */,
@@ -815,6 +836,7 @@
 		B9FA9C501B75A22C00E1B03F = {
 			isa = PBXGroup;
 			children = (
+				0AA085EA1B765E6F00475429 /* UIKit.framework */,
 				0A89D4191B75AC71003EAFB2 /* libsqlite3.dylib */,
 				B9FA9C5B1B75A22C00E1B03F /* 51wantu */,
 				B9FA9C751B75A22C00E1B03F /* 51wantuTests */,
@@ -992,6 +1014,7 @@
 				B994C2371B7606C5003577FD /* AFHTTPRequestOperationManager.m in Sources */,
 				0A89D4151B75A641003EAFB2 /* MMDrawerVisualState.m in Sources */,
 				0A89D4121B75A641003EAFB2 /* UIView+MJExtension.m in Sources */,
+				0AA085F11B76630A00475429 /* Util.m in Sources */,
 				B994C1F81B7604C6003577FD /* NSObject+MJKeyValue.m in Sources */,
 				B994C1A31B75AEEF003577FD /* UIBarButtonItem+Extension.m in Sources */,
 				0A89D3FA1B75A641003EAFB2 /* FMDatabasePool.m in Sources */,
@@ -1026,6 +1049,7 @@
 				B994C23D1B7606C5003577FD /* AFURLResponseSerialization.m in Sources */,
 				B994C1FF1B76067D003577FD /* HttpTool.m in Sources */,
 				B994C23B1B7606C5003577FD /* AFURLConnectionOperation.m in Sources */,
+				0AA085ED1B76605C00475429 /* HTTPService.m in Sources */,
 				0A89D4101B75A641003EAFB2 /* UIScrollView+MJExtension.m in Sources */,
 				B994C2451B7606C5003577FD /* SDWebImageDownloaderOperation.m in Sources */,
 				B994C1A41B75AEEF003577FD /* UIView+Extension.m in Sources */,
