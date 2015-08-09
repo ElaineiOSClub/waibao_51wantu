@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "MMDrawerController.h"
+#import "NewPresonViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,12 +23,13 @@
     
     
     
-    MainViewController *tabBar = [[MainViewController alloc] init];
-    UIViewController *leftVC = [[UIViewController alloc] init];
-    MMDrawerController *drawer = [[MMDrawerController alloc] initWithCenterViewController:tabBar leftDrawerViewController:leftVC];
-
+    NewPresonViewController *newOne = [[NewPresonViewController alloc] init];
+//    UIViewController *leftVC = [[UIViewController alloc] init];
+//    MMDrawerController *drawer = [[MMDrawerController alloc] initWithCenterViewController:tabBar leftDrawerViewController:leftVC];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:newOne];
+    
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = drawer;
+    self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     return YES;
 }
