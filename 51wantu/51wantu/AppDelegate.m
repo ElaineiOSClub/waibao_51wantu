@@ -10,6 +10,8 @@
 #import "MainViewController.h"
 #import "MMDrawerController.h"
 #import "NewPresonViewController.h"
+#import "MainNavViewController.h"
+#import "loginViewController.h"
 
 @interface AppDelegate ()
 
@@ -23,10 +25,10 @@
     
     
     
-    NewPresonViewController *newOne = [[NewPresonViewController alloc] init];
+    loginViewController *newOne = [[loginViewController alloc] init];
 //    UIViewController *leftVC = [[UIViewController alloc] init];
 //    MMDrawerController *drawer = [[MMDrawerController alloc] initWithCenterViewController:tabBar leftDrawerViewController:leftVC];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:newOne];
+    MainNavViewController *nav = [[MainNavViewController alloc]initWithRootViewController:newOne];
     
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = nav;

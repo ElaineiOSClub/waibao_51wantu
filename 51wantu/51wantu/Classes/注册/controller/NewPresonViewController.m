@@ -26,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"注册";
     // Do any additional setup after loading the view from its nib.
     
 }
@@ -104,11 +105,13 @@
         myLog(@"dic=====%@",dic);
         NSString * success = [dic objectForKey:@"Success"];
         if ([success intValue] == 1)
-            [MBProgressHUD showMessage:@"注册成功"];
+        [Util showAlertWithTitle:@"提示" msg:@"注册成功"];
+
         else
-            [MBProgressHUD showError:@"注册失败"];
+             [Util showAlertWithTitle:@"提示" msg:@"注册失败"];
     } error:^(NSError *error) {
-        
+        [MBProgressHUD hideHUD];
+        [Util showAlertWithTitle:@"提示" msg:@"网络好像有问题"];
     }];
 }
 
