@@ -37,6 +37,12 @@
     [self.emailTextF becomeFirstResponder];
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+    
+}
+
 - (void)signUpMethod
 {
     [self.view endEditing:YES];
