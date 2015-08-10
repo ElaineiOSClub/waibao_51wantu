@@ -42,7 +42,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define BACKGROUND_HIGHLIGHT    colorWithRed:227.0/255.0 green:80.0/255.0 blue:28.0/255.0 alpha:1.0
 
 // NAV_COLOR
-#define NAV_COLOR  [UIColor colorWithRed:10/255.0 green:66/255.0 blue: 150/255.0 alpha:1.0]
+#define NAV_COLOR  [UIColor colorWithRed:224/255.0 green:10/255.0 blue: 27/255.0 alpha:1.0]
 
 // Font_COLOR
 #define FONT_COLOR  [UIColor colorWithRed:60/255.0 green:164/255.0 blue: 182/255.0 alpha:1.0]

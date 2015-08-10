@@ -19,6 +19,13 @@
 
 + (void)initialize
 {
+    UINavigationBar *navBar = [UINavigationBar appearance];
+    navBar.barStyle = UIBarStyleBlackOpaque;
+    [navBar setBarTintColor:NAV_COLOR];
+    navBar.tintColor = [UIColor whiteColor];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    dict[NSForegroundColorAttributeName]= [UIColor whiteColor];
+    [navBar setTitleTextAttributes:dict];
     
 }
 

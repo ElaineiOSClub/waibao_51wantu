@@ -45,7 +45,6 @@
 		0AA085ED1B76605C00475429 /* HTTPService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA085EC1B76605C00475429 /* HTTPService.m */; };
 		0AA085F11B76630A00475429 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA085F01B76630A00475429 /* Util.m */; };
 		0AA758C41B77977A007B2D05 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA758C21B77977A007B2D05 /* loginViewController.m */; };
-		0AA758C51B77977A007B2D05 /* loginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA758C31B77977A007B2D05 /* loginViewController.xib */; };
 		B994C1A31B75AEEF003577FD /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C19E1B75AEEF003577FD /* UIBarButtonItem+Extension.m */; };
 		B994C1A41B75AEEF003577FD /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C1A01B75AEEF003577FD /* UIView+Extension.m */; };
 		B994C1A51B75AEEF003577FD /* UIViewController+PushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C1A21B75AEEF003577FD /* UIViewController+PushNotification.m */; };
@@ -522,6 +521,13 @@
 			path = controller;
 			sourceTree = "<group>";
 		};
+		0AD47F011B78F87800B0212A /* leftController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = leftController;
+			sourceTree = "<group>";
+		};
 		B994C19C1B75AEEF003577FD /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -599,6 +605,7 @@
 		B994C1AB1B75DBD2003577FD /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0AD47F011B78F87800B0212A /* leftController */,
 				B994C1AC1B75DBD2003577FD /* controller */,
 				B994C1AD1B75DBD2003577FD /* view */,
 			);
