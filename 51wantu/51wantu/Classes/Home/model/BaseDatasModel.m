@@ -11,12 +11,7 @@
 
 @implementation BaseDatasModel
 
-+ (NSDictionary *)replacedKeyFromPropertyName
-{
-    return @{
-             @"ID" : @"id"
-             };
-}
+
 
 + (NSDictionary *)objectClassInArray
 {

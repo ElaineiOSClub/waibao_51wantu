@@ -9,6 +9,8 @@
 #ifndef _1wantu_PrefixHeader_pch
 #define _1wantu_PrefixHeader_pch
 
+#include "UIView+Extension.h"
+
 
 #define kScreen_Height ([UIScreen mainScreen].bounds.size.height)
 #define kScreen_Width  ([UIScreen mainScreen].bounds.size.width)

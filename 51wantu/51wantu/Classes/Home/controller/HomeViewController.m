@@ -8,29 +8,51 @@
 
 #import "HomeViewController.h"
 #import "MyFlowLayOut.h"
-#import "HomeCollectionViewCell.h"
+#import "HomeCell.h"
+#import "HttpTool.h"
+#import "MJExtension.h"
+#import "BaseDatasModel.h"
+#import "BaseDataModel.h"
 
 static NSString *cellID = @"cell";
 
 @interface HomeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) BaseDatasModel *model;
+@property (nonatomic, strong) NSMutableArray *arrayList;
 @end
 
 @implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+   
+    self.arrayList = [NSMutableArray array];
     
     MyFlowLayOut *layout = [[MyFlowLayOut alloc] init];
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-
+    self.collectionView.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:self.collectionView];
     
     
-    [self.collectionView registerClass:[HomeCollectionViewCell class] forCellWithReuseIdentifier:cellID];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"HomeCell" bundle:nil] forCellWithReuseIdentifier:cellID];
+    
+    
+    
+    [HttpTool httpToolGet:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=1&pagesize=20" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        myLog(@"%@",responseObject);
+        
+        self.model = [BaseDatasModel objectWithKeyValues:responseObject];
+        [self.arrayList addObjectsFromArray:self.model.datas];
+        myLog(@"%@",self.model);
+        
+        [self.collectionView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
     
 }
 
@@ -42,12 +64,14 @@ static NSString *cellID = @"cell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return self.arrayList.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    HomeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID   forIndexPath:indexPath];
+    cell.model = self.arrayList[indexPath.row];
+    return cell;
 }
 
 

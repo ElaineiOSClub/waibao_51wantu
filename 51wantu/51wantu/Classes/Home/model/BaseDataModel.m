@@ -7,7 +7,13 @@
 //
 
 #import "BaseDataModel.h"
+#import "MJExtension.h"
 
 @implementation BaseDataModel
-
++ (NSDictionary *)replacedKeyFromPropertyName
+{
+    return @{
+             @"ID" : @"id"
+             };
+}
 @end

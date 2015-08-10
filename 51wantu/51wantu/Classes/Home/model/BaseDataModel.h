@@ -12,6 +12,7 @@
 
 @property (nonatomic, copy) NSString *ID;
 @property (nonatomic, copy) NSString *pid;
+@property (nonatomic, copy) NSString *cid;
 @property (nonatomic, copy) NSString *item_id;
 @property (nonatomic, copy) NSString *item_url;
 @property (nonatomic, copy) NSString *title;

@@ -15,7 +15,8 @@
 {
     self.minimumInteritemSpacing = 5;
     self.minimumLineSpacing = 5;
-    self.itemSize = CGSizeMake((kScreenW - 15)/3.0, (kScreenW - 15)/4.0);
+    self.itemSize = CGSizeMake((kScreenW - 15)/2.0, (kScreenW - 15)/2.0+50);
    
+    self.sectionInset = UIEdgeInsetsMake(5, 5, 0, 5);
 }
 @end

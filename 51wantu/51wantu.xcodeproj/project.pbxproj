@@ -91,8 +91,8 @@
 		B994C24D1B7606C5003577FD /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C2331B7606C5003577FD /* UIImageView+WebCache.m */; };
 		B994C24E1B7606C5003577FD /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C2351B7606C5003577FD /* UIView+WebCacheOperation.m */; };
 		B994C2511B7661C3003577FD /* MyFlowLayOut.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C2501B7661C3003577FD /* MyFlowLayOut.m */; };
-		B994C2541B7662B9003577FD /* HomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C2531B7662B9003577FD /* HomeCollectionViewCell.m */; };
-		B994C2561B76DF3A003577FD /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B994C2551B76DF3A003577FD /* HomeCollectionViewCell.xib */; };
+		B9F2BE0A1B7810E200A6FAAB /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F2BE081B7810E200A6FAAB /* HomeCell.m */; };
+		B9F2BE0B1B7810E200A6FAAB /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F2BE091B7810E200A6FAAB /* HomeCell.xib */; };
 		B9FA9C5F1B75A22C00E1B03F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FA9C5E1B75A22C00E1B03F /* main.m */; };
 		B9FA9C621B75A22C00E1B03F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FA9C611B75A22C00E1B03F /* AppDelegate.m */; };
 		B9FA9C6A1B75A22C00E1B03F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9FA9C691B75A22C00E1B03F /* Images.xcassets */; };
@@ -280,9 +280,9 @@
 		B994C2351B7606C5003577FD /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		B994C24F1B7661C3003577FD /* MyFlowLayOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFlowLayOut.h; sourceTree = "<group>"; };
 		B994C2501B7661C3003577FD /* MyFlowLayOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFlowLayOut.m; sourceTree = "<group>"; };
-		B994C2521B7662B9003577FD /* HomeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewCell.h; sourceTree = "<group>"; };
-		B994C2531B7662B9003577FD /* HomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewCell.m; sourceTree = "<group>"; };
-		B994C2551B76DF3A003577FD /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		B9F2BE071B7810E200A6FAAB /* HomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCell.h; sourceTree = "<group>"; };
+		B9F2BE081B7810E200A6FAAB /* HomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCell.m; sourceTree = "<group>"; };
+		B9F2BE091B7810E200A6FAAB /* HomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
 		B9FA9C591B75A22C00E1B03F /* 51wantu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 51wantu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9FA9C5D1B75A22C00E1B03F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9FA9C5E1B75A22C00E1B03F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -568,9 +568,9 @@
 		B994C1AA1B75DBD2003577FD /* view */ = {
 			isa = PBXGroup;
 			children = (
-				B994C2521B7662B9003577FD /* HomeCollectionViewCell.h */,
-				B994C2531B7662B9003577FD /* HomeCollectionViewCell.m */,
-				B994C2551B76DF3A003577FD /* HomeCollectionViewCell.xib */,
+				B9F2BE071B7810E200A6FAAB /* HomeCell.h */,
+				B9F2BE081B7810E200A6FAAB /* HomeCell.m */,
+				B9F2BE091B7810E200A6FAAB /* HomeCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -976,8 +976,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9F2BE0B1B7810E200A6FAAB /* HomeCell.xib in Resources */,
 				0A89D3FE1B75A641003EAFB2 /* MBProgressHUD.bundle in Resources */,
-				B994C2561B76DF3A003577FD /* HomeCollectionViewCell.xib in Resources */,
 				B9FA9C6D1B75A22C00E1B03F /* LaunchScreen.xib in Resources */,
 				0A89D40E1B75A641003EAFB2 /* MJRefresh.bundle in Resources */,
 				0AA085C71B764FC000475429 /* NewPresonViewController.xib in Resources */,
@@ -1019,7 +1019,6 @@
 				B994C1A31B75AEEF003577FD /* UIBarButtonItem+Extension.m in Sources */,
 				0A89D3FA1B75A641003EAFB2 /* FMDatabasePool.m in Sources */,
 				B994C24A1B7606C5003577FD /* UIImage+MultiFormat.m in Sources */,
-				B994C2541B7662B9003577FD /* HomeCollectionViewCell.m in Sources */,
 				B994C24C1B7606C5003577FD /* UIImageView+HighlightedWebCache.m in Sources */,
 				B9FA9C621B75A22C00E1B03F /* AppDelegate.m in Sources */,
 				B994C2491B7606C5003577FD /* UIImage+GIF.m in Sources */,
@@ -1031,6 +1030,7 @@
 				0AA085C61B764FC000475429 /* NewPresonViewController.m in Sources */,
 				0A89D4091B75A641003EAFB2 /* MJRefreshBackNormalFooter.m in Sources */,
 				B994C1C91B75DEA6003577FD /* ExemptionPostageViewController.m in Sources */,
+				B9F2BE0A1B7810E200A6FAAB /* HomeCell.m in Sources */,
 				0A89D4161B75A641003EAFB2 /* UIViewController+MMDrawerController.m in Sources */,
 				B994C23F1B7606C5003577FD /* MKAnnotationView+WebCache.m in Sources */,
 				B994C1F51B7604C6003577FD /* MJProperty.m in Sources */,
