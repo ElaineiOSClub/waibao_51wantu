@@ -16,6 +16,7 @@
 
 
 #import "MJRefresh.h"
+#import "UIWebViewController.h"
 
 static NSString *cellID = @"cell";
 
@@ -32,12 +33,13 @@ static NSString *cellID = @"cell";
     [super viewDidLoad];
    
     self.arrayList = [NSMutableArray array];
-    
     MyFlowLayOut *layout = [[MyFlowLayOut alloc] init];
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     self.collectionView.backgroundColor = [UIColor lightGrayColor];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     [self.view addSubview:self.collectionView];
     
     
@@ -109,7 +111,12 @@ static NSString *cellID = @"cell";
 {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     
+    BaseDataModel *model = self.arrayList[indexPath.row
+                                          ];
+    UIWebViewController *vc = [[UIWebViewController alloc] init];
+    vc.urlStr = model.item_url;
     
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
