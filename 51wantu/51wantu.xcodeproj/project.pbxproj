@@ -91,6 +91,7 @@
 		B994C24D1B7606C5003577FD /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C2331B7606C5003577FD /* UIImageView+WebCache.m */; };
 		B994C24E1B7606C5003577FD /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C2351B7606C5003577FD /* UIView+WebCacheOperation.m */; };
 		B994C2511B7661C3003577FD /* MyFlowLayOut.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C2501B7661C3003577FD /* MyFlowLayOut.m */; };
+		B9A8FB581B78E97B00E46D84 /* UIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A8FB571B78E97B00E46D84 /* UIWebViewController.m */; };
 		B9F2BE0A1B7810E200A6FAAB /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F2BE081B7810E200A6FAAB /* HomeCell.m */; };
 		B9F2BE0B1B7810E200A6FAAB /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F2BE091B7810E200A6FAAB /* HomeCell.xib */; };
 		B9FA9C5F1B75A22C00E1B03F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FA9C5E1B75A22C00E1B03F /* main.m */; };
@@ -280,6 +281,8 @@
 		B994C2351B7606C5003577FD /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		B994C24F1B7661C3003577FD /* MyFlowLayOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFlowLayOut.h; sourceTree = "<group>"; };
 		B994C2501B7661C3003577FD /* MyFlowLayOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFlowLayOut.m; sourceTree = "<group>"; };
+		B9A8FB561B78E97B00E46D84 /* UIWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWebViewController.h; sourceTree = "<group>"; };
+		B9A8FB571B78E97B00E46D84 /* UIWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWebViewController.m; sourceTree = "<group>"; };
 		B9F2BE071B7810E200A6FAAB /* HomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCell.h; sourceTree = "<group>"; };
 		B9F2BE081B7810E200A6FAAB /* HomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCell.m; sourceTree = "<group>"; };
 		B9F2BE091B7810E200A6FAAB /* HomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
@@ -548,6 +551,8 @@
 			children = (
 				B994C1B41B75DD52003577FD /* HomeViewController.h */,
 				B994C1B51B75DD52003577FD /* HomeViewController.m */,
+				B9A8FB561B78E97B00E46D84 /* UIWebViewController.h */,
+				B9A8FB571B78E97B00E46D84 /* UIWebViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1075,6 +1080,7 @@
 				B994C2411B7606C5003577FD /* SDImageCache.m in Sources */,
 				B994C1E01B760414003577FD /* BaseDatasModel.m in Sources */,
 				B994C23E1B7606C5003577FD /* AFURLSessionManager.m in Sources */,
+				B9A8FB581B78E97B00E46D84 /* UIWebViewController.m in Sources */,
 				0A89D4001B75A641003EAFB2 /* MJRefreshAutoFooter.m in Sources */,
 				0A89D4031B75A641003EAFB2 /* MJRefreshFooter.m in Sources */,
 				B994C1F71B7604C6003577FD /* NSObject+MJCoding.m in Sources */,
