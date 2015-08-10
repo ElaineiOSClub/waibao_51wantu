@@ -45,6 +45,8 @@
 		0AA085ED1B76605C00475429 /* HTTPService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA085EC1B76605C00475429 /* HTTPService.m */; };
 		0AA085F11B76630A00475429 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA085F01B76630A00475429 /* Util.m */; };
 		0AA758C41B77977A007B2D05 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA758C21B77977A007B2D05 /* loginViewController.m */; };
+		0AD47F051B78F92500B0212A /* leftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD47F031B78F92500B0212A /* leftViewController.m */; };
+		0AD47F061B78F92500B0212A /* leftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AD47F041B78F92500B0212A /* leftViewController.xib */; };
 		B994C1A31B75AEEF003577FD /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C19E1B75AEEF003577FD /* UIBarButtonItem+Extension.m */; };
 		B994C1A41B75AEEF003577FD /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C1A01B75AEEF003577FD /* UIView+Extension.m */; };
 		B994C1A51B75AEEF003577FD /* UIViewController+PushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C1A21B75AEEF003577FD /* UIViewController+PushNotification.m */; };
@@ -188,6 +190,9 @@
 		0AA758C11B77977A007B2D05 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
 		0AA758C21B77977A007B2D05 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		0AA758C31B77977A007B2D05 /* loginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
+		0AD47F021B78F92500B0212A /* leftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = leftViewController.h; sourceTree = "<group>"; };
+		0AD47F031B78F92500B0212A /* leftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = leftViewController.m; sourceTree = "<group>"; };
+		0AD47F041B78F92500B0212A /* leftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = leftViewController.xib; sourceTree = "<group>"; };
 		B994C19D1B75AEEF003577FD /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		B994C19E1B75AEEF003577FD /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		B994C19F1B75AEEF003577FD /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -524,6 +529,9 @@
 		0AD47F011B78F87800B0212A /* leftController */ = {
 			isa = PBXGroup;
 			children = (
+				0AD47F021B78F92500B0212A /* leftViewController.h */,
+				0AD47F031B78F92500B0212A /* leftViewController.m */,
+				0AD47F041B78F92500B0212A /* leftViewController.xib */,
 			);
 			path = leftController;
 			sourceTree = "<group>";
@@ -1009,6 +1017,7 @@
 				B9FA9C6D1B75A22C00E1B03F /* LaunchScreen.xib in Resources */,
 				0A89D40E1B75A641003EAFB2 /* MJRefresh.bundle in Resources */,
 				0AA085C71B764FC000475429 /* NewPresonViewController.xib in Resources */,
+				0AD47F061B78F92500B0212A /* leftViewController.xib in Resources */,
 				B9FA9C6A1B75A22C00E1B03F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1058,6 +1067,7 @@
 				0AA085C61B764FC000475429 /* NewPresonViewController.m in Sources */,
 				0A89D4091B75A641003EAFB2 /* MJRefreshBackNormalFooter.m in Sources */,
 				B994C1C91B75DEA6003577FD /* ExemptionPostageViewController.m in Sources */,
+				0AD47F051B78F92500B0212A /* leftViewController.m in Sources */,
 				B9F2BE0A1B7810E200A6FAAB /* HomeCell.m in Sources */,
 				0A89D4161B75A641003EAFB2 /* UIViewController+MMDrawerController.m in Sources */,
 				B994C23F1B7606C5003577FD /* MKAnnotationView+WebCache.m in Sources */,
