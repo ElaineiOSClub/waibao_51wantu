@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>237B64B3-217C-453A-9AC2-3C1DE37BED07</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>51wantu</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>ED4DE3AC509A8D72C862F22D0C16FBBF6719EA5C</key>
 		<string>https://github.com/ElaineiOSClub/waibao_51wantu.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>51wantu/51wantu.xcodeproj/project.xcworkspace</string>
+	<string>51wantu/51wantu.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>ED4DE3AC509A8D72C862F22D0C16FBBF6719EA5C</key>

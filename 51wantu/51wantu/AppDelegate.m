@@ -22,16 +22,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+
     
     
     
-    loginViewController *newOne = [[loginViewController alloc] init];
-//    UIViewController *leftVC = [[UIViewController alloc] init];
+    MainViewController *mainVC = [[MainViewController alloc] init];
+    UIViewController *leftVC = [[UIViewController alloc] init];
 //    MMDrawerController *drawer = [[MMDrawerController alloc] initWithCenterViewController:tabBar leftDrawerViewController:leftVC];
-    MainNavViewController *nav = [[MainNavViewController alloc]initWithRootViewController:newOne];
-    
+    MainNavViewController *nav2 = [[MainNavViewController alloc]initWithRootViewController:leftVC];
+    MMDrawerController * drawerController = [[MMDrawerController alloc]
+                                             initWithCenterViewController:mainVC
+                                             leftDrawerViewController:nav2
+                                             rightDrawerViewController:nil];
+    [drawerController setMaximumRightDrawerWidth:showRigthW];
+    [drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    [drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    // 状态栏变色
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = nav;
+    self.window.rootViewController = drawerController;
     [self.window makeKeyAndVisible];
     return YES;
 }
