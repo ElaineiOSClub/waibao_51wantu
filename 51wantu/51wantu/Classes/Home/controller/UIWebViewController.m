@@ -16,9 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
- 
+    NSURL *url = [NSURL URLWithString:self.urlStr];
     [self.view addSubview:webView];
+    [webView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
 - (void)didReceiveMemoryWarning {

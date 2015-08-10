@@ -25,10 +25,17 @@
     
     
     
-    loginViewController *newOne = [[loginViewController alloc] init];
+//    loginViewController *newOne = [[loginViewController alloc] init];
+    
+    
+    MainViewController *tabBar = [[MainViewController alloc] init];
+//    
 //    UIViewController *leftVC = [[UIViewController alloc] init];
+//    
 //    MMDrawerController *drawer = [[MMDrawerController alloc] initWithCenterViewController:tabBar leftDrawerViewController:leftVC];
-    MainNavViewController *nav = [[MainNavViewController alloc]initWithRootViewController:newOne];
+//    
+    
+    MainNavViewController *nav = [[MainNavViewController alloc]initWithRootViewController:tabBar];
     
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = nav;
