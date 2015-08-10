@@ -18,7 +18,7 @@
 
 #import "MJRefresh.h"
 #import "UIWebViewController.h"
-
+static NSString *cellID = @"cell";
 @interface ExemptionPostageViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) BaseDatasModel *model;
