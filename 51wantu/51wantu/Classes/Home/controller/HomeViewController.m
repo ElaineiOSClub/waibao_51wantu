@@ -108,7 +108,7 @@ static NSString *cellID = @"cell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    BaseDataModel *model = self.model[indexPath.row];
+    
     
 }
 
