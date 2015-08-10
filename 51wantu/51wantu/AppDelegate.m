@@ -38,7 +38,7 @@
     MainNavViewController *nav = [[MainNavViewController alloc]initWithRootViewController:tabBar];
     
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = nav;
+    self.window.rootViewController = tabBar;
     [self.window makeKeyAndVisible];
     return YES;
 }

@@ -38,6 +38,8 @@ static NSString *cellID = @"cell";
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     self.collectionView.backgroundColor = [UIColor lightGrayColor];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     [self.view addSubview:self.collectionView];
     
     
