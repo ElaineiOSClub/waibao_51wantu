@@ -44,6 +44,8 @@
 		0AA085EB1B765E6F00475429 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA085EA1B765E6F00475429 /* UIKit.framework */; };
 		0AA085ED1B76605C00475429 /* HTTPService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA085EC1B76605C00475429 /* HTTPService.m */; };
 		0AA085F11B76630A00475429 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA085F01B76630A00475429 /* Util.m */; };
+		0AA758C41B77977A007B2D05 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA758C21B77977A007B2D05 /* loginViewController.m */; };
+		0AA758C51B77977A007B2D05 /* loginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA758C31B77977A007B2D05 /* loginViewController.xib */; };
 		B994C1A31B75AEEF003577FD /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C19E1B75AEEF003577FD /* UIBarButtonItem+Extension.m */; };
 		B994C1A41B75AEEF003577FD /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C1A01B75AEEF003577FD /* UIView+Extension.m */; };
 		B994C1A51B75AEEF003577FD /* UIViewController+PushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C1A21B75AEEF003577FD /* UIViewController+PushNotification.m */; };
@@ -184,6 +186,9 @@
 		0AA085EE1B76606A00475429 /* HTTPService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPService.h; sourceTree = "<group>"; };
 		0AA085EF1B76630A00475429 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		0AA085F01B76630A00475429 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		0AA758C11B77977A007B2D05 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
+		0AA758C21B77977A007B2D05 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
+		0AA758C31B77977A007B2D05 /* loginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
 		B994C19D1B75AEEF003577FD /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		B994C19E1B75AEEF003577FD /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		B994C19F1B75AEEF003577FD /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -473,6 +478,7 @@
 		0AA085C01B764F6D00475429 /* 登陆 */ = {
 			isa = PBXGroup;
 			children = (
+				0AA758C01B779658007B2D05 /* controller */,
 			);
 			path = "登陆";
 			sourceTree = "<group>";
@@ -504,6 +510,16 @@
 				0AA085EC1B76605C00475429 /* HTTPService.m */,
 			);
 			path = tool;
+			sourceTree = "<group>";
+		};
+		0AA758C01B779658007B2D05 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				0AA758C11B77977A007B2D05 /* loginViewController.h */,
+				0AA758C21B77977A007B2D05 /* loginViewController.m */,
+				0AA758C31B77977A007B2D05 /* loginViewController.xib */,
+			);
+			path = controller;
 			sourceTree = "<group>";
 		};
 		B994C19C1B75AEEF003577FD /* Category */ = {
@@ -1064,6 +1080,7 @@
 				B994C24B1B7606C5003577FD /* UIImage+WebP.m in Sources */,
 				B994C2511B7661C3003577FD /* MyFlowLayOut.m in Sources */,
 				B994C2391B7606C5003577FD /* AFNetworkReachabilityManager.m in Sources */,
+				0AA758C41B77977A007B2D05 /* loginViewController.m in Sources */,
 				0A89D4021B75A641003EAFB2 /* MJRefreshComponent.m in Sources */,
 				B994C2441B7606C5003577FD /* SDWebImageDownloader.m in Sources */,
 				B994C1DD1B76000C003577FD /* BaseDataModel.m in Sources */,

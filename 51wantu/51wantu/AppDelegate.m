@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "MMDrawerController.h"
+#import "NewPresonViewController.h"
+#import "MainNavViewController.h"
+#import "loginViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,12 +25,13 @@
     
     
     
-    MainViewController *tabBar = [[MainViewController alloc] init];
-    UIViewController *leftVC = [[UIViewController alloc] init];
-    MMDrawerController *drawer = [[MMDrawerController alloc] initWithCenterViewController:tabBar leftDrawerViewController:leftVC];
-
+    loginViewController *newOne = [[loginViewController alloc] init];
+//    UIViewController *leftVC = [[UIViewController alloc] init];
+//    MMDrawerController *drawer = [[MMDrawerController alloc] initWithCenterViewController:tabBar leftDrawerViewController:leftVC];
+    MainNavViewController *nav = [[MainNavViewController alloc]initWithRootViewController:newOne];
+    
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = drawer;
+    self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     return YES;
 }
