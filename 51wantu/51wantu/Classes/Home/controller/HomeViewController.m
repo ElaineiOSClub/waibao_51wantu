@@ -14,12 +14,16 @@
 #import "BaseDatasModel.h"
 #import "BaseDataModel.h"
 
+
+#import "MJRefresh.h"
+
 static NSString *cellID = @"cell";
 
 @interface HomeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) BaseDatasModel *model;
 @property (nonatomic, strong) NSMutableArray *arrayList;
+@property (nonatomic, assign) NSInteger currentPage;
 @end
 
 @implementation HomeViewController
@@ -46,15 +50,42 @@ static NSString *cellID = @"cell";
         
         self.model = [BaseDatasModel objectWithKeyValues:responseObject];
         [self.arrayList addObjectsFromArray:self.model.datas];
-        myLog(@"%@",self.model);
-        
+        self.currentPage = self.model.currentpage;
         [self.collectionView reloadData];
         
+        
+        
+        // 上拉刷新
+        self.collectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            // 进入刷新状态后会自动调用这个block
+            self.currentPage ++;
+           
+            [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20",self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                myLog(@"%@",responseObject);
+                
+                BaseDatasModel *model = [BaseDatasModel objectWithKeyValues:responseObject];
+                [self.arrayList addObjectsFromArray:model.datas];
+                [self.collectionView reloadData];
+                
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                
+            }];
+            
+
+            
+            
+        }];
+
+
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
     
+    
+    
 }
+
 
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
