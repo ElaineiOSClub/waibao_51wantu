@@ -38,7 +38,9 @@ static NSString *cellID = @"cell";
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     self.collectionView.backgroundColor = [UIColor lightGrayColor];
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
+//    
+//    self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self.view addSubview:self.collectionView];
     
@@ -86,6 +88,13 @@ static NSString *cellID = @"cell";
     
     
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    myLog(@"%@",NSStringFromCGRect(self.collectionView.bounds));
 }
 
 
