@@ -24,10 +24,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)viewWillAppear:(BOOL)animated
+-(void)viewDidAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self openDrawerGesture];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
