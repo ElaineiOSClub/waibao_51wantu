@@ -46,6 +46,7 @@
 		0AA085F11B76630A00475429 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA085F01B76630A00475429 /* Util.m */; };
 		0AA758C41B77977A007B2D05 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA758C21B77977A007B2D05 /* loginViewController.m */; };
 		0AA85EF91B79C83600DD855C /* leftMainBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA85EF81B79C83600DD855C /* leftMainBtn.m */; };
+		0AA85EFC1B79D17100DD855C /* UIViewController+MMneed.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA85EFB1B79D17100DD855C /* UIViewController+MMneed.m */; };
 		0AD47F051B78F92500B0212A /* leftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD47F031B78F92500B0212A /* leftViewController.m */; };
 		0AD47F061B78F92500B0212A /* leftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AD47F041B78F92500B0212A /* leftViewController.xib */; };
 		B994C1A31B75AEEF003577FD /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C19E1B75AEEF003577FD /* UIBarButtonItem+Extension.m */; };
@@ -193,6 +194,8 @@
 		0AA758C31B77977A007B2D05 /* loginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
 		0AA85EF71B79C83600DD855C /* leftMainBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = leftMainBtn.h; sourceTree = "<group>"; };
 		0AA85EF81B79C83600DD855C /* leftMainBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = leftMainBtn.m; sourceTree = "<group>"; };
+		0AA85EFA1B79D17100DD855C /* UIViewController+MMneed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMneed.h"; sourceTree = "<group>"; };
+		0AA85EFB1B79D17100DD855C /* UIViewController+MMneed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMneed.m"; sourceTree = "<group>"; };
 		0AD47F021B78F92500B0212A /* leftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = leftViewController.h; sourceTree = "<group>"; };
 		0AD47F031B78F92500B0212A /* leftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = leftViewController.m; sourceTree = "<group>"; };
 		0AD47F041B78F92500B0212A /* leftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = leftViewController.xib; sourceTree = "<group>"; };
@@ -557,6 +560,8 @@
 				B994C1A01B75AEEF003577FD /* UIView+Extension.m */,
 				B994C1A11B75AEEF003577FD /* UIViewController+PushNotification.h */,
 				B994C1A21B75AEEF003577FD /* UIViewController+PushNotification.m */,
+				0AA85EFA1B79D17100DD855C /* UIViewController+MMneed.h */,
+				0AA85EFB1B79D17100DD855C /* UIViewController+MMneed.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1097,6 +1102,7 @@
 				0A89D4101B75A641003EAFB2 /* UIScrollView+MJExtension.m in Sources */,
 				B994C2451B7606C5003577FD /* SDWebImageDownloaderOperation.m in Sources */,
 				B994C1A41B75AEEF003577FD /* UIView+Extension.m in Sources */,
+				0AA85EFC1B79D17100DD855C /* UIViewController+MMneed.m in Sources */,
 				0A89D3F81B75A641003EAFB2 /* FMDatabase.m in Sources */,
 				0A89D4081B75A641003EAFB2 /* MJRefreshBackGifFooter.m in Sources */,
 				B994C2481B7606C5003577FD /* UIButton+WebCache.m in Sources */,
