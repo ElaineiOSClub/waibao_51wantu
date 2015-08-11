@@ -1,33 +1,36 @@
 //
-//  HomeCell.m
+//  AdvanceNoticeCell.m
 //  51wantu
 //
-//  Created by elaine on 15/8/10.
+//  Created by elaine on 15/8/11.
 //  Copyright (c) 2015年 elaine. All rights reserved.
 //
 
-#import "HomeCell.h"
+#import "AdvanceNoticeCell.h"
 #import "BaseDataModel.h"
 #import "UIImageView+WebCache.h"
 
-@interface HomeCell()
-
+@interface AdvanceNoticeCell()
 @property (weak, nonatomic) IBOutlet UIImageView *productImageView;
 @property (weak, nonatomic) IBOutlet UILabel *classifyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *originalPriceLabel;
-@property (weak, nonatomic) IBOutlet UILabel *discountLabel;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *productImageHieght;
-
+//@property (weak, nonatomic) IBOutlet UILabel *discountLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *productImageHeight;
 @property (nonatomic, strong) UIView *tempView;
+@property (weak, nonatomic) IBOutlet UILabel *time;
 
 @end
 
-@implementation HomeCell
+@implementation AdvanceNoticeCell
 
 - (void)awakeFromNib {
+    self.backgroundColor = [UIColor whiteColor];
     [self.originalPriceLabel addSubview:self.tempView];
+    self.time.layer.cornerRadius = 10;
+    self.time.clipsToBounds = NO;
+
 }
 
 - (void)setModel:(BaseDataModel *)model
@@ -42,15 +45,15 @@
     self.classifyLabel.text = [NSString stringWithFormat:@"【%@】",model.cid];
     self.nameLabel.text = model.title;
     self.priceLabel.text = [NSString stringWithFormat:@"¥%@",model.tuan_price] ;
-     self.originalPriceLabel.text = [NSString stringWithFormat:@"¥%@",model.price];
-    self.discountLabel.text = [NSString stringWithFormat:@"(%@折)",model.discount];
-
+    self.originalPriceLabel.text = [NSString stringWithFormat:@"¥%@",model.price] ;
+//    self.discountLabel.text = [NSString stringWithFormat:@"(%@折)",model.discount];
+    
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.productImageHieght.constant = self.width;
+    self.productImageHeight.constant = self.width;
     self.tempView.centerY = self.originalPriceLabel.height/2;
     self.tempView.width = self.originalPriceLabel.width;
     
@@ -65,5 +68,7 @@
     }
     return _tempView;
 }
+
+
 
 @end

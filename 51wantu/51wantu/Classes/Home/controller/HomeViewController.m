@@ -35,19 +35,14 @@ static NSString *cellID = @"cell";
     self.currentPage = 0;
     self.arrayList = [NSMutableArray array];
     MyFlowLayOut *layout = [[MyFlowLayOut alloc] init];
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64,kScreen_Width, kScreen_Height-64-49) collectionViewLayout:layout];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     self.collectionView.backgroundColor = RGBA(242, 242, 242, 1);
-    self.edgesForExtendedLayout = UIRectEdgeAll;
     
-//    
-
+    
     [self.view addSubview:self.collectionView];
-    
-    
     [self.collectionView registerNib:[UINib nibWithNibName:@"HomeCell" bundle:nil] forCellWithReuseIdentifier:cellID];
-    
     
     
     [HttpTool httpToolGet:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=1&pagesize=10" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
