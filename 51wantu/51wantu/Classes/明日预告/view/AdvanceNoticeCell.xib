@@ -57,8 +57,8 @@
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="9点开抢" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIg-Y1-651">
-                        <rect key="frame" x="200" y="228" width="49" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9点开抢" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIg-Y1-651">
+                        <rect key="frame" x="202" y="228" width="49" height="21"/>
                         <color key="backgroundColor" red="0.45490196078431372" green="0.87058823529411766" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="Vyf-2i-YVS"/>
@@ -82,9 +82,9 @@
                 <constraint firstItem="m6P-2g-rHf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="MLg-lz-qsS"/>
                 <constraint firstItem="KBy-bE-zeD" firstAttribute="leading" secondItem="c9E-Y5-vbD" secondAttribute="trailing" constant="5" id="TE6-Np-an7"/>
                 <constraint firstAttribute="trailing" secondItem="m9n-12-5FG" secondAttribute="trailing" id="Znb-BX-bgl"/>
-                <constraint firstItem="QIg-Y1-651" firstAttribute="top" secondItem="KBy-bE-zeD" secondAttribute="bottom" constant="7" id="diL-B9-cSl"/>
+                <constraint firstItem="QIg-Y1-651" firstAttribute="top" secondItem="KBy-bE-zeD" secondAttribute="bottom" constant="6" id="diL-B9-cSl"/>
                 <constraint firstItem="qQP-Yl-Hl8" firstAttribute="top" secondItem="c9E-Y5-vbD" secondAttribute="bottom" constant="8" id="ePl-1w-guL"/>
-                <constraint firstAttribute="trailing" secondItem="QIg-Y1-651" secondAttribute="trailing" constant="4" id="rT1-fK-7dr"/>
+                <constraint firstAttribute="trailing" secondItem="QIg-Y1-651" secondAttribute="trailing" constant="6" id="rT1-fK-7dr"/>
                 <constraint firstItem="m9n-12-5FG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uxo-ZZ-nCL"/>
                 <constraint firstAttribute="trailing" secondItem="c9E-Y5-vbD" secondAttribute="trailing" priority="249" constant="203" id="vGZ-GS-C86"/>
             </constraints>
@@ -96,7 +96,6 @@
                 <outlet property="priceLabel" destination="m6P-2g-rHf" id="wFF-kD-LQB"/>
                 <outlet property="productImageHeight" destination="NnE-Ec-Li7" id="gOK-Hh-FEn"/>
                 <outlet property="productImageView" destination="m9n-12-5FG" id="lE6-df-RxU"/>
-                <outlet property="time" destination="QIg-Y1-651" id="7hW-Ub-vjy"/>
             </connections>
             <point key="canvasLocation" x="234.5" y="244.5"/>
         </collectionViewCell>
