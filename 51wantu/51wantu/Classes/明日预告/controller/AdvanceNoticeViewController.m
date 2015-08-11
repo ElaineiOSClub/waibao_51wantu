@@ -89,6 +89,7 @@ static NSString *cellID = @"cell";
 {
     [super viewWillAppear:animated];
     [self openDrawerGesture];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
