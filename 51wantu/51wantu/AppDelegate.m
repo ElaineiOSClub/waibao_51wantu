@@ -12,6 +12,7 @@
 #import "NewPresonViewController.h"
 #import "MainNavViewController.h"
 #import "loginViewController.h"
+#import "leftViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,6 +23,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    // 状态栏变色
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
     
     
@@ -34,12 +37,19 @@
 //    UIViewController *leftVC = [[UIViewController alloc] init];
 //    
 //    MMDrawerController *drawer = [[MMDrawerController alloc] initWithCenterViewController:tabBar leftDrawerViewController:leftVC];
-//    
+       leftViewController *leftVC = [[leftViewController alloc] init];
+    MainNavViewController *nav2 = [[MainNavViewController alloc]initWithRootViewController:leftVC];
     
-    MainNavViewController *nav = [[MainNavViewController alloc]initWithRootViewController:tabBar];
+    MMDrawerController * drawerController = [[MMDrawerController alloc]initWithCenterViewController:tabBar
+                                                                           leftDrawerViewController:nav2
+                                                                          rightDrawerViewController:nil];
+    [drawerController setMaximumLeftDrawerWidth:kScreen_Width -40*kScaleInWith];
+    [drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    [drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    self.drawerController = drawerController;
     
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = tabBar;
+    self.window.rootViewController = drawerController;
     [self.window makeKeyAndVisible];
     return YES;
 }

@@ -14,6 +14,7 @@
 #import "MJExtension.h"
 #import "BaseDatasModel.h"
 #import "BaseDataModel.h"
+#import "UIViewController+MMneed.h"
 
 
 #import "MJRefresh.h"
@@ -86,6 +87,17 @@ static NSString *cellID = @"cell";
     
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self openDrawerGesture];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self colseDrawerGesture];
+}
 
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView

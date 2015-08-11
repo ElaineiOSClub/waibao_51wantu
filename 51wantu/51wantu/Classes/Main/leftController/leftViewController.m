@@ -7,16 +7,26 @@
 //
 
 #import "leftViewController.h"
+#import "leftMainBtn.h"
 
 @interface leftViewController ()
 
+@property (weak, nonatomic) IBOutlet leftMainBtn *ownInfoBtn;
+@property (weak, nonatomic) IBOutlet leftMainBtn *aboutBtn;
+@property (weak, nonatomic) IBOutlet leftMainBtn *pointBtn;
+
+- (IBAction)ownInfoBtnClick:(leftMainBtn *)sender;
+- (IBAction)aboutBtnClick:(leftMainBtn *)sender;
+- (IBAction)pointBtnClick:(leftMainBtn *)sender;
 @end
 
 @implementation leftViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self.ownInfoBtn setImage:[UIImage imageNamed:@"username"] forState:UIControlStateNormal];
+    [self.aboutBtn setImage:[UIImage imageNamed:@"username"] forState:UIControlStateNormal];
+    [self.pointBtn setImage:[UIImage imageNamed:@"username"] forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +34,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)ownInfoBtnClick:(leftMainBtn *)sender {
 }
-*/
 
-@end
+- (IBAction)aboutBtnClick:(leftMainBtn *)sender {
+}
+
+- (IBAction)pointBtnClick:(leftMainBtn *)sender {
+}@end
