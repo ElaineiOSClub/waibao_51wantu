@@ -7,6 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="leftViewController">
             <connections>
+                <outlet property="aboutBtn" destination="hrS-7T-7ph" id="AYb-eg-SBA"/>
+                <outlet property="ownInfoBtn" destination="SgL-ck-nED" id="Ci1-KZ-TBW"/>
+                <outlet property="pointBtn" destination="3y1-gN-KNB" id="zPJ-cc-edk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,29 +18,41 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgL-ck-nED">
-                    <rect key="frame" x="0.0" y="508" width="106.5" height="60"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgL-ck-nED" customClass="leftMainBtn">
+                    <rect key="frame" x="0.0" y="498" width="106.5" height="60"/>
                     <color key="backgroundColor" red="0.8599218408" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="个人中心">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="ownInfoBtnClick:" destination="-1" eventType="touchUpInside" id="qvN-Xa-ha8"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3y1-gN-KNB">
-                    <rect key="frame" x="213.5" y="508" width="106.5" height="60"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3y1-gN-KNB" customClass="leftMainBtn">
+                    <rect key="frame" x="213" y="498" width="106.5" height="60"/>
                     <color key="backgroundColor" red="1" green="0.25774382340000002" blue="0.20233102920000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="积分">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="pointBtnClick:" destination="-1" eventType="touchUpInside" id="aEC-Kg-abz"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrS-7T-7ph">
-                    <rect key="frame" x="106.5" y="508" width="107" height="60"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrS-7T-7ph" customClass="leftMainBtn">
+                    <rect key="frame" x="106" y="498" width="107" height="60"/>
                     <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="xbh-09-aki"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="关于">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="aboutBtnClick:" destination="-1" eventType="touchUpInside" id="QRs-2f-MkZ"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -45,7 +60,7 @@
                 <constraint firstAttribute="trailing" secondItem="3y1-gN-KNB" secondAttribute="trailing" id="38Z-WZ-zDK"/>
                 <constraint firstAttribute="centerX" secondItem="hrS-7T-7ph" secondAttribute="centerX" id="8l7-dB-o8s"/>
                 <constraint firstItem="SgL-ck-nED" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CED-De-2oq"/>
-                <constraint firstAttribute="bottom" secondItem="SgL-ck-nED" secondAttribute="bottom" id="DRR-HC-vvj"/>
+                <constraint firstAttribute="bottom" secondItem="SgL-ck-nED" secondAttribute="bottom" constant="10" id="DRR-HC-vvj"/>
                 <constraint firstItem="hrS-7T-7ph" firstAttribute="centerY" secondItem="SgL-ck-nED" secondAttribute="centerY" id="JLJ-so-zwS"/>
                 <constraint firstItem="hrS-7T-7ph" firstAttribute="width" secondItem="SgL-ck-nED" secondAttribute="width" id="TOg-Gn-iac"/>
                 <constraint firstItem="3y1-gN-KNB" firstAttribute="leading" secondItem="hrS-7T-7ph" secondAttribute="trailing" id="VLA-rb-QMB"/>

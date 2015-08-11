@@ -45,6 +45,7 @@
 		0AA085ED1B76605C00475429 /* HTTPService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA085EC1B76605C00475429 /* HTTPService.m */; };
 		0AA085F11B76630A00475429 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA085F01B76630A00475429 /* Util.m */; };
 		0AA758C41B77977A007B2D05 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA758C21B77977A007B2D05 /* loginViewController.m */; };
+		0AA85EF91B79C83600DD855C /* leftMainBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA85EF81B79C83600DD855C /* leftMainBtn.m */; };
 		0AD47F051B78F92500B0212A /* leftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD47F031B78F92500B0212A /* leftViewController.m */; };
 		0AD47F061B78F92500B0212A /* leftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AD47F041B78F92500B0212A /* leftViewController.xib */; };
 		B994C1A31B75AEEF003577FD /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C19E1B75AEEF003577FD /* UIBarButtonItem+Extension.m */; };
@@ -190,6 +191,8 @@
 		0AA758C11B77977A007B2D05 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
 		0AA758C21B77977A007B2D05 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		0AA758C31B77977A007B2D05 /* loginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
+		0AA85EF71B79C83600DD855C /* leftMainBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = leftMainBtn.h; sourceTree = "<group>"; };
+		0AA85EF81B79C83600DD855C /* leftMainBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = leftMainBtn.m; sourceTree = "<group>"; };
 		0AD47F021B78F92500B0212A /* leftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = leftViewController.h; sourceTree = "<group>"; };
 		0AD47F031B78F92500B0212A /* leftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = leftViewController.m; sourceTree = "<group>"; };
 		0AD47F041B78F92500B0212A /* leftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = leftViewController.xib; sourceTree = "<group>"; };
@@ -526,6 +529,15 @@
 			path = controller;
 			sourceTree = "<group>";
 		};
+		0AA85EF61B79C83600DD855C /* view */ = {
+			isa = PBXGroup;
+			children = (
+				0AA85EF71B79C83600DD855C /* leftMainBtn.h */,
+				0AA85EF81B79C83600DD855C /* leftMainBtn.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		0AD47F011B78F87800B0212A /* leftController */ = {
 			isa = PBXGroup;
 			children = (
@@ -613,9 +625,9 @@
 		B994C1AB1B75DBD2003577FD /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0AA85EF61B79C83600DD855C /* view */,
 				0AD47F011B78F87800B0212A /* leftController */,
 				B994C1AC1B75DBD2003577FD /* controller */,
-				B994C1AD1B75DBD2003577FD /* view */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -629,13 +641,6 @@
 				B994C1B21B75DC05003577FD /* MainNavViewController.m */,
 			);
 			path = controller;
-			sourceTree = "<group>";
-		};
-		B994C1AD1B75DBD2003577FD /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
 			sourceTree = "<group>";
 		};
 		B994C1B71B75DE62003577FD /* 9.9包邮 */ = {
@@ -1074,6 +1079,7 @@
 				B994C1F51B7604C6003577FD /* MJProperty.m in Sources */,
 				B9FA9C5F1B75A22C00E1B03F /* main.m in Sources */,
 				0A89D40C1B75A641003EAFB2 /* MJRefreshNormalHeader.m in Sources */,
+				0AA85EF91B79C83600DD855C /* leftMainBtn.m in Sources */,
 				0A89D4061B75A641003EAFB2 /* MJRefreshAutoNormalFooter.m in Sources */,
 				B994C1CC1B75DEC7003577FD /* ClassifySearchViewController.m in Sources */,
 				B994C1D21B75DF56003577FD /* BrandViewController.m in Sources */,
