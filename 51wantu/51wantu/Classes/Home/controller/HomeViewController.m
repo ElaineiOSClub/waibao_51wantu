@@ -34,14 +34,14 @@ static NSString *cellID = @"cell";
    
     self.arrayList = [NSMutableArray array];
     MyFlowLayOut *layout = [[MyFlowLayOut alloc] init];
-    self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64,kScreen_Width, kScreen_Height-64-49) collectionViewLayout:layout];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-    self.collectionView.backgroundColor = [UIColor lightGrayColor];
-//    self.edgesForExtendedLayout = UIRectEdgeNone;
-//    
-//    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.collectionView.backgroundColor = RGBA(242, 242, 242, 1);
+    self.edgesForExtendedLayout = UIRectEdgeAll;
     
+//    
+
     [self.view addSubview:self.collectionView];
     
     
@@ -49,7 +49,7 @@ static NSString *cellID = @"cell";
     
     
     
-    [HttpTool httpToolGet:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=1&pagesize=20" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [HttpTool httpToolGet:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=1&pagesize=10" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         myLog(@"%@",responseObject);
         
         self.model = [BaseDatasModel objectWithKeyValues:responseObject];
@@ -57,36 +57,38 @@ static NSString *cellID = @"cell";
         self.currentPage = self.model.currentpage;
         [self.collectionView reloadData];
         
-        
-        
-        // 上拉刷新
-        self.collectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            // 进入刷新状态后会自动调用这个block
-            self.currentPage ++;
-           
-            [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20",self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                myLog(@"%@",responseObject);
-                
-                BaseDatasModel *model = [BaseDatasModel objectWithKeyValues:responseObject];
-                [self.arrayList addObjectsFromArray:model.datas];
-                [self.collectionView reloadData];
-                
-                
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                
-            }];
-            
-
-            
-            
-        }];
-
+     
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
     
-    
+    // 上拉刷新
+    self.collectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        // 进入刷新状态后会自动调用这个block
+        self.currentPage= 1;
+        
+        [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=10",self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            myLog(@"%@",responseObject);
+            
+            BaseDatasModel *model = [BaseDatasModel objectWithKeyValues:responseObject];
+            [self.arrayList addObjectsFromArray:model.datas];
+            [self.collectionView reloadData];
+            // 结束刷新
+            [self.collectionView.footer endRefreshing];
+
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            // 结束刷新
+            [self.collectionView.footer endRefreshing];
+
+        }];
+        
+        
+        
+        
+    }];
+      self.collectionView.footer.hidden = YES;
     
 }
 
@@ -94,7 +96,6 @@ static NSString *cellID = @"cell";
 {
     [super viewWillAppear:animated];
     
-    myLog(@"%@",NSStringFromCGRect(self.collectionView.bounds));
 }
 
 
@@ -106,6 +107,8 @@ static NSString *cellID = @"cell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    // 设置尾部控件的显示和隐藏
+    self.collectionView.footer.hidden = self.arrayList.count == 0;
     return self.arrayList.count;
 }
 

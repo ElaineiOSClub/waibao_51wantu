@@ -25,7 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     //首页
     HomeViewController *home = [[HomeViewController alloc] init];
     [self addChildVc:home title:@"首页" image:@"导诊流程页面icon_03" selectedImage:@"导诊流程页面icon_03-05"];

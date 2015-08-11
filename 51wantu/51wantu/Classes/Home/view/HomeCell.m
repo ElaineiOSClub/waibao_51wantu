@@ -35,7 +35,7 @@
     [self.productImageView sd_setImageWithURL:imageUrl];
     self.classifyLabel.text = [NSString stringWithFormat:@"【%@】",model.cid];
     self.nameLabel.text = model.title;
-    self.priceLabel.text = model.tuan_price;
+    self.priceLabel.text = [NSString stringWithFormat:@"￥%@",model.tuan_price] ;
     self.originalPriceLabel.text = model.price;
     self.discountLabel.text = [NSString stringWithFormat:@"(%@折)",model.discount];
 

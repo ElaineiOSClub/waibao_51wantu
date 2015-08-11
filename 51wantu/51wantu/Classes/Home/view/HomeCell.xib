@@ -8,10 +8,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HomeCell">
-            <rect key="frame" x="0.0" y="0.0" width="262" height="269"/>
+            <rect key="frame" x="0.0" y="0.0" width="262" height="278"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="262" height="269"/>
+                <rect key="frame" x="0.0" y="0.0" width="262" height="278"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q5O-AT-7Vw">
                         <rect key="frame" x="0.0" y="0.0" width="262" height="201"/>
@@ -38,27 +38,27 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥39" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shz-l0-PBT">
-                        <rect key="frame" x="8" y="229" width="35" height="20"/>
+                        <rect key="frame" x="6" y="229" width="39" height="22"/>
                         <constraints>
                             <constraint firstAttribute="width" priority="249" constant="35" id="1Bb-d7-Oqx"/>
                             <constraint firstAttribute="height" priority="249" constant="20" id="gh6-dq-ide"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥460" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnj-bG-cZ9">
-                        <rect key="frame" x="48" y="232" width="33" height="15"/>
+                        <rect key="frame" x="50" y="232" width="33" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="9c0-pG-z3Y"/>
                             <constraint firstAttribute="width" priority="249" constant="33" id="h8l-Fc-RHT"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(2.9折)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2h-yT-tn9">
-                        <rect key="frame" x="86" y="232" width="36" height="15"/>
+                        <rect key="frame" x="88" y="232" width="36" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="K2q-M5-UXE"/>
                             <constraint firstAttribute="width" priority="249" constant="36" id="U9q-LI-Mh9"/>
@@ -85,10 +85,10 @@
                 <constraint firstItem="l9w-wB-WCg" firstAttribute="top" secondItem="Q5O-AT-7Vw" secondAttribute="bottom" constant="8" id="cPN-c4-C2j"/>
                 <constraint firstItem="I2h-yT-tn9" firstAttribute="leading" secondItem="pnj-bG-cZ9" secondAttribute="trailing" constant="5" id="iEj-Yd-9Y8"/>
                 <constraint firstItem="pnj-bG-cZ9" firstAttribute="top" secondItem="LXT-QL-oUV" secondAttribute="bottom" constant="8" id="iU5-7t-wB3"/>
-                <constraint firstItem="shz-l0-PBT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="m2O-ZF-gGG"/>
+                <constraint firstItem="shz-l0-PBT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="m2O-ZF-gGG"/>
                 <constraint firstItem="I2h-yT-tn9" firstAttribute="top" secondItem="LXT-QL-oUV" secondAttribute="bottom" constant="8" id="pdm-aK-45e"/>
             </constraints>
-            <size key="customSize" width="262" height="269"/>
+            <size key="customSize" width="262" height="278"/>
             <connections>
                 <outlet property="classifyLabel" destination="l9w-wB-WCg" id="o2U-O6-ZMp"/>
                 <outlet property="discountLabel" destination="I2h-yT-tn9" id="alK-Yd-3Xf"/>
@@ -98,7 +98,7 @@
                 <outlet property="productImageHieght" destination="3Kh-Uy-KFF" id="e6l-VK-NBc"/>
                 <outlet property="productImageView" destination="Q5O-AT-7Vw" id="lql-Cg-YCZ"/>
             </connections>
-            <point key="canvasLocation" x="242" y="363.5"/>
+            <point key="canvasLocation" x="242" y="368"/>
         </collectionViewCell>
     </objects>
 </document>
