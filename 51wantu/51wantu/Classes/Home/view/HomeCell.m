@@ -31,6 +31,10 @@
 - (void)setModel:(BaseDataModel *)model
 {
     _model = model;
+    
+    if (![model.pic_url containsString:@"http"]) {
+        model.pic_url = [NSString stringWithFormat:@"http:%@",model.pic_url];
+    }
     NSURL *imageUrl = [NSURL URLWithString:model.pic_url];
     [self.productImageView sd_setImageWithURL:imageUrl];
     self.classifyLabel.text = [NSString stringWithFormat:@"【%@】",model.cid];

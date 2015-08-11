@@ -30,7 +30,7 @@ static NSString *cellID = @"cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.currentPage = 0;
     self.arrayList = [NSMutableArray array];
     MyFlowLayOut *layout = [[MyFlowLayOut alloc] init];
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64,kScreen_Width, kScreen_Height-64-49) collectionViewLayout:layout];
@@ -53,7 +53,7 @@ static NSString *cellID = @"cell";
         self.currentPage = self.model.currentpage;
         [self.collectionView reloadData];
         
-        
+     
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -73,6 +73,7 @@ static NSString *cellID = @"cell";
             [self.collectionView reloadData];
             // 结束刷新
             [self.collectionView.footer endRefreshing];
+            
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             // 结束刷新
