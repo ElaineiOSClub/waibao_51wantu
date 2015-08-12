@@ -26,81 +26,75 @@ static NSString *cellID = @"cell";
 @property (nonatomic, strong) BaseDatasModel *model;
 @property (nonatomic, strong) NSMutableArray *arrayList;
 @property (nonatomic, assign) NSInteger currentPage;
+@property (nonatomic, strong) NSString *urlStr;
 @end
 
 @implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.currentPage = 0;
-    self.arrayList = [NSMutableArray array];
-    MyFlowLayOut *layout = [[MyFlowLayOut alloc] init];
-    self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
-    self.collectionView.dataSource = self;
-    self.collectionView.delegate = self;
-    self.collectionView.backgroundColor = RGBA(242, 242, 242, 1);
-    
-    
+    //添加集合视图
     [self.view addSubview:self.collectionView];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"HomeCell" bundle:nil] forCellWithReuseIdentifier:cellID];
-    
-    
+
+    [self loadData];
+    [self pullDownRefreshing];
+    [self pullUpReRefreshing];
+}
+
+
+#pragma mark - event Response
+- (void)loadData
+{
     [HttpTool httpToolGet:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=1&pagesize=10" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        myLog(@"%@",responseObject);
-        
         self.model = [BaseDatasModel objectWithKeyValues:responseObject];
+        if (self.arrayList) [self.arrayList removeAllObjects];
+        
         [self.arrayList addObjectsFromArray:self.model.datas];
         self.currentPage = self.model.currentpage;
         [self.collectionView reloadData];
-        
-        
-
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
-    
+ 
+}
+
+- (void)pullDownRefreshing
+{
+    __weak __typeof(self) weakSelf = self;
+    self.collectionView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        // 模拟延迟加载数据，因此2秒后才调用（真实开发中，可以移除这段gcd代码）
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            // 结束刷新
+            [weakSelf.collectionView.header endRefreshing];
+        });
+    }];
+}
+
+- (void)pullUpReRefreshing
+{
+    __weak __typeof(self) weakSelf = self;
     // 上拉刷新
     self.collectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         // 进入刷新状态后会自动调用这个block
-        
-          self.currentPage++;
+        self.currentPage++;
         [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=10",self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            myLog(@"%@",responseObject);
-            
             BaseDatasModel *model = [BaseDatasModel objectWithKeyValues:responseObject];
-            [self.arrayList addObjectsFromArray:model.datas];
-            [self.collectionView reloadData];
+            [weakSelf.arrayList addObjectsFromArray:model.datas];
+            [weakSelf.collectionView reloadData];
             // 结束刷新
-            [self.collectionView.footer endRefreshing];
-          
+            [weakSelf.collectionView.footer endRefreshing];
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             // 结束刷新
-            [self.collectionView.footer endRefreshing];
-
+            [weakSelf.collectionView.footer endRefreshing];
+            
         }];
-        
-        
-        
-        
     }];
-      self.collectionView.footer.hidden = YES;
-    
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self openDrawerGesture];
-    
-}
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [self colseDrawerGesture];
-}
 
+#pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -132,6 +126,42 @@ static NSString *cellID = @"cell";
     
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self openDrawerGesture];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self colseDrawerGesture];
+}
+
+#pragma mark - lazy
+
+- (UICollectionView *)collectionView
+{
+    if (!_collectionView) {
+        _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:[[MyFlowLayOut alloc] init]];
+        _collectionView.dataSource = self;
+        _collectionView.delegate = self;
+        _collectionView.backgroundColor = RGBA(242, 242, 242, 1);
+        [_collectionView registerNib:[UINib nibWithNibName:@"HomeCell" bundle:nil] forCellWithReuseIdentifier:cellID];
+    }
+    return _collectionView;
+}
+
+- (NSMutableArray *)arrayList
+{
+    if (!_arrayList) {
+        _arrayList = [NSMutableArray array];
+    }
+    return _arrayList;
+}
+
 
 
 @end

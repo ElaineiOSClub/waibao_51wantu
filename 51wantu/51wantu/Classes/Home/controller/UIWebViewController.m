@@ -10,9 +10,8 @@
 #import "MBProgressHUD+MJ.h"
 
 @interface UIWebViewController ()<UIWebViewDelegate>
-{
 
-}
+
 @end
 
 @implementation UIWebViewController
