@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.backgroundColor = [UIColor clearColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -20,4 +21,8 @@
     // Configure the view for the selected state
 }
 
++ (leftTableViewCell *)getleftTableViewCell
+{
+    return [[[NSBundle mainBundle] loadNibNamed:@"leftTableViewCell" owner:nil options:nil] lastObject];
+}
 @end

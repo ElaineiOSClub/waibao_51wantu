@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface leftTableViewCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet UILabel *categoryName;
++ (leftTableViewCell *)getleftTableViewCell;
 @end

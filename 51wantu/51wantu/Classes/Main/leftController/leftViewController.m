@@ -8,6 +8,7 @@
 
 #import "leftViewController.h"
 #import "leftMainBtn.h"
+#import "leftTableViewCell.h"
 
 @interface leftViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -38,6 +39,7 @@
     self.categoryTableView.tableFooterView = footView;
     self.categoryTableView.delegate = self;
     self.categoryTableView.dataSource = self;
+    self.categoryTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 
@@ -56,21 +58,25 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger row = [indexPath row];
+    static NSString *cellIdentifier = @"leftTableViewCell";
     
-    static NSString *ID = @"MeshViewCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    leftTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cell = [leftTableViewCell getleftTableViewCell];
     }
     
-    cell.textLabel.text = self.categoryArray[row];
-//    cell.backgroundColor = [UIColor clearColor];
+    NSInteger row = [indexPath row];
+    cell.categoryName.text = self.categoryArray[row];
     return cell;
 
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+    
  
 }
 

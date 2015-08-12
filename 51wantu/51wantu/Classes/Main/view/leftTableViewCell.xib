@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,20 +15,44 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehB-zX-A0Y">
-                        <rect key="frame" x="60" y="42" width="240" height="1"/>
-                        <color key="backgroundColor" red="0.1019607843" green="0.098039215690000001" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                    <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehB-zX-A0Y">
+                        <rect key="frame" x="80" y="42" width="200" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="aP0-ng-HHV"/>
                         </constraints>
                     </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="nav_person" translatesAutoresizingMaskIntoConstraints="NO" id="9dk-FA-5gz">
+                        <rect key="frame" x="37" y="11" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="FpP-p7-iGv"/>
+                            <constraint firstAttribute="width" constant="22" id="Ifd-LG-iIa"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="文体" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xks-tx-rMT">
+                        <rect key="frame" x="83" y="12" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
+                    <constraint firstAttribute="centerY" secondItem="xks-tx-rMT" secondAttribute="centerY" id="0bn-Dg-Qaa"/>
                     <constraint firstAttribute="bottom" secondItem="ehB-zX-A0Y" secondAttribute="bottom" constant="0.5" id="HHw-9R-ff3"/>
-                    <constraint firstItem="ehB-zX-A0Y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="60" id="PI8-bY-ppd"/>
-                    <constraint firstAttribute="trailing" secondItem="ehB-zX-A0Y" secondAttribute="trailing" constant="20" id="op2-qt-DF9"/>
+                    <constraint firstItem="ehB-zX-A0Y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="80" id="PI8-bY-ppd"/>
+                    <constraint firstAttribute="centerY" secondItem="9dk-FA-5gz" secondAttribute="centerY" id="ZzY-UP-CgL"/>
+                    <constraint firstItem="9dk-FA-5gz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="30" id="c3w-8y-FuC"/>
+                    <constraint firstAttribute="trailing" secondItem="ehB-zX-A0Y" secondAttribute="trailing" constant="40" id="op2-qt-DF9"/>
+                    <constraint firstItem="xks-tx-rMT" firstAttribute="leading" secondItem="9dk-FA-5gz" secondAttribute="trailing" constant="24" id="tOk-yU-bSq"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="categoryName" destination="xks-tx-rMT" id="mI9-Ib-3R8"/>
+            </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="nav_person" width="22" height="22"/>
+    </resources>
 </document>
