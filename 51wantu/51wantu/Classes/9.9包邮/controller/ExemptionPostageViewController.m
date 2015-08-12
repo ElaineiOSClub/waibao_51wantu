@@ -19,6 +19,7 @@
 
 #import "MJRefresh.h"
 #import "UIWebViewController.h"
+
 static NSString *cellID = @"cell";
 @interface ExemptionPostageViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -34,10 +35,11 @@ static NSString *cellID = @"cell";
     self.currentPage = 0;
     self.arrayList = [NSMutableArray array];
     MyFlowLayOut *layout = [[MyFlowLayOut alloc] init];
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64,kScreen_Width, kScreen_Height-64-49) collectionViewLayout:layout];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     self.collectionView.backgroundColor = RGBA(242, 242, 242, 1);
+
     
     [self.view addSubview:self.collectionView];
     
@@ -53,9 +55,7 @@ static NSString *cellID = @"cell";
         [self.arrayList addObjectsFromArray:self.model.datas];
         self.currentPage = self.model.currentpage;
         [self.collectionView reloadData];
-        
-     
-        
+
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];

@@ -98,6 +98,8 @@
 		B994C24D1B7606C5003577FD /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C2331B7606C5003577FD /* UIImageView+WebCache.m */; };
 		B994C24E1B7606C5003577FD /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C2351B7606C5003577FD /* UIView+WebCacheOperation.m */; };
 		B994C2511B7661C3003577FD /* MyFlowLayOut.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C2501B7661C3003577FD /* MyFlowLayOut.m */; };
+		B99E0B661B7A3C9200D4C005 /* AdvanceNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B99E0B641B7A3C9200D4C005 /* AdvanceNoticeCell.m */; };
+		B99E0B671B7A3C9200D4C005 /* AdvanceNoticeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B99E0B651B7A3C9200D4C005 /* AdvanceNoticeCell.xib */; };
 		B9A8FB581B78E97B00E46D84 /* UIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A8FB571B78E97B00E46D84 /* UIWebViewController.m */; };
 		B9F2BE0A1B7810E200A6FAAB /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F2BE081B7810E200A6FAAB /* HomeCell.m */; };
 		B9F2BE0B1B7810E200A6FAAB /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F2BE091B7810E200A6FAAB /* HomeCell.xib */; };
@@ -301,6 +303,9 @@
 		B994C2351B7606C5003577FD /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		B994C24F1B7661C3003577FD /* MyFlowLayOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFlowLayOut.h; sourceTree = "<group>"; };
 		B994C2501B7661C3003577FD /* MyFlowLayOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFlowLayOut.m; sourceTree = "<group>"; };
+		B99E0B631B7A3C9200D4C005 /* AdvanceNoticeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvanceNoticeCell.h; sourceTree = "<group>"; };
+		B99E0B641B7A3C9200D4C005 /* AdvanceNoticeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvanceNoticeCell.m; sourceTree = "<group>"; };
+		B99E0B651B7A3C9200D4C005 /* AdvanceNoticeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvanceNoticeCell.xib; sourceTree = "<group>"; };
 		B9A8FB561B78E97B00E46D84 /* UIWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWebViewController.h; sourceTree = "<group>"; };
 		B9A8FB571B78E97B00E46D84 /* UIWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWebViewController.m; sourceTree = "<group>"; };
 		B9F2BE071B7810E200A6FAAB /* HomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCell.h; sourceTree = "<group>"; };
@@ -751,6 +756,9 @@
 		B994C1C21B75DE62003577FD /* view */ = {
 			isa = PBXGroup;
 			children = (
+				B99E0B631B7A3C9200D4C005 /* AdvanceNoticeCell.h */,
+				B99E0B641B7A3C9200D4C005 /* AdvanceNoticeCell.m */,
+				B99E0B651B7A3C9200D4C005 /* AdvanceNoticeCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1032,6 +1040,7 @@
 			files = (
 				B9F2BE0B1B7810E200A6FAAB /* HomeCell.xib in Resources */,
 				0A89D3FE1B75A641003EAFB2 /* MBProgressHUD.bundle in Resources */,
+				B99E0B671B7A3C9200D4C005 /* AdvanceNoticeCell.xib in Resources */,
 				B9FA9C6D1B75A22C00E1B03F /* LaunchScreen.xib in Resources */,
 				0A89D40E1B75A641003EAFB2 /* MJRefresh.bundle in Resources */,
 				0A06523F1B7A40E50018A1C9 /* leftTableViewCell.xib in Resources */,
@@ -1113,6 +1122,7 @@
 				B994C1A41B75AEEF003577FD /* UIView+Extension.m in Sources */,
 				0AA85EFC1B79D17100DD855C /* UIViewController+MMneed.m in Sources */,
 				0A89D3F81B75A641003EAFB2 /* FMDatabase.m in Sources */,
+				B99E0B661B7A3C9200D4C005 /* AdvanceNoticeCell.m in Sources */,
 				0A89D4081B75A641003EAFB2 /* MJRefreshBackGifFooter.m in Sources */,
 				B994C2481B7606C5003577FD /* UIButton+WebCache.m in Sources */,
 				B994C24B1B7606C5003577FD /* UIImage+WebP.m in Sources */,
