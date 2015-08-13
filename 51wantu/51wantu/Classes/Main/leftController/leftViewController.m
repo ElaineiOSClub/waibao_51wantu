@@ -10,6 +10,9 @@
 #import "leftMainBtn.h"
 #import "leftTableViewCell.h"
 #import "ClassifyModel.h"
+#import "MainViewController.h"
+#import "MainNavViewController.h"
+#import "Util.h"
 
 @interface leftViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -99,6 +102,12 @@
 
     [[NSNotificationCenter defaultCenter] postNotificationName:kReloadDataForClassifyNotification object:nil userInfo:@{@"id":self.categoryArray[row][@"id"],@"cate_name":self.categoryArray[row][@"cate_name"]}];
     
+    MainViewController * center = [[MainViewController alloc] init];
+    MainNavViewController * nav = [[MainNavViewController alloc] initWithRootViewController:center];
+        [[Util getAppDelegate].drawerController
+         setCenterViewController:nav
+         withCloseAnimation:YES
+         completion:nil];
 
 }
 
