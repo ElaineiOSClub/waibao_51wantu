@@ -11,9 +11,9 @@
 @implementation UIViewController (PushNotification)
 
 #pragma mark - 注册通知
-- (void)registerNotification
+- (void)registerNotification:(SEL)aSelector
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(push:) name:@"" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:aSelector name:kReloadDataForClassifyNotification object:nil];
     
 }
 
@@ -23,11 +23,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)push:(NSNotification *)notification
-{
-    Class pushClass = notification.userInfo[@"cls"];
-    [self.navigationController pushViewController:[[pushClass alloc] init] animated:NO];
-}
+
 
 - (void)login
 {

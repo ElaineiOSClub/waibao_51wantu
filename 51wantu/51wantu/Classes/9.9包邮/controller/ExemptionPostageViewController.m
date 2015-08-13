@@ -15,10 +15,12 @@
 #import "BaseDatasModel.h"
 #import "BaseDataModel.h"
 #import "UIViewController+MMneed.h"
+#import "UIViewController+PushNotification.h"
 
 
 #import "MJRefresh.h"
 #import "UIWebViewController.h"
+#import "ClassifyModel.h"
 
 static NSString *cellID = @"cell";
 @interface ExemptionPostageViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
@@ -50,6 +52,14 @@ static NSString *cellID = @"cell";
         self.model = [BaseDatasModel objectWithKeyValues:responseObject];
         if (self.arrayList) [self.arrayList removeAllObjects];
         
+        for (BaseDataModel *model in self.model.datas) {
+            NSArray *arr = [ClassifyModel getSubCate];
+            for (NSDictionary *dict in arr) {
+                if ([dict[@"id"] isEqualToString:model.cid]) {
+                    model.classifyName = dict[@"cate_name"];
+                }
+            }
+        }
         [self.arrayList addObjectsFromArray:self.model.datas];
         self.currentPage = self.model.currentpage;
         [self.collectionView reloadData];
@@ -80,6 +90,16 @@ static NSString *cellID = @"cell";
         self.currentPage++;
         [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&pid=1&page=%ld&pagesize=20",self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             BaseDatasModel *model = [BaseDatasModel objectWithKeyValues:responseObject];
+            
+            for (BaseDataModel *m in model.datas) {
+                NSArray *arr = [ClassifyModel getSubCate];
+                for (NSDictionary *dict in arr) {
+                    if ([dict[@"id"] isEqualToString:m.cid]) {
+                        m.classifyName = dict[@"cate_name"];
+                    }
+                }
+            }
+            
             [weakSelf.arrayList addObjectsFromArray:model.datas];
             [weakSelf.collectionView reloadData];
             // 结束刷新
@@ -92,6 +112,79 @@ static NSString *cellID = @"cell";
         }];
     }];
 }
+
+- (void)refresh:(NSNotification *)notification
+{
+    NSString *cate_id = notification.userInfo[@"id"];
+    NSString *cate_name = notification.userInfo[@"cate_name"];
+    
+    
+    
+    //刷新所有
+    if ([cate_name isEqualToString:@"全部"]) {
+        [self loadData];
+        [self pullDownRefreshing];
+        [self pullUpReRefreshing];
+        
+    } else {
+        self.currentPage = 1;
+        [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&pid=1&cid=%@&page=%ld&pagesize=20",cate_id,self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            self.model = [BaseDatasModel objectWithKeyValues:responseObject];
+            if (self.arrayList) [self.arrayList removeAllObjects];
+            
+            for (BaseDataModel *model in self.model.datas) {
+                NSArray *arr = [ClassifyModel getSubCate];
+                for (NSDictionary *dict in arr) {
+                    if ([dict[@"id"] isEqualToString:model.cid]) {
+                        model.classifyName = dict[@"cate_name"];
+                    }
+                }
+            }
+            
+            
+            
+            [self.arrayList addObjectsFromArray:self.model.datas];
+            [self.collectionView reloadData];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+        }];
+        
+        __weak __typeof(self) weakSelf = self;
+        // 上拉刷新
+        self.collectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            // 进入刷新状态后会自动调用这个block
+            self.currentPage++;
+            
+            [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&pid=1&cid=%@&page=%ld&pagesize=20",cate_id,self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                BaseDatasModel *model = [BaseDatasModel objectWithKeyValues:responseObject];
+                [weakSelf.arrayList addObjectsFromArray:model.datas];
+                
+                for (BaseDataModel *m in model.datas) {
+                    NSArray *arr = [ClassifyModel getSubCate];
+                    for (NSDictionary *dict in arr) {
+                        if ([dict[@"id"] isEqualToString:m.cid]) {
+                            m.classifyName = dict[@"cate_name"];
+                        }
+                    }
+                }
+                
+                
+                [weakSelf.collectionView reloadData];
+                // 结束刷新
+                [weakSelf.collectionView.footer endRefreshing];
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                // 结束刷新
+                [weakSelf.collectionView.footer endRefreshing];
+                
+            }];
+        }];
+    }
+}
+
+
+
+
 
 
 
@@ -129,15 +222,17 @@ static NSString *cellID = @"cell";
 {
     [super viewWillAppear:animated];
     [self openDrawerGesture];
+    [self registerNotification:@selector(refresh:)];
     
 }
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [self colseDrawerGesture];
+    [self removeNotification];
+    
 }
-
-
 
 #pragma mark - lazy
 
@@ -160,5 +255,7 @@ static NSString *cellID = @"cell";
     }
     return _arrayList;
 }
+
+
 
 @end

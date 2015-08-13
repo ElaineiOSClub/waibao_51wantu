@@ -35,5 +35,6 @@
 @property (nonatomic, copy) NSString *tuan_price1;
 @property (nonatomic, copy) NSString *tuan_price2;
 
+@property (nonatomic, copy) NSString *classifyName;
 
 @end

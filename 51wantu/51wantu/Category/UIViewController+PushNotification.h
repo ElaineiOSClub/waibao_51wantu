@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UIViewController (PushNotification)
-- (void)registerNotification;
+- (void)registerNotification:(SEL)aSelector;
 - (void)removeNotification;
 - (void)login;
 @end

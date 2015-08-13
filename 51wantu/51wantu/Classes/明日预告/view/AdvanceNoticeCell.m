@@ -42,7 +42,7 @@
     }
     NSURL *imageUrl = [NSURL URLWithString:model.pic_url];
     [self.productImageView sd_setImageWithURL:imageUrl];
-    self.classifyLabel.text = [NSString stringWithFormat:@"【%@】",model.cid];
+    self.classifyLabel.text = [NSString stringWithFormat:@"【%@】",model.classifyName];
     self.nameLabel.text = model.title;
     self.priceLabel.text = [NSString stringWithFormat:@"¥%@",model.tuan_price] ;
     self.originalPriceLabel.text = [NSString stringWithFormat:@"¥%@",model.price] ;
