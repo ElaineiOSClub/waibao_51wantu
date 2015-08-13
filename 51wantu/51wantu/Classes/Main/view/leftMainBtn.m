@@ -36,16 +36,11 @@
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     // 2.文字大小
     self.titleLabel.font = [UIFont systemFontOfSize:12];
-    [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
     // 3.图片的内容模式
     self.imageView.contentMode = UIViewContentModeCenter;
 
-}
-
-#pragma mark 覆盖父类在highlighted时的所有操作
-- (void)setHighlighted:(BOOL)highlighted {
-    //    [super setHighlighted:highlighted];
 }
 
 #pragma mark 调整内部ImageView的frame
