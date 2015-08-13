@@ -18,6 +18,9 @@
 
 #import "MJRefresh.h"
 #import "UIWebViewController.h"
+#import "UIViewController+PushNotification.h"
+
+#import "ClassifyModel.h"
 
 static NSString *cellID = @"cell";
 
@@ -35,7 +38,8 @@ static NSString *cellID = @"cell";
     [super viewDidLoad];
     //添加集合视图
     [self.view addSubview:self.collectionView];
-
+    
+  
     [self loadData];
     [self pullDownRefreshing];
     [self pullUpReRefreshing];
@@ -45,17 +49,21 @@ static NSString *cellID = @"cell";
 #pragma mark - event Response
 - (void)loadData
 {
-    [HttpTool httpToolGet:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=1&pagesize=10" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    self.currentPage = 1;
+    [HttpTool httpToolGet:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=1&pagesize=20" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.model = [BaseDatasModel objectWithKeyValues:responseObject];
         if (self.arrayList) [self.arrayList removeAllObjects];
         
+        for (BaseDataModel *model in self.model.datas) {
+            NSString *name = [ClassifyModel getBigCate][model.pid];
+            model.classifyName = name;
+        }
+        
         [self.arrayList addObjectsFromArray:self.model.datas];
-        self.currentPage = self.model.currentpage;
         [self.collectionView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
- 
 }
 
 - (void)pullDownRefreshing
@@ -77,7 +85,50 @@ static NSString *cellID = @"cell";
     self.collectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         // 进入刷新状态后会自动调用这个block
         self.currentPage++;
-        [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=10",self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20",self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            BaseDatasModel *model = [BaseDatasModel objectWithKeyValues:responseObject];
+            
+            for (BaseDataModel *m in model.datas) {
+                m.classifyName = [ClassifyModel getBigCate][m.pid];
+            }
+            
+            [weakSelf.arrayList addObjectsFromArray:model.datas];
+            [weakSelf.collectionView reloadData];
+            // 结束刷新
+            [weakSelf.collectionView.footer endRefreshing];
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            // 结束刷新
+            [weakSelf.collectionView.footer endRefreshing];
+            
+        }];
+    }];
+}
+
+- (void)refresh:(NSNotification *)notification
+{
+    NSString *pid = notification.userInfo[@"cid"];
+    self.currentPage = 1;
+    
+    [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&pid=%@&page=%ld&pagesize=20",pid,self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.model = [BaseDatasModel objectWithKeyValues:responseObject];
+        if (self.arrayList) [self.arrayList removeAllObjects];
+        [self.arrayList addObjectsFromArray:self.model.datas];
+        [self.collectionView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+
+    [self.collectionView.footer removeFromSuperview];
+    
+    __weak __typeof(self) weakSelf = self;
+    // 上拉刷新
+    self.collectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        // 进入刷新状态后会自动调用这个block
+        self.currentPage++;
+        
+        [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&pid=%@&page=%ld&pagesize=20",pid,self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             BaseDatasModel *model = [BaseDatasModel objectWithKeyValues:responseObject];
             [weakSelf.arrayList addObjectsFromArray:model.datas];
             [weakSelf.collectionView reloadData];
@@ -91,6 +142,10 @@ static NSString *cellID = @"cell";
         }];
     }];
 }
+
+
+
+
 
 
 
@@ -131,13 +186,14 @@ static NSString *cellID = @"cell";
 {
     [super viewWillAppear:animated];
     [self openDrawerGesture];
-    
+    [self removeNotification];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [self colseDrawerGesture];
+    [self respondsToSelector:@selector(refresh:)];
 }
 
 #pragma mark - lazy
