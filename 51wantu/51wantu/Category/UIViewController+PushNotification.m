@@ -13,7 +13,7 @@
 #pragma mark - 注册通知
 - (void)registerNotification:(SEL)aSelector
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:aSelector name:@"" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:aSelector name:kReloadDataForClassifyNotification object:nil];
     
 }
 

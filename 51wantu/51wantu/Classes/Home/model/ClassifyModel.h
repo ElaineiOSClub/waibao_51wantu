@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface ClassifyModel : NSObject
-+ (NSDictionary *)getBigCate;
-+ (NSDictionary *)getSubCate;
++ (NSArray *)getBigCate;
++ (NSArray *)getSubCate;
 @end

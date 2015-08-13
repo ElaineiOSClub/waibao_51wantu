@@ -49,8 +49,12 @@ static NSString *cellID = @"cell";
         if (self.arrayList) [self.arrayList removeAllObjects];
         
         for (BaseDataModel *model in self.model.datas) {
-            NSString *name = [ClassifyModel getBigCate][model.pid];
-            model.classifyName = name;
+            NSArray *arr = [ClassifyModel getBigCate];
+            for (NSDictionary *dict in arr) {
+                if ([dict[@"id"] isEqualToString:model.pid]) {
+                    model.classifyName = dict[@"cate_name"];
+                }
+            }
         }
         [self.arrayList addObjectsFromArray:self.model.datas];
         self.currentPage = self.model.currentpage;
@@ -82,10 +86,15 @@ static NSString *cellID = @"cell";
         self.currentPage++;
         [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page_type=yugao&page=%ld&pagesize=20",self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             BaseDatasModel *model = [BaseDatasModel objectWithKeyValues:responseObject];
-            for (BaseDataModel *m in model.datas) {
-                m.classifyName = [ClassifyModel getBigCate][m.pid];
-            }
             
+            for (BaseDataModel *m in model.datas) {
+                NSArray *arr = [ClassifyModel getBigCate];
+                for (NSDictionary *dict in arr) {
+                    if ([dict[@"id"] isEqualToString:m.pid]) {
+                        m.classifyName = dict[@"cate_name"];
+                    }
+                }
+            }
             [weakSelf.arrayList addObjectsFromArray:model.datas];
             [weakSelf.collectionView reloadData];
             // 结束刷新
@@ -109,10 +118,10 @@ static NSString *cellID = @"cell";
         self.model = [BaseDatasModel objectWithKeyValues:responseObject];
         if (self.arrayList) [self.arrayList removeAllObjects];
         
-        for (BaseDataModel *model in self.model.datas) {
-            NSString *name = [ClassifyModel getSubCate][model.cid];
-            model.classifyName = name;
-        }
+//        for (BaseDataModel *model in self.model.datas) {
+//            NSString *name = [ClassifyModel getSubCate][model.cid];
+//            model.classifyName = name;
+//        }
         
         [self.arrayList addObjectsFromArray:self.model.datas];
         [self.collectionView reloadData];
@@ -131,9 +140,8 @@ static NSString *cellID = @"cell";
         [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&pid=1&cid=%@page=%ld&pagesize=20",pid,self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             BaseDatasModel *model = [BaseDatasModel objectWithKeyValues:responseObject];
             
-            for (BaseDataModel *m in model.datas) {
-                m.classifyName = [ClassifyModel getSubCate][m.cid];
-            }
+            
+
             
             [weakSelf.arrayList addObjectsFromArray:model.datas];
             [weakSelf.collectionView reloadData];

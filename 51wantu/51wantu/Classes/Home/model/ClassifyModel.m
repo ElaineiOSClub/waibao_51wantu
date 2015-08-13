@@ -8,9 +8,14 @@
 
 #import "ClassifyModel.h"
 
+static NSArray *bigCate = nil;
+static NSArray *subCate = nil;
+
 @implementation ClassifyModel
-+ (NSDictionary *)getBigCate
++ (NSArray *)getBigCate
 {
+
+    
     /*
      id--1
      2015-08-13 06:36:45.023 51wantu[86747:1226723] cate_name--9.9元包邮
@@ -37,12 +42,16 @@
      2015-08-13 06:36:45.043 51wantu[86747:1226723] id--21
      2015-08-13 06:36:45.044 51wantu[86747:1226723] cate_name--文体
      */
-
-    return @{@"1":@"9.9元包邮",@"2":@"1-8折扣区",@"12":@"女装",@"13":@"男装",@"14":@"鞋包",@"15":@"美妆",@"16":@"配饰",@"17":@"居家",@"18":@"母婴",@"19":@"美食",@"20":@"数码电器",@"21":@"文体"};
+    if (bigCate == nil) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"bigcate" ofType:@"plist"];
+        return [NSArray arrayWithContentsOfFile:path];
+    }
+    return bigCate;
+    
 }
 
 
-+ (NSDictionary *)getSubCate
++ (NSArray *)getSubCate
 {
     /*
     2015-08-13 06:37:43.057 51wantu[86820:1227616] id--3
@@ -66,6 +75,11 @@
     2015-08-13 06:37:43.064 51wantu[86820:1227616] id--22
     2015-08-13 06:37:43.065 51wantu[86820:1227616] cate_name--文体
     */
-    return @{@"3":@"女装",@"4":@"男装",@"5":@"鞋包",@"6":@"美妆",@"7":@"配饰",@"8":@"居家",@"9":@"母婴",@"10":@"美食",@"11":@"数码电器",@"22":@"文体"};
+    if (subCate == nil) {
+       NSString *path = [[NSBundle mainBundle] pathForResource:@"subcate" ofType:@"plist"];
+        return [NSArray arrayWithContentsOfFile:path];
+    }
+    return subCate;
+    
 }
 @end

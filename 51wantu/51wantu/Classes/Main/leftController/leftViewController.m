@@ -9,6 +9,7 @@
 #import "leftViewController.h"
 #import "leftMainBtn.h"
 #import "leftTableViewCell.h"
+#import "ClassifyModel.h"
 
 @interface leftViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -21,7 +22,7 @@
 - (IBAction)pointBtnClick:(leftMainBtn *)sender;
 @property (weak, nonatomic) IBOutlet UITableView *categoryTableView;
 
-@property (nonatomic,strong) NSMutableArray *categoryArray;
+@property (nonatomic,strong) NSArray *categoryArray;
 
 @end
 
@@ -33,14 +34,31 @@
     [self.aboutBtn setImage:[UIImage imageNamed:@"pointMallicon"] forState:UIControlStateNormal];
     [self.pointBtn setImage:[UIImage imageNamed:@"username"] forState:UIControlStateNormal];
 
-    self.categoryArray = [[NSMutableArray alloc] initWithObjects: @"全部", @"女装", @"男装", @"鞋包", @"美妆", @"配饰", @"居家",@"母婴",@"美食",@"数码电器",@"文体", nil];
+    //self.categoryArray = [[NSMutableArray alloc] initWithObjects: @"全部", @"女装", @"男装", @"鞋包", @"美妆", @"配饰", @"居家",@"母婴",@"美食",@"数码电器",@"文体", nil];
+
+    //self.categoryListId = @[@"全部",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"22"];
+    
+    
+    self.categoryArray = [ClassifyModel getSubCate];
+    
     
     UIView *footView = [[UIView alloc]init];
     self.categoryTableView.tableFooterView = footView;
     self.categoryTableView.delegate = self;
     self.categoryTableView.dataSource = self;
     self.categoryTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    
+    
+    
+    
+    
+    
 }
+
+
+
+
 
 
 
@@ -66,7 +84,8 @@
     }
     
     NSInteger row = [indexPath row];
-    cell.categoryName.text = self.categoryArray[row];
+//    cell.categoryName.text = self.categoryArray[row];
+    cell.categoryName.text = self.categoryArray[row][@"cate_name"];
     return cell;
 
 }
@@ -76,8 +95,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     
+    NSInteger row = [indexPath row];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:kReloadDataForClassifyNotification object:nil userInfo:@{@"id":self.categoryArray[row][@"id"],@"cate_name":self.categoryArray[row][@"cate_name"]}];
     
- 
+
 }
 
 
