@@ -51,6 +51,10 @@
 		0AA85EFC1B79D17100DD855C /* UIViewController+MMneed.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA85EFB1B79D17100DD855C /* UIViewController+MMneed.m */; };
 		0AD47F051B78F92500B0212A /* leftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD47F031B78F92500B0212A /* leftViewController.m */; };
 		0AD47F061B78F92500B0212A /* leftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AD47F041B78F92500B0212A /* leftViewController.xib */; };
+		B915CFF61B8007F000A9870F /* BrandBreviaryList.m in Sources */ = {isa = PBXBuildFile; fileRef = B915CFF51B8007F000A9870F /* BrandBreviaryList.m */; };
+		B915CFFA1B800B5E00A9870F /* BrandHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B915CFF81B800B5E00A9870F /* BrandHomeCell.m */; };
+		B915CFFB1B800B5E00A9870F /* BrandHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B915CFF91B800B5E00A9870F /* BrandHomeCell.xib */; };
+		B915CFFE1B801F1600A9870F /* BrankHomeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B915CFFD1B801F1600A9870F /* BrankHomeLayout.m */; };
 		B994C1A31B75AEEF003577FD /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C19E1B75AEEF003577FD /* UIBarButtonItem+Extension.m */; };
 		B994C1A41B75AEEF003577FD /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C1A01B75AEEF003577FD /* UIView+Extension.m */; };
 		B994C1A51B75AEEF003577FD /* UIViewController+PushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C1A21B75AEEF003577FD /* UIViewController+PushNotification.m */; };
@@ -209,6 +213,13 @@
 		0AD47F021B78F92500B0212A /* leftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = leftViewController.h; sourceTree = "<group>"; };
 		0AD47F031B78F92500B0212A /* leftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = leftViewController.m; sourceTree = "<group>"; };
 		0AD47F041B78F92500B0212A /* leftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = leftViewController.xib; sourceTree = "<group>"; };
+		B915CFF41B8007F000A9870F /* BrandBreviaryList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandBreviaryList.h; sourceTree = "<group>"; };
+		B915CFF51B8007F000A9870F /* BrandBreviaryList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandBreviaryList.m; sourceTree = "<group>"; };
+		B915CFF71B800B5E00A9870F /* BrandHomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandHomeCell.h; sourceTree = "<group>"; };
+		B915CFF81B800B5E00A9870F /* BrandHomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandHomeCell.m; sourceTree = "<group>"; };
+		B915CFF91B800B5E00A9870F /* BrandHomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandHomeCell.xib; sourceTree = "<group>"; };
+		B915CFFC1B801F1600A9870F /* BrankHomeLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrankHomeLayout.h; sourceTree = "<group>"; };
+		B915CFFD1B801F1600A9870F /* BrankHomeLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrankHomeLayout.m; sourceTree = "<group>"; };
 		B994C19D1B75AEEF003577FD /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		B994C19E1B75AEEF003577FD /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		B994C19F1B75AEEF003577FD /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -794,6 +805,10 @@
 		B994C1C51B75DE62003577FD /* model */ = {
 			isa = PBXGroup;
 			children = (
+				B915CFF41B8007F000A9870F /* BrandBreviaryList.h */,
+				B915CFF51B8007F000A9870F /* BrandBreviaryList.m */,
+				B915CFFC1B801F1600A9870F /* BrankHomeLayout.h */,
+				B915CFFD1B801F1600A9870F /* BrankHomeLayout.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -801,6 +816,9 @@
 		B994C1C61B75DE62003577FD /* view */ = {
 			isa = PBXGroup;
 			children = (
+				B915CFF71B800B5E00A9870F /* BrandHomeCell.h */,
+				B915CFF81B800B5E00A9870F /* BrandHomeCell.m */,
+				B915CFF91B800B5E00A9870F /* BrandHomeCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1051,6 +1069,7 @@
 			files = (
 				B9F2BE0B1B7810E200A6FAAB /* HomeCell.xib in Resources */,
 				0A89D3FE1B75A641003EAFB2 /* MBProgressHUD.bundle in Resources */,
+				B915CFFB1B800B5E00A9870F /* BrandHomeCell.xib in Resources */,
 				B9C2D91A1B7C6952005414F4 /* bigcate.plist in Resources */,
 				B99E0B671B7A3C9200D4C005 /* AdvanceNoticeCell.xib in Resources */,
 				B9FA9C6D1B75A22C00E1B03F /* LaunchScreen.xib in Resources */,
@@ -1119,10 +1138,12 @@
 				0A89D4061B75A641003EAFB2 /* MJRefreshAutoNormalFooter.m in Sources */,
 				B994C1CC1B75DEC7003577FD /* ClassifySearchViewController.m in Sources */,
 				B994C1D21B75DF56003577FD /* BrandViewController.m in Sources */,
+				B915CFFA1B800B5E00A9870F /* BrandHomeCell.m in Sources */,
 				B994C2381B7606C5003577FD /* AFHTTPSessionManager.m in Sources */,
 				0A89D4011B75A641003EAFB2 /* MJRefreshBackFooter.m in Sources */,
 				0A89D4071B75A641003EAFB2 /* MJRefreshAutoStateFooter.m in Sources */,
 				0A89D40B1B75A641003EAFB2 /* MJRefreshGifHeader.m in Sources */,
+				B915CFF61B8007F000A9870F /* BrandBreviaryList.m in Sources */,
 				0A89D4141B75A641003EAFB2 /* MMDrawerController.m in Sources */,
 				B994C23C1B7606C5003577FD /* AFURLRequestSerialization.m in Sources */,
 				0A89D4051B75A641003EAFB2 /* MJRefreshAutoGifFooter.m in Sources */,
@@ -1149,6 +1170,7 @@
 				0A89D3FF1B75A641003EAFB2 /* MBProgressHUD.m in Sources */,
 				B994C24E1B7606C5003577FD /* UIView+WebCacheOperation.m in Sources */,
 				B994C1F91B7604C6003577FD /* NSObject+MJProperty.m in Sources */,
+				B915CFFE1B801F1600A9870F /* BrankHomeLayout.m in Sources */,
 				0A89D4041B75A641003EAFB2 /* MJRefreshHeader.m in Sources */,
 				0A89D3FC1B75A641003EAFB2 /* FMResultSet.m in Sources */,
 				B994C2361B7606C5003577FD /* AFHTTPRequestOperation.m in Sources */,
