@@ -27,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"修改密码";
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -35,6 +36,7 @@
     
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
+    [self.oldPwdF becomeFirstResponder];
     [self colseDrawerGesture];
     [[Util getAppDelegate].drawerController setMaximumLeftDrawerWidth:kScreen_Width +10];
     
@@ -76,7 +78,7 @@
     }
     
     if (self.newestPwdF.text.length < 6) {
-        [Util showAlertWithTitle:@"提示" msg:@"密码长度不能少于6个"];
+        [Util showAlertWithTitle:@"提示" msg:@"密码长度不能少于6位"];
         return;
     }
     [MBProgressHUD showMessage:@"修改中..."];
