@@ -31,7 +31,7 @@ static NSString *cellID = @"cell";
 @property (nonatomic, strong) BaseDatasModel *model;
 @property (nonatomic, strong) NSMutableArray *arrayList;
 @property (nonatomic, assign) NSInteger currentPage;
-@property (nonatomic, strong) NSString *urlStr;
+
 @end
 
 @implementation HomeViewController
@@ -47,8 +47,6 @@ static NSString *cellID = @"cell";
     [self pullUpReRefreshing];
     
     
-    
-   
     
 
 
