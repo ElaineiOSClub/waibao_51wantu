@@ -10,6 +10,7 @@
 
 static NSArray *bigCate = nil;
 static NSArray *subCate = nil;
+static NSArray *brandCate = nil;
 
 @implementation ClassifyModel
 + (NSArray *)getBigCate
@@ -81,5 +82,14 @@ static NSArray *subCate = nil;
     }
     return subCate;
     
+}
+
++ (NSArray *)getBrandCate
+{
+    if (brandCate == nil) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"brandcate" ofType:@"plist"];
+        return [NSArray arrayWithContentsOfFile:path];
+    }
+    return brandCate;
 }
 @end

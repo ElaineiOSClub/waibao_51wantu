@@ -18,6 +18,7 @@
 #import "ClassifyModel.h"
 #import "BrandHomeCell.h"
 #import "BrankHomeLayout.h"
+#import "UIViewController+PushNotification.h"
 
 
 @interface BrandViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
@@ -102,78 +103,60 @@ static NSString *cellID = @"cell";
 
 
 
-//- (void)refresh:(NSNotification *)notification
-//{
-//    NSString *cate_id = notification.userInfo[@"id"];
-//    NSString *cate_name = notification.userInfo[@"cate_name"];
-//    
-//    //刷新所有
-//    if ([cate_name isEqualToString:@"全部"]) {
-//        [self loadData];
-//        [self pullDownRefreshing];
-//        [self pullUpReRefreshing];
-//        
-//    } else {
-//        NSArray *arr = [ClassifyModel getBigCate];
-//        for (NSDictionary *dict in arr) {
-//            if ([dict[@"cate_name"] isEqualToString:cate_name]) {
-//                cate_id = dict[@"id"];
-//            }
-//        }
-//        self.currentPage = 1;
-//        [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&pid=%@&page=%ld&pagesize=20",cate_id,self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//            self.model = [BaseDatasModel objectWithKeyValues:responseObject];
-//            if (self.arrayList) [self.arrayList removeAllObjects];
-//            
-//            for (BaseDataModel *model in self.model.datas) {
-//                NSArray *arr = [ClassifyModel getBigCate];
-//                for (NSDictionary *dict in arr) {
-//                    if ([dict[@"id"] isEqualToString:model.pid]) {
-//                        model.classifyName = dict[@"cate_name"];
-//                    }
-//                }
-//            }
-//            
-//            
-//            
-//            [self.arrayList addObjectsFromArray:self.model.datas];
-//            [self.collectionView reloadData];
-//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//            
-//        }];
-//        
-//        __weak __typeof(self) weakSelf = self;
-//        // 上拉刷新
-//        self.collectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-//            // 进入刷新状态后会自动调用这个block
-//            self.currentPage++;
-//            
-//            [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&pid=%@&page=%ld&pagesize=20",cate_id,self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//                BaseDatasModel *model = [BaseDatasModel objectWithKeyValues:responseObject];
-//                [weakSelf.arrayList addObjectsFromArray:model.datas];
-//                
-//                for (BaseDataModel *m in model.datas) {
-//                    NSArray *arr = [ClassifyModel getBigCate];
-//                    for (NSDictionary *dict in arr) {
-//                        if ([dict[@"id"] isEqualToString:m.pid]) {
-//                            m.classifyName = dict[@"cate_name"];
-//                        }
-//                    }
-//                }
-//                
-//                
-//                [weakSelf.collectionView reloadData];
-//                // 结束刷新
-//                [weakSelf.collectionView.footer endRefreshing];
-//                
-//            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//                // 结束刷新
-//                [weakSelf.collectionView.footer endRefreshing];
-//                
-//            }];
-//        }];
-//    }
-//}
+- (void)refresh:(NSNotification *)notification
+{
+    NSString *cate_id = notification.userInfo[@"id"];
+    NSString *cate_name = notification.userInfo[@"cate_name"];
+    
+    //刷新所有
+    if ([cate_name isEqualToString:@"全部"]) {
+        [self loadData];
+        [self pullDownRefreshing];
+        [self pullUpReRefreshing];
+        
+    } else {
+        NSArray *arr = [ClassifyModel getBrandCate];
+        for (NSDictionary *dict in arr) {
+            if ([dict[@"cate_name"] isEqualToString:cate_name]) {
+                cate_id = dict[@"id"];
+            }
+        }
+        self.currentPage = 1;
+        [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=getbrandlist&tid=%@&page=%ld&pagesize=20",cate_id,self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            if (self.arrayList) [self.arrayList removeAllObjects];
+            
+                NSMutableArray *datas = [BrandBreviaryList objectArrayWithKeyValuesArray:responseObject[@"datas"]];
+
+            [self.arrayList addObjectsFromArray:datas];
+            [self.collectionView reloadData];
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+        }];
+        
+        __weak __typeof(self) weakSelf = self;
+        // 上拉刷新
+        self.collectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            // 进入刷新状态后会自动调用这个block
+            self.currentPage++;
+            
+            [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&pid=%@&page=%ld&pagesize=20",cate_id,self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSMutableArray *datas = [BrandBreviaryList objectArrayWithKeyValuesArray:responseObject[@"datas"]];
+                
+                [weakSelf.arrayList addObjectsFromArray:datas];
+                [weakSelf.collectionView reloadData];
+
+                // 结束刷新
+                [weakSelf.collectionView.footer endRefreshing];
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                // 结束刷新
+                [weakSelf.collectionView.footer endRefreshing];
+                
+            }];
+        }];
+    }
+}
 
 
 
@@ -220,11 +203,11 @@ static NSString *cellID = @"cell";
 
 
 
-
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self openDrawerGesture];
+    [self registerNotification:@selector(refresh:)];
     
 }
 
@@ -232,6 +215,8 @@ static NSString *cellID = @"cell";
 {
     [super viewWillDisappear:animated];
     [self colseDrawerGesture];
+    [self removeNotification];
+    
 }
 
 #pragma mark - lazy

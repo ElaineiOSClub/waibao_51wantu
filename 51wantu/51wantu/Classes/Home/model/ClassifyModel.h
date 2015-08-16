@@ -11,4 +11,6 @@
 @interface ClassifyModel : NSObject
 + (NSArray *)getBigCate;
 + (NSArray *)getSubCate;
+
++ (NSArray *)getBrandCate;
 @end
