@@ -19,9 +19,11 @@
 #import "BrandHomeCell.h"
 #import "BrankHomeLayout.h"
 #import "UIViewController+PushNotification.h"
+#import "UIWebViewController.h"
+#import "BrandDetailViewController.h"
 
 
-@interface BrandViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface BrandViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,BrandHomeCellDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *arrayList;
 @property (nonatomic, assign) NSInteger currentPage;
@@ -138,7 +140,7 @@ static NSString *cellID = @"cell";
         // 上拉刷新
         self.collectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             // 进入刷新状态后会自动调用这个block
-            self.currentPage++;
+            weakSelf.currentPage++;
             
             [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&pid=%@&page=%ld&pagesize=20",cate_id,self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSMutableArray *datas = [BrandBreviaryList objectArrayWithKeyValuesArray:responseObject[@"datas"]];
@@ -184,7 +186,7 @@ static NSString *cellID = @"cell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     BrandHomeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID   forIndexPath:indexPath];
-
+    cell.delegate = self;
     cell.brandBreviaryList = self.arrayList[indexPath.row];
     return cell;
 }
@@ -199,6 +201,23 @@ static NSString *cellID = @"cell";
 //    vc.urlStr = model.item_url;
 //    
 //    [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - brandHomeCellDelegate
+- (void)brandHomeCell:(BrandHomeCell *)cell didSelectItem:(BaseDataModel *)item
+{
+    UIWebViewController *vc = [[UIWebViewController alloc] init];
+    vc.urlStr = item.item_url;
+
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)brandHomeCell:(BrandHomeCell *)cell moreProductFromBrandID:(NSString *)brandID BrandName:(NSString *)brandName
+{
+    BrandDetailViewController *vc = [[BrandDetailViewController alloc] init];
+    vc.ID = brandID;
+    vc.title = brandName;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

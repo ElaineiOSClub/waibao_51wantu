@@ -45,6 +45,9 @@ static NSString *cellID = @"cell";
     [self.collectionView reloadData];}
 
 
+- (IBAction)moreProduct:(id)sender {
+    [self.delegate brandHomeCell:self moreProductFromBrandID:self.brandBreviaryList.ID BrandName:self.brandBreviaryList.brand_name];
+}
 
 
 #pragma mark - UICollectionViewDataSource
@@ -68,14 +71,10 @@ static NSString *cellID = @"cell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    //
-    //    BaseDataModel *model = self.arrayList[indexPath.row
-    //                                          ];
-    //    UIWebViewController *vc = [[UIWebViewController alloc] init];
-    //    vc.urlStr = model.item_url;
-    //
-    //    [self.navigationController pushViewController:vc animated:YES];
+    BaseDataModel *model = self.arrList[indexPath.row];
+    if ([self.delegate respondsToSelector:@selector(brandHomeCell:didSelectItem:)]) {
+        [self.delegate brandHomeCell:self didSelectItem:model];
+    }
 }
 
 

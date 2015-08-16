@@ -56,6 +56,7 @@
 		B915CFFB1B800B5E00A9870F /* BrandHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B915CFF91B800B5E00A9870F /* BrandHomeCell.xib */; };
 		B915CFFE1B801F1600A9870F /* BrankHomeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B915CFFD1B801F1600A9870F /* BrankHomeLayout.m */; };
 		B915D0001B802CDF00A9870F /* brandcate.plist in Resources */ = {isa = PBXBuildFile; fileRef = B915CFFF1B802CDF00A9870F /* brandcate.plist */; };
+		B915D0031B805DB500A9870F /* BrandDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B915D0021B805DB500A9870F /* BrandDetailViewController.m */; };
 		B994C1A31B75AEEF003577FD /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C19E1B75AEEF003577FD /* UIBarButtonItem+Extension.m */; };
 		B994C1A41B75AEEF003577FD /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C1A01B75AEEF003577FD /* UIView+Extension.m */; };
 		B994C1A51B75AEEF003577FD /* UIViewController+PushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C1A21B75AEEF003577FD /* UIViewController+PushNotification.m */; };
@@ -222,6 +223,8 @@
 		B915CFFC1B801F1600A9870F /* BrankHomeLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrankHomeLayout.h; sourceTree = "<group>"; };
 		B915CFFD1B801F1600A9870F /* BrankHomeLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrankHomeLayout.m; sourceTree = "<group>"; };
 		B915CFFF1B802CDF00A9870F /* brandcate.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = brandcate.plist; sourceTree = "<group>"; };
+		B915D0011B805DB500A9870F /* BrandDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandDetailViewController.h; sourceTree = "<group>"; };
+		B915D0021B805DB500A9870F /* BrandDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandDetailViewController.m; sourceTree = "<group>"; };
 		B994C19D1B75AEEF003577FD /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		B994C19E1B75AEEF003577FD /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		B994C19F1B75AEEF003577FD /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -800,6 +803,8 @@
 			children = (
 				B994C1D01B75DF56003577FD /* BrandViewController.h */,
 				B994C1D11B75DF56003577FD /* BrandViewController.m */,
+				B915D0011B805DB500A9870F /* BrandDetailViewController.h */,
+				B915D0021B805DB500A9870F /* BrandDetailViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1137,6 +1142,7 @@
 				B994C23F1B7606C5003577FD /* MKAnnotationView+WebCache.m in Sources */,
 				B994C1F51B7604C6003577FD /* MJProperty.m in Sources */,
 				B9FA9C5F1B75A22C00E1B03F /* main.m in Sources */,
+				B915D0031B805DB500A9870F /* BrandDetailViewController.m in Sources */,
 				0A89D40C1B75A641003EAFB2 /* MJRefreshNormalHeader.m in Sources */,
 				0AA85EF91B79C83600DD855C /* leftMainBtn.m in Sources */,
 				0A89D4061B75A641003EAFB2 /* MJRefreshAutoNormalFooter.m in Sources */,
