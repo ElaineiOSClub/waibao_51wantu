@@ -46,6 +46,18 @@
 		0AA085EB1B765E6F00475429 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA085EA1B765E6F00475429 /* UIKit.framework */; };
 		0AA085ED1B76605C00475429 /* HTTPService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA085EC1B76605C00475429 /* HTTPService.m */; };
 		0AA085F11B76630A00475429 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA085F01B76630A00475429 /* Util.m */; };
+		0AA36D361B802443007A5084 /* ownInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA36D341B802443007A5084 /* ownInfoViewController.m */; };
+		0AA36D371B802443007A5084 /* ownInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA36D351B802443007A5084 /* ownInfoViewController.xib */; };
+		0AA36D3D1B8036F2007A5084 /* ownBaseInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA36D3B1B8036F2007A5084 /* ownBaseInfoViewController.m */; };
+		0AA36D3E1B8036F2007A5084 /* ownBaseInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA36D3C1B8036F2007A5084 /* ownBaseInfoViewController.xib */; };
+		0AA36D421B80370A007A5084 /* ownAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA36D401B80370A007A5084 /* ownAddViewController.m */; };
+		0AA36D431B80370A007A5084 /* ownAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA36D411B80370A007A5084 /* ownAddViewController.xib */; };
+		0AA36D471B803724007A5084 /* changePwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA36D451B803724007A5084 /* changePwdViewController.m */; };
+		0AA36D481B803724007A5084 /* changePwdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA36D461B803724007A5084 /* changePwdViewController.xib */; };
+		0AA36D4C1B803735007A5084 /* mineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA36D4A1B803735007A5084 /* mineViewController.m */; };
+		0AA36D4D1B803735007A5084 /* mineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA36D4B1B803735007A5084 /* mineViewController.xib */; };
+		0AA36D511B80379F007A5084 /* pointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA36D4F1B80379F007A5084 /* pointViewController.m */; };
+		0AA36D521B80379F007A5084 /* pointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA36D501B80379F007A5084 /* pointViewController.xib */; };
 		0AA758C41B77977A007B2D05 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA758C21B77977A007B2D05 /* loginViewController.m */; };
 		0AA85EF91B79C83600DD855C /* leftMainBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA85EF81B79C83600DD855C /* leftMainBtn.m */; };
 		0AA85EFC1B79D17100DD855C /* UIViewController+MMneed.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA85EFB1B79D17100DD855C /* UIViewController+MMneed.m */; };
@@ -199,6 +211,24 @@
 		0AA085EE1B76606A00475429 /* HTTPService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPService.h; sourceTree = "<group>"; };
 		0AA085EF1B76630A00475429 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		0AA085F01B76630A00475429 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		0AA36D331B802443007A5084 /* ownInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ownInfoViewController.h; sourceTree = "<group>"; };
+		0AA36D341B802443007A5084 /* ownInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ownInfoViewController.m; sourceTree = "<group>"; };
+		0AA36D351B802443007A5084 /* ownInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ownInfoViewController.xib; sourceTree = "<group>"; };
+		0AA36D3A1B8036F2007A5084 /* ownBaseInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ownBaseInfoViewController.h; sourceTree = "<group>"; };
+		0AA36D3B1B8036F2007A5084 /* ownBaseInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ownBaseInfoViewController.m; sourceTree = "<group>"; };
+		0AA36D3C1B8036F2007A5084 /* ownBaseInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ownBaseInfoViewController.xib; sourceTree = "<group>"; };
+		0AA36D3F1B80370A007A5084 /* ownAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ownAddViewController.h; sourceTree = "<group>"; };
+		0AA36D401B80370A007A5084 /* ownAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ownAddViewController.m; sourceTree = "<group>"; };
+		0AA36D411B80370A007A5084 /* ownAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ownAddViewController.xib; sourceTree = "<group>"; };
+		0AA36D441B803724007A5084 /* changePwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changePwdViewController.h; sourceTree = "<group>"; };
+		0AA36D451B803724007A5084 /* changePwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changePwdViewController.m; sourceTree = "<group>"; };
+		0AA36D461B803724007A5084 /* changePwdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = changePwdViewController.xib; sourceTree = "<group>"; };
+		0AA36D491B803735007A5084 /* mineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mineViewController.h; sourceTree = "<group>"; };
+		0AA36D4A1B803735007A5084 /* mineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mineViewController.m; sourceTree = "<group>"; };
+		0AA36D4B1B803735007A5084 /* mineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = mineViewController.xib; sourceTree = "<group>"; };
+		0AA36D4E1B80379F007A5084 /* pointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pointViewController.h; sourceTree = "<group>"; };
+		0AA36D4F1B80379F007A5084 /* pointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pointViewController.m; sourceTree = "<group>"; };
+		0AA36D501B80379F007A5084 /* pointViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = pointViewController.xib; sourceTree = "<group>"; };
 		0AA758C11B77977A007B2D05 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
 		0AA758C21B77977A007B2D05 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		0AA758C31B77977A007B2D05 /* loginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
@@ -539,6 +569,36 @@
 			path = tool;
 			sourceTree = "<group>";
 		};
+		0AA36D381B8036AA007A5084 /* 个人信息 */ = {
+			isa = PBXGroup;
+			children = (
+				0AA36D391B8036BF007A5084 /* controller */,
+			);
+			path = "个人信息";
+			sourceTree = "<group>";
+		};
+		0AA36D391B8036BF007A5084 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				0AA36D3A1B8036F2007A5084 /* ownBaseInfoViewController.h */,
+				0AA36D3B1B8036F2007A5084 /* ownBaseInfoViewController.m */,
+				0AA36D3C1B8036F2007A5084 /* ownBaseInfoViewController.xib */,
+				0AA36D3F1B80370A007A5084 /* ownAddViewController.h */,
+				0AA36D401B80370A007A5084 /* ownAddViewController.m */,
+				0AA36D411B80370A007A5084 /* ownAddViewController.xib */,
+				0AA36D441B803724007A5084 /* changePwdViewController.h */,
+				0AA36D451B803724007A5084 /* changePwdViewController.m */,
+				0AA36D461B803724007A5084 /* changePwdViewController.xib */,
+				0AA36D491B803735007A5084 /* mineViewController.h */,
+				0AA36D4A1B803735007A5084 /* mineViewController.m */,
+				0AA36D4B1B803735007A5084 /* mineViewController.xib */,
+				0AA36D4E1B80379F007A5084 /* pointViewController.h */,
+				0AA36D4F1B80379F007A5084 /* pointViewController.m */,
+				0AA36D501B80379F007A5084 /* pointViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		0AA758C01B779658007B2D05 /* controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -567,6 +627,9 @@
 				0AD47F021B78F92500B0212A /* leftViewController.h */,
 				0AD47F031B78F92500B0212A /* leftViewController.m */,
 				0AD47F041B78F92500B0212A /* leftViewController.xib */,
+				0AA36D331B802443007A5084 /* ownInfoViewController.h */,
+				0AA36D341B802443007A5084 /* ownInfoViewController.m */,
+				0AA36D351B802443007A5084 /* ownInfoViewController.xib */,
 			);
 			path = leftController;
 			sourceTree = "<group>";
@@ -652,6 +715,7 @@
 		B994C1AB1B75DBD2003577FD /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0AA36D381B8036AA007A5084 /* 个人信息 */,
 				0AA85EF61B79C83600DD855C /* view */,
 				0AD47F011B78F87800B0212A /* leftController */,
 				B994C1AC1B75DBD2003577FD /* controller */,
@@ -1050,16 +1114,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9F2BE0B1B7810E200A6FAAB /* HomeCell.xib in Resources */,
+				0AA36D371B802443007A5084 /* ownInfoViewController.xib in Resources */,
 				0A89D3FE1B75A641003EAFB2 /* MBProgressHUD.bundle in Resources */,
+				0AA36D431B80370A007A5084 /* ownAddViewController.xib in Resources */,
 				B9C2D91A1B7C6952005414F4 /* bigcate.plist in Resources */,
 				B99E0B671B7A3C9200D4C005 /* AdvanceNoticeCell.xib in Resources */,
 				B9FA9C6D1B75A22C00E1B03F /* LaunchScreen.xib in Resources */,
+				0AA36D3E1B8036F2007A5084 /* ownBaseInfoViewController.xib in Resources */,
 				0A89D40E1B75A641003EAFB2 /* MJRefresh.bundle in Resources */,
 				0A06523F1B7A40E50018A1C9 /* leftTableViewCell.xib in Resources */,
+				0AA36D521B80379F007A5084 /* pointViewController.xib in Resources */,
 				0AA085C71B764FC000475429 /* NewPresonViewController.xib in Resources */,
 				0AD47F061B78F92500B0212A /* leftViewController.xib in Resources */,
 				B9C2D9191B7C6952005414F4 /* subcate.plist in Resources */,
+				0AA36D481B803724007A5084 /* changePwdViewController.xib in Resources */,
 				B9FA9C6A1B75A22C00E1B03F /* Images.xcassets in Resources */,
+				0AA36D4D1B803735007A5084 /* mineViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1093,6 +1163,7 @@
 				0A89D4151B75A641003EAFB2 /* MMDrawerVisualState.m in Sources */,
 				0A89D4121B75A641003EAFB2 /* UIView+MJExtension.m in Sources */,
 				0AA085F11B76630A00475429 /* Util.m in Sources */,
+				0AA36D421B80370A007A5084 /* ownAddViewController.m in Sources */,
 				B994C1F81B7604C6003577FD /* NSObject+MJKeyValue.m in Sources */,
 				B994C1A31B75AEEF003577FD /* UIBarButtonItem+Extension.m in Sources */,
 				0A89D3FA1B75A641003EAFB2 /* FMDatabasePool.m in Sources */,
@@ -1102,6 +1173,7 @@
 				B994C2491B7606C5003577FD /* UIImage+GIF.m in Sources */,
 				B994C2431B7606C5003577FD /* SDWebImageDecoder.m in Sources */,
 				B994C1FA1B7604C6003577FD /* NSString+MJExtension.m in Sources */,
+				0AA36D4C1B803735007A5084 /* mineViewController.m in Sources */,
 				B994C2421B7606C5003577FD /* SDWebImageCompat.m in Sources */,
 				0A89D4111B75A641003EAFB2 /* UIScrollView+MJRefresh.m in Sources */,
 				0A89D3FB1B75A641003EAFB2 /* FMDatabaseQueue.m in Sources */,
@@ -1141,10 +1213,13 @@
 				B994C24B1B7606C5003577FD /* UIImage+WebP.m in Sources */,
 				B994C2511B7661C3003577FD /* MyFlowLayOut.m in Sources */,
 				B994C2391B7606C5003577FD /* AFNetworkReachabilityManager.m in Sources */,
+				0AA36D3D1B8036F2007A5084 /* ownBaseInfoViewController.m in Sources */,
 				0AA758C41B77977A007B2D05 /* loginViewController.m in Sources */,
 				B9C2D9131B7C0832005414F4 /* ClassifyModel.m in Sources */,
+				0AA36D471B803724007A5084 /* changePwdViewController.m in Sources */,
 				0A89D4021B75A641003EAFB2 /* MJRefreshComponent.m in Sources */,
 				B994C2441B7606C5003577FD /* SDWebImageDownloader.m in Sources */,
+				0AA36D361B802443007A5084 /* ownInfoViewController.m in Sources */,
 				B994C1DD1B76000C003577FD /* BaseDataModel.m in Sources */,
 				0A89D3FF1B75A641003EAFB2 /* MBProgressHUD.m in Sources */,
 				B994C24E1B7606C5003577FD /* UIView+WebCacheOperation.m in Sources */,
@@ -1161,6 +1236,7 @@
 				B994C23E1B7606C5003577FD /* AFURLSessionManager.m in Sources */,
 				B9A8FB581B78E97B00E46D84 /* UIWebViewController.m in Sources */,
 				0A89D4001B75A641003EAFB2 /* MJRefreshAutoFooter.m in Sources */,
+				0AA36D511B80379F007A5084 /* pointViewController.m in Sources */,
 				0A89D4031B75A641003EAFB2 /* MJRefreshFooter.m in Sources */,
 				B994C1F71B7604C6003577FD /* NSObject+MJCoding.m in Sources */,
 				0A06523E1B7A40E50018A1C9 /* leftTableViewCell.m in Sources */,
