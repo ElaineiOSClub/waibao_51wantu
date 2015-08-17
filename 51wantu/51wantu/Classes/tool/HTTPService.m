@@ -33,6 +33,8 @@
 {
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    
     [manager POST:urlString parameters:paras success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         result(responseObject);

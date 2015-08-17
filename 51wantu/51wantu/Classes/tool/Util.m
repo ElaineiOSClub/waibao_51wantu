@@ -29,9 +29,11 @@ static Util *class = nil;
 }
 
 //不转webview打不开啊。。
-+(NSString *)getWebViewUrlStr:(NSString *)urlStr{
++ (NSString *)getWebPercentEscapes:(NSString *)urlStr
+{
     return [urlStr stringByAddingPercentEscapesUsingEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)];
 }
+
 
 //去掉空格
 +(NSString *) stringByRemoveTrim:(NSString *)str{
@@ -40,8 +42,9 @@ static Util *class = nil;
 
 //根据文字、字体、文字区域宽度，得到文字区域高度
 + (CGSize)sizeForText:(NSString*)sText Font:(UIFont*)font forWidth:(CGFloat)fWidth{
-    CGSize szContent = [sText sizeWithFont:font constrainedToSize:CGSizeMake(fWidth, CGFLOAT_MAX)
-                             lineBreakMode:NSLineBreakByWordWrapping];
+//    CGSize szContent = [sText sizeWithFont:font constrainedToSize:CGSizeMake(fWidth, CGFLOAT_MAX)
+//                             lineBreakMode:NSLineBreakByWordWrapping];
+    CGSize szContent = [sText boundingRectWithSize:CGSizeMake(fWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : font} context:nil].size;
     return  szContent;
 }
 

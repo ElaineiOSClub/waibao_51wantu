@@ -22,7 +22,8 @@
 
 #import "ClassifyModel.h"
 
-
+#import <ALBBLoginSDK/ALBBLoginService.h>
+#import <TAESDK/TAESDK.h>
 
 static NSString *cellID = @"cell";
 
@@ -35,6 +36,22 @@ static NSString *cellID = @"cell";
 @end
 
 @implementation HomeViewController
+
+-(void)showLogin{
+    id<ALBBLoginService> loginService=[[TaeSDK sharedInstance]getService:@protocol(ALBBLoginService)];
+    if(![[TaeSession sharedInstance] isLogin]){
+        [loginService showLogin:self successCallback:^(TaeSession *session){
+            NSString *tip=[NSString stringWithFormat:@"登录的用户信息:%@,登录时间:%@",[session getUser],[session getLoginTime]];
+            NSLog(@"%@", tip);
+        } failedCallback:^(NSError *error){
+            NSLog(@"登录失败");
+        }];
+    }else{
+        TaeSession *session=[TaeSession sharedInstance];
+        NSString *tip=[NSString stringWithFormat:@"登录的用户信息:%@,登录时间:%@",[session getUser],[session getLoginTime]];
+        NSLog(@"%@", tip);
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

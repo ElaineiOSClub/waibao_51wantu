@@ -26,6 +26,8 @@
 //NSString UTF8转码
 +(NSString *)getUTF8Str:(NSString *)str;
 
++ (NSString *)getWebPercentEscapes:(NSString *)urlStr;
+
 //根据文字 得到自适应的宽高
 + (CGSize)sizeForText:(NSString*)sText Font:(UIFont*)font forWidth:(CGFloat)fWidth;
 

@@ -71,6 +71,12 @@
     [dict setValue:@"www.baidu.com" forKey:@"gourl"];
 
 [HTTPService POSTHttpToServerWith:@"http://www.51wantu.com/api/api.php?action=userlogin" WithParameters:dict success:^(NSDictionary *dic) {
+    
+    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *cookie in [cookieJar cookies]) {
+        NSLog(@"%@", cookie);
+    }
+    
     myLog(@"dic =====,%@",dic);
     [MBProgressHUD hideHUD];
     NSString *successStr = [dic objectForKey:@"Success"];

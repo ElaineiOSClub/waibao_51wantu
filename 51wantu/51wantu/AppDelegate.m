@@ -14,6 +14,9 @@
 #import "loginViewController.h"
 #import "leftViewController.h"
 
+#import <TAESDK/TAESDK.h>
+#import <ALBBLoginSDK/ALBBLoginService.h>
+
 @interface AppDelegate ()
 
 @end
@@ -26,8 +29,13 @@
     // 状态栏变色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
-    
-    
+//    //sdk初始化
+//    [[TaeSDK sharedInstance] asyncInit:^{
+//        NSLog(@"初始化成功");
+//    } failedCallback:^(NSError *error) {
+//        NSLog(@"初始化失败:%@",error);
+//    }];
+//    
     
 //    loginViewController *newOne = [[loginViewController alloc] init];
     
@@ -49,10 +57,30 @@
     self.drawerController = drawerController;
     
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = drawerController;
+    
+    loginViewController *login = [[loginViewController alloc] init];
+    
+    self.window.rootViewController = login;
     [self.window makeKeyAndVisible];
     return YES;
 }
+
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    //该URL是否已经被TAE处理过
+    BOOL wasHandled=[[TaeSDK sharedInstance] handleOpenURL:url];
+    //开发者继续自己处理
+    TaeUser *user = [[TaeSession sharedInstance] getUser];
+    
+    myLog(@"%@,%@,%@",user.nick,user.userId,user.iconUrl);
+    
+    return YES;
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

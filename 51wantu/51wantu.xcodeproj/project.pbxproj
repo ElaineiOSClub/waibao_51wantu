@@ -104,6 +104,18 @@
 		B994C24D1B7606C5003577FD /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C2331B7606C5003577FD /* UIImageView+WebCache.m */; };
 		B994C24E1B7606C5003577FD /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C2351B7606C5003577FD /* UIView+WebCacheOperation.m */; };
 		B994C2511B7661C3003577FD /* MyFlowLayOut.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C2501B7661C3003577FD /* MyFlowLayOut.m */; };
+		B996B7561B81C7BC007244A3 /* ALBBFullSecurityGuard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B996B74C1B81C7BC007244A3 /* ALBBFullSecurityGuard.framework */; };
+		B996B7571B81C7BC007244A3 /* ALBBHotpatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B996B74D1B81C7BC007244A3 /* ALBBHotpatch.framework */; };
+		B996B7581B81C7BC007244A3 /* ALBBLoginSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B996B74E1B81C7BC007244A3 /* ALBBLoginSDK.framework */; };
+		B996B7591B81C7BC007244A3 /* ALBBRpcSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B996B74F1B81C7BC007244A3 /* ALBBRpcSDK.framework */; };
+		B996B75A1B81C7BC007244A3 /* SecurityGuardSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B996B7501B81C7BC007244A3 /* SecurityGuardSDK.framework */; };
+		B996B75B1B81C7BC007244A3 /* Tae.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B996B7511B81C7BC007244A3 /* Tae.bundle */; };
+		B996B75C1B81C7BC007244A3 /* TAESDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B996B7521B81C7BC007244A3 /* TAESDK.framework */; };
+		B996B75D1B81C7BC007244A3 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B996B7531B81C7BC007244A3 /* UTDID.framework */; };
+		B996B75E1B81C7BC007244A3 /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B996B7541B81C7BC007244A3 /* UTMini.framework */; };
+		B996B75F1B81C7BC007244A3 /* yw_1222.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B996B7551B81C7BC007244A3 /* yw_1222.jpg */; };
+		B996B7611B81CAAA007244A3 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B996B7601B81CAAA007244A3 /* libstdc++.6.0.9.dylib */; };
+		B996B7631B81CAB1007244A3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B996B7621B81CAB1007244A3 /* libz.dylib */; };
 		B99E0B661B7A3C9200D4C005 /* AdvanceNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B99E0B641B7A3C9200D4C005 /* AdvanceNoticeCell.m */; };
 		B99E0B671B7A3C9200D4C005 /* AdvanceNoticeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B99E0B651B7A3C9200D4C005 /* AdvanceNoticeCell.xib */; };
 		B9A8FB581B78E97B00E46D84 /* UIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A8FB571B78E97B00E46D84 /* UIWebViewController.m */; };
@@ -322,6 +334,18 @@
 		B994C2351B7606C5003577FD /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		B994C24F1B7661C3003577FD /* MyFlowLayOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFlowLayOut.h; sourceTree = "<group>"; };
 		B994C2501B7661C3003577FD /* MyFlowLayOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFlowLayOut.m; sourceTree = "<group>"; };
+		B996B74C1B81C7BC007244A3 /* ALBBFullSecurityGuard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBFullSecurityGuard.framework; sourceTree = "<group>"; };
+		B996B74D1B81C7BC007244A3 /* ALBBHotpatch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBHotpatch.framework; sourceTree = "<group>"; };
+		B996B74E1B81C7BC007244A3 /* ALBBLoginSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBLoginSDK.framework; sourceTree = "<group>"; };
+		B996B74F1B81C7BC007244A3 /* ALBBRpcSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBRpcSDK.framework; sourceTree = "<group>"; };
+		B996B7501B81C7BC007244A3 /* SecurityGuardSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SecurityGuardSDK.framework; sourceTree = "<group>"; };
+		B996B7511B81C7BC007244A3 /* Tae.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Tae.bundle; sourceTree = "<group>"; };
+		B996B7521B81C7BC007244A3 /* TAESDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TAESDK.framework; sourceTree = "<group>"; };
+		B996B7531B81C7BC007244A3 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTDID.framework; sourceTree = "<group>"; };
+		B996B7541B81C7BC007244A3 /* UTMini.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTMini.framework; sourceTree = "<group>"; };
+		B996B7551B81C7BC007244A3 /* yw_1222.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yw_1222.jpg; sourceTree = "<group>"; };
+		B996B7601B81CAAA007244A3 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
+		B996B7621B81CAB1007244A3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		B99E0B631B7A3C9200D4C005 /* AdvanceNoticeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvanceNoticeCell.h; sourceTree = "<group>"; };
 		B99E0B641B7A3C9200D4C005 /* AdvanceNoticeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvanceNoticeCell.m; sourceTree = "<group>"; };
 		B99E0B651B7A3C9200D4C005 /* AdvanceNoticeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvanceNoticeCell.xib; sourceTree = "<group>"; };
@@ -351,8 +375,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B996B7631B81CAB1007244A3 /* libz.dylib in Frameworks */,
+				B996B7611B81CAAA007244A3 /* libstdc++.6.0.9.dylib in Frameworks */,
+				B996B75C1B81C7BC007244A3 /* TAESDK.framework in Frameworks */,
 				0AA085EB1B765E6F00475429 /* UIKit.framework in Frameworks */,
+				B996B75A1B81C7BC007244A3 /* SecurityGuardSDK.framework in Frameworks */,
 				0A89D41A1B75AC71003EAFB2 /* libsqlite3.dylib in Frameworks */,
+				B996B75E1B81C7BC007244A3 /* UTMini.framework in Frameworks */,
+				B996B7591B81C7BC007244A3 /* ALBBRpcSDK.framework in Frameworks */,
+				B996B7571B81C7BC007244A3 /* ALBBHotpatch.framework in Frameworks */,
+				B996B7561B81C7BC007244A3 /* ALBBFullSecurityGuard.framework in Frameworks */,
+				B996B7581B81C7BC007244A3 /* ALBBLoginSDK.framework in Frameworks */,
+				B996B75D1B81C7BC007244A3 /* UTDID.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +403,7 @@
 		0A89D3AF1B75A641003EAFB2 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				B996B74B1B81C7BC007244A3 /* OneSDK */,
 				B994C2001B7606C5003577FD /* AFNetworking */,
 				B994C2141B7606C5003577FD /* SDWebImage */,
 				B994C1E11B7604C6003577FD /* MJExtension */,
@@ -929,9 +964,28 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		B996B74B1B81C7BC007244A3 /* OneSDK */ = {
+			isa = PBXGroup;
+			children = (
+				B996B74C1B81C7BC007244A3 /* ALBBFullSecurityGuard.framework */,
+				B996B74D1B81C7BC007244A3 /* ALBBHotpatch.framework */,
+				B996B74E1B81C7BC007244A3 /* ALBBLoginSDK.framework */,
+				B996B74F1B81C7BC007244A3 /* ALBBRpcSDK.framework */,
+				B996B7501B81C7BC007244A3 /* SecurityGuardSDK.framework */,
+				B996B7511B81C7BC007244A3 /* Tae.bundle */,
+				B996B7521B81C7BC007244A3 /* TAESDK.framework */,
+				B996B7531B81C7BC007244A3 /* UTDID.framework */,
+				B996B7541B81C7BC007244A3 /* UTMini.framework */,
+				B996B7551B81C7BC007244A3 /* yw_1222.jpg */,
+			);
+			path = OneSDK;
+			sourceTree = "<group>";
+		};
 		B9FA9C501B75A22C00E1B03F = {
 			isa = PBXGroup;
 			children = (
+				B996B7621B81CAB1007244A3 /* libz.dylib */,
+				B996B7601B81CAAA007244A3 /* libstdc++.6.0.9.dylib */,
 				0AA085EA1B765E6F00475429 /* UIKit.framework */,
 				0A89D4191B75AC71003EAFB2 /* libsqlite3.dylib */,
 				B9FA9C5B1B75A22C00E1B03F /* 51wantu */,
@@ -1082,9 +1136,11 @@
 				B9C2D91A1B7C6952005414F4 /* bigcate.plist in Resources */,
 				B99E0B671B7A3C9200D4C005 /* AdvanceNoticeCell.xib in Resources */,
 				B9FA9C6D1B75A22C00E1B03F /* LaunchScreen.xib in Resources */,
+				B996B75F1B81C7BC007244A3 /* yw_1222.jpg in Resources */,
 				0A89D40E1B75A641003EAFB2 /* MJRefresh.bundle in Resources */,
 				0A06523F1B7A40E50018A1C9 /* leftTableViewCell.xib in Resources */,
 				0AA085C71B764FC000475429 /* NewPresonViewController.xib in Resources */,
+				B996B75B1B81C7BC007244A3 /* Tae.bundle in Resources */,
 				0AD47F061B78F92500B0212A /* leftViewController.xib in Resources */,
 				B9C2D9191B7C6952005414F4 /* subcate.plist in Resources */,
 				B9FA9C6A1B75A22C00E1B03F /* Images.xcassets in Resources */,
@@ -1319,9 +1375,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/51wantu/3rd/OneSDK",
+				);
 				INFOPLIST_FILE = 51wantu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-Istdc++",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1331,9 +1395,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/51wantu/3rd/OneSDK",
+				);
 				INFOPLIST_FILE = 51wantu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-Istdc++",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
