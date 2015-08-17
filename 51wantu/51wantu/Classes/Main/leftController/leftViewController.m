@@ -13,6 +13,7 @@
 #import "MainViewController.h"
 #import "MainNavViewController.h"
 #import "Util.h"
+#import "ownInfoViewController.h"
 
 @interface leftViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -41,7 +42,7 @@
 
     //self.categoryListId = @[@"全部",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"22"];
     
-    
+    self.navigationController.navigationBarHidden = YES;
     self.categoryArray = [ClassifyModel getSubCate];
     
     
@@ -119,6 +120,11 @@
 
 
 - (IBAction)ownInfoBtnClick:(leftMainBtn *)sender {
+    
+    ownInfoViewController *ownInfo = [[ownInfoViewController alloc]init];
+
+    [self.navigationController pushViewController:ownInfo animated:YES];
+    
 }
 
 - (IBAction)aboutBtnClick:(leftMainBtn *)sender {
