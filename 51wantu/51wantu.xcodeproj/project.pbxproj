@@ -58,7 +58,6 @@
 		0AA085F11B76630A00475429 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA085F01B76630A00475429 /* Util.m */; };
 		0AA36D361B802443007A5084 /* ownInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA36D341B802443007A5084 /* ownInfoViewController.m */; };
 		0AA36D371B802443007A5084 /* ownInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA36D351B802443007A5084 /* ownInfoViewController.xib */; };
-		0AA758C41B77977A007B2D05 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA758C21B77977A007B2D05 /* loginViewController.m */; };
 		0AA85EF91B79C83600DD855C /* leftMainBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA85EF81B79C83600DD855C /* leftMainBtn.m */; };
 		0AA85EFC1B79D17100DD855C /* UIViewController+MMneed.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA85EFB1B79D17100DD855C /* UIViewController+MMneed.m */; };
 		0AD47F051B78F92500B0212A /* leftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD47F031B78F92500B0212A /* leftViewController.m */; };
@@ -128,6 +127,8 @@
 		B996B75F1B81C7BC007244A3 /* yw_1222.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B996B7551B81C7BC007244A3 /* yw_1222.jpg */; };
 		B996B7611B81CAAA007244A3 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B996B7601B81CAAA007244A3 /* libstdc++.6.0.9.dylib */; };
 		B996B7631B81CAB1007244A3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B996B7621B81CAB1007244A3 /* libz.dylib */; };
+		B996B7671B82BD34007244A3 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B996B7651B82BD34007244A3 /* loginViewController.m */; };
+		B996B7681B82BD34007244A3 /* loginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B996B7661B82BD34007244A3 /* loginViewController.xib */; };
 		B99E0B661B7A3C9200D4C005 /* AdvanceNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B99E0B641B7A3C9200D4C005 /* AdvanceNoticeCell.m */; };
 		B99E0B671B7A3C9200D4C005 /* AdvanceNoticeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B99E0B651B7A3C9200D4C005 /* AdvanceNoticeCell.xib */; };
 		B9A8FB581B78E97B00E46D84 /* UIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A8FB571B78E97B00E46D84 /* UIWebViewController.m */; };
@@ -247,9 +248,6 @@
 		0AA36D331B802443007A5084 /* ownInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ownInfoViewController.h; sourceTree = "<group>"; };
 		0AA36D341B802443007A5084 /* ownInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ownInfoViewController.m; sourceTree = "<group>"; };
 		0AA36D351B802443007A5084 /* ownInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ownInfoViewController.xib; sourceTree = "<group>"; };
-		0AA758C11B77977A007B2D05 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
-		0AA758C21B77977A007B2D05 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
-		0AA758C31B77977A007B2D05 /* loginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
 		0AA85EF71B79C83600DD855C /* leftMainBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = leftMainBtn.h; sourceTree = "<group>"; };
 		0AA85EF81B79C83600DD855C /* leftMainBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = leftMainBtn.m; sourceTree = "<group>"; };
 		0AA85EFA1B79D17100DD855C /* UIViewController+MMneed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMneed.h"; sourceTree = "<group>"; };
@@ -376,6 +374,9 @@
 		B996B7551B81C7BC007244A3 /* yw_1222.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yw_1222.jpg; sourceTree = "<group>"; };
 		B996B7601B81CAAA007244A3 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		B996B7621B81CAB1007244A3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		B996B7641B82BD34007244A3 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
+		B996B7651B82BD34007244A3 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
+		B996B7661B82BD34007244A3 /* loginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
 		B99E0B631B7A3C9200D4C005 /* AdvanceNoticeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvanceNoticeCell.h; sourceTree = "<group>"; };
 		B99E0B641B7A3C9200D4C005 /* AdvanceNoticeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvanceNoticeCell.m; sourceTree = "<group>"; };
 		B99E0B651B7A3C9200D4C005 /* AdvanceNoticeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvanceNoticeCell.xib; sourceTree = "<group>"; };
@@ -725,9 +726,9 @@
 		0AA758C01B779658007B2D05 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				0AA758C11B77977A007B2D05 /* loginViewController.h */,
-				0AA758C21B77977A007B2D05 /* loginViewController.m */,
-				0AA758C31B77977A007B2D05 /* loginViewController.xib */,
+				B996B7641B82BD34007244A3 /* loginViewController.h */,
+				B996B7651B82BD34007244A3 /* loginViewController.m */,
+				B996B7661B82BD34007244A3 /* loginViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1269,6 +1270,7 @@
 				0AA36D371B802443007A5084 /* ownInfoViewController.xib in Resources */,
 				0A89D3FE1B75A641003EAFB2 /* MBProgressHUD.bundle in Resources */,
 				B915CFFB1B800B5E00A9870F /* BrandHomeCell.xib in Resources */,
+				B996B7681B82BD34007244A3 /* loginViewController.xib in Resources */,
 				B915D0001B802CDF00A9870F /* brandcate.plist in Resources */,
 				B9C2D91A1B7C6952005414F4 /* bigcate.plist in Resources */,
 				0A08F5871B8066A700CB41E5 /* changePwdViewController.xib in Resources */,
@@ -1375,11 +1377,11 @@
 				B994C24B1B7606C5003577FD /* UIImage+WebP.m in Sources */,
 				B994C2511B7661C3003577FD /* MyFlowLayOut.m in Sources */,
 				B994C2391B7606C5003577FD /* AFNetworkReachabilityManager.m in Sources */,
-				0AA758C41B77977A007B2D05 /* loginViewController.m in Sources */,
 				B9C2D9131B7C0832005414F4 /* ClassifyModel.m in Sources */,
 				0A89D4021B75A641003EAFB2 /* MJRefreshComponent.m in Sources */,
 				B994C2441B7606C5003577FD /* SDWebImageDownloader.m in Sources */,
 				0AA36D361B802443007A5084 /* ownInfoViewController.m in Sources */,
+				B996B7671B82BD34007244A3 /* loginViewController.m in Sources */,
 				B994C1DD1B76000C003577FD /* BaseDataModel.m in Sources */,
 				0A89D3FF1B75A641003EAFB2 /* MBProgressHUD.m in Sources */,
 				B994C24E1B7606C5003577FD /* UIView+WebCacheOperation.m in Sources */,
