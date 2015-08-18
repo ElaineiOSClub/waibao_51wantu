@@ -28,7 +28,7 @@
 
 - (void)push:(NSNotification *)notification
 {
-    [[Util getAppDelegate].drawerController closeDrawerAnimated:YES completion:^(BOOL finished) {
+    [[Util getAppDelegate].drawerController closeDrawerAnimated:NO completion:^(BOOL finished) {
         Class className = notification.userInfo[@"class"];
         [self.navigationController pushViewController:[[className alloc] init] animated:YES];
     }];
