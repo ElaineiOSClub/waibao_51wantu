@@ -17,8 +17,6 @@
 		0A08F58B1B8066A700CB41E5 /* ownBaseInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A08F57B1B8066A700CB41E5 /* ownBaseInfoViewController.xib */; };
 		0A08F58C1B8066A700CB41E5 /* ownAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A08F57F1B8066A700CB41E5 /* ownAddViewController.m */; };
 		0A08F58D1B8066A700CB41E5 /* ownAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A08F5801B8066A700CB41E5 /* ownAddViewController.xib */; };
-		0A08F58E1B8066A700CB41E5 /* mineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A08F5841B8066A700CB41E5 /* mineViewController.m */; };
-		0A08F58F1B8066A700CB41E5 /* mineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A08F5851B8066A700CB41E5 /* mineViewController.xib */; };
 		0A89D3F81B75A641003EAFB2 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A89D3B21B75A641003EAFB2 /* FMDatabase.m */; };
 		0A89D3F91B75A641003EAFB2 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A89D3B41B75A641003EAFB2 /* FMDatabaseAdditions.m */; };
 		0A89D3FA1B75A641003EAFB2 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A89D3B61B75A641003EAFB2 /* FMDatabasePool.m */; };
@@ -129,6 +127,7 @@
 		B996B7631B81CAB1007244A3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B996B7621B81CAB1007244A3 /* libz.dylib */; };
 		B996B7671B82BD34007244A3 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B996B7651B82BD34007244A3 /* loginViewController.m */; };
 		B996B7681B82BD34007244A3 /* loginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B996B7661B82BD34007244A3 /* loginViewController.xib */; };
+		B996B76B1B832399007244A3 /* mineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B996B76A1B832399007244A3 /* mineViewController.m */; };
 		B99E0B661B7A3C9200D4C005 /* AdvanceNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B99E0B641B7A3C9200D4C005 /* AdvanceNoticeCell.m */; };
 		B99E0B671B7A3C9200D4C005 /* AdvanceNoticeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B99E0B651B7A3C9200D4C005 /* AdvanceNoticeCell.xib */; };
 		B9A8FB581B78E97B00E46D84 /* UIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A8FB571B78E97B00E46D84 /* UIWebViewController.m */; };
@@ -170,9 +169,6 @@
 		0A08F57E1B8066A700CB41E5 /* ownAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ownAddViewController.h; sourceTree = "<group>"; };
 		0A08F57F1B8066A700CB41E5 /* ownAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ownAddViewController.m; sourceTree = "<group>"; };
 		0A08F5801B8066A700CB41E5 /* ownAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ownAddViewController.xib; sourceTree = "<group>"; };
-		0A08F5831B8066A700CB41E5 /* mineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mineViewController.h; sourceTree = "<group>"; };
-		0A08F5841B8066A700CB41E5 /* mineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mineViewController.m; sourceTree = "<group>"; };
-		0A08F5851B8066A700CB41E5 /* mineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = mineViewController.xib; sourceTree = "<group>"; };
 		0A89D3B11B75A641003EAFB2 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		0A89D3B21B75A641003EAFB2 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		0A89D3B31B75A641003EAFB2 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -377,6 +373,8 @@
 		B996B7641B82BD34007244A3 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
 		B996B7651B82BD34007244A3 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		B996B7661B82BD34007244A3 /* loginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
+		B996B7691B832399007244A3 /* mineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mineViewController.h; sourceTree = "<group>"; };
+		B996B76A1B832399007244A3 /* mineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mineViewController.m; sourceTree = "<group>"; };
 		B99E0B631B7A3C9200D4C005 /* AdvanceNoticeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvanceNoticeCell.h; sourceTree = "<group>"; };
 		B99E0B641B7A3C9200D4C005 /* AdvanceNoticeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvanceNoticeCell.m; sourceTree = "<group>"; };
 		B99E0B651B7A3C9200D4C005 /* AdvanceNoticeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvanceNoticeCell.xib; sourceTree = "<group>"; };
@@ -514,9 +512,8 @@
 		0A08F5821B8066A700CB41E5 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				0A08F5831B8066A700CB41E5 /* mineViewController.h */,
-				0A08F5841B8066A700CB41E5 /* mineViewController.m */,
-				0A08F5851B8066A700CB41E5 /* mineViewController.xib */,
+				B996B7691B832399007244A3 /* mineViewController.h */,
+				B996B76A1B832399007244A3 /* mineViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1287,7 +1284,6 @@
 				0AD47F061B78F92500B0212A /* leftViewController.xib in Resources */,
 				B9C2D9191B7C6952005414F4 /* subcate.plist in Resources */,
 				B9FA9C6A1B75A22C00E1B03F /* Images.xcassets in Resources */,
-				0A08F58F1B8066A700CB41E5 /* mineViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1328,7 +1324,6 @@
 				B994C24A1B7606C5003577FD /* UIImage+MultiFormat.m in Sources */,
 				B994C24C1B7606C5003577FD /* UIImageView+HighlightedWebCache.m in Sources */,
 				B9FA9C621B75A22C00E1B03F /* AppDelegate.m in Sources */,
-				0A08F58E1B8066A700CB41E5 /* mineViewController.m in Sources */,
 				B994C2491B7606C5003577FD /* UIImage+GIF.m in Sources */,
 				B994C2431B7606C5003577FD /* SDWebImageDecoder.m in Sources */,
 				B994C1FA1B7604C6003577FD /* NSString+MJExtension.m in Sources */,
@@ -1377,6 +1372,7 @@
 				B994C24B1B7606C5003577FD /* UIImage+WebP.m in Sources */,
 				B994C2511B7661C3003577FD /* MyFlowLayOut.m in Sources */,
 				B994C2391B7606C5003577FD /* AFNetworkReachabilityManager.m in Sources */,
+				B996B76B1B832399007244A3 /* mineViewController.m in Sources */,
 				B9C2D9131B7C0832005414F4 /* ClassifyModel.m in Sources */,
 				0A89D4021B75A641003EAFB2 /* MJRefreshComponent.m in Sources */,
 				B994C2441B7606C5003577FD /* SDWebImageDownloader.m in Sources */,

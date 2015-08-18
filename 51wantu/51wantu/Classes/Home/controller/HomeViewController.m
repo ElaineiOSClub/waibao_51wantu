@@ -42,14 +42,14 @@ static NSString *cellID = @"cell";
     if(![[TaeSession sharedInstance] isLogin]){
         [loginService showLogin:self successCallback:^(TaeSession *session){
             NSString *tip=[NSString stringWithFormat:@"登录的用户信息:%@,登录时间:%@",[session getUser],[session getLoginTime]];
-            NSLog(@"%@", tip);
+            myLog(@"%@", tip);
         } failedCallback:^(NSError *error){
-            NSLog(@"登录失败");
+            myLog(@"登录失败");
         }];
     }else{
         TaeSession *session=[TaeSession sharedInstance];
         NSString *tip=[NSString stringWithFormat:@"登录的用户信息:%@,登录时间:%@",[session getUser],[session getLoginTime]];
-        NSLog(@"%@", tip);
+        myLog(@"%@", tip);
     }
 }
 
@@ -255,6 +255,7 @@ static NSString *cellID = @"cell";
     BaseDataModel *model = self.arrayList[indexPath.row
                                           ];
     UIWebViewController *vc = [[UIWebViewController alloc] init];
+    vc.itemID = model.ID;
     vc.urlStr = model.item_url;
     
     [self.navigationController pushViewController:vc animated:YES];

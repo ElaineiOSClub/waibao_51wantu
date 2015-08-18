@@ -16,6 +16,7 @@
 + (void)GetHttpToServerWith:(NSString *)urlString  WithParameters:(NSDictionary *)paras success:(void (^) (NSDictionary *dic))result error:(void (^) (NSError *error))error_
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
     [manager GET:urlString parameters:paras success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        NSLog(@"JSON: %@", responseObject);
         
@@ -36,6 +37,8 @@
     
     
     [manager POST:urlString parameters:paras success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        myLog(@"%@",operation.response.allHeaderFields[@"Set-Cookie"]);
         
         result(responseObject);
         

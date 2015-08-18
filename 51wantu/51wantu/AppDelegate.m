@@ -60,7 +60,7 @@
     
     loginViewController *login = [[loginViewController alloc] init];
     
-    self.window.rootViewController = login;
+    self.window.rootViewController = drawerController;
     [self.window makeKeyAndVisible];
     return YES;
 }

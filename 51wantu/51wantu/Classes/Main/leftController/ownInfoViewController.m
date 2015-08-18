@@ -51,17 +51,17 @@
 
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
-    [self colseDrawerGesture];
-    [[Util getAppDelegate].drawerController setMaximumLeftDrawerWidth:kScreen_Width +10];
-    
+//    [self colseDrawerGesture];
+//    [[Util getAppDelegate].drawerController setMaximumLeftDrawerWidth:kScreen_Width +10];
 
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self openDrawerGesture];
-    [[Util getAppDelegate].drawerController setMaximumLeftDrawerWidth:kScreen_Width -40*kScaleInWith];
+    [self.navigationController setNavigationBarHidden:NO];
+//    [self openDrawerGesture];
+//    [[Util getAppDelegate].drawerController setMaximumLeftDrawerWidth:kScreen_Width -40*kScaleInWith];
 }
 
 #pragma mark - Table view data source

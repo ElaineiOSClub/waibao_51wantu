@@ -7,6 +7,7 @@
 //
 
 #import "UIViewController+PushNotification.h"
+#import "Util.h"
 
 @implementation UIViewController (PushNotification)
 
@@ -15,6 +16,7 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:aSelector name:kReloadDataForClassifyNotification object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(push:) name:@"kPushLeftVC" object:nil];
 }
 
 #pragma mark - 移除通知
@@ -24,6 +26,15 @@
 }
 
 
+- (void)push:(NSNotification *)notification
+{
+    [[Util getAppDelegate].drawerController closeDrawerAnimated:YES completion:^(BOOL finished) {
+        Class className = notification.userInfo[@"class"];
+        [self.navigationController pushViewController:[[className alloc] init] animated:YES];
+    }];
+    
+    
+}
 
 - (void)login
 {

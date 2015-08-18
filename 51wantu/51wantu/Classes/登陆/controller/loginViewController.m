@@ -31,6 +31,7 @@
     self.title = @"登录";
     // Do any additional setup after loading the view from its nib.
     [self.accountTextF becomeFirstResponder];
+
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -69,8 +70,19 @@
     [dict setValue:self.pwdTextF.text forKey:@"password"];
     
     [dict setValue:@"www.baidu.com" forKey:@"gourl"];
+    
+    
+    
+   
+    
+    
 
 [HTTPService POSTHttpToServerWith:@"http://www.51wantu.com/api/api.php?action=userlogin" WithParameters:dict success:^(NSDictionary *dic) {
+    
+    
+    
+    
+    
     myLog(@"dic =====,%@",dic);
     [MBProgressHUD hideHUD];
     NSString *successStr = [dic objectForKey:@"Success"];

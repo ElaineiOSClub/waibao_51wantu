@@ -10,4 +10,5 @@
 
 @interface UIWebViewController : UIViewController
 @property (nonatomic, copy) NSString *urlStr;
+@property (nonatomic, copy) NSString *itemID;
 @end

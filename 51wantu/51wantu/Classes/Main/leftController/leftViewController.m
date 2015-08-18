@@ -121,9 +121,11 @@
 
 - (IBAction)ownInfoBtnClick:(leftMainBtn *)sender {
     
-    ownInfoViewController *ownInfo = [[ownInfoViewController alloc]init];
-
-    [self.navigationController pushViewController:ownInfo animated:YES];
+//    ownInfoViewController *ownInfo = [[ownInfoViewController alloc]init];
+//
+//    [self.navigationController pushViewController:ownInfo animated:YES];
+//  
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"kPushLeftVC" object:nil userInfo:@{@"class":[ownInfoViewController class]}];
     
 }
 

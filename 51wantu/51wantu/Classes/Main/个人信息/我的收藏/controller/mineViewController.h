@@ -2,7 +2,7 @@
 //  mineViewController.h
 //  51wantu
 //
-//  Created by kevin on 15/8/16.
+//  Created by elaine on 15/8/18.
 //  Copyright (c) 2015年 elaine. All rights reserved.
 //
 
