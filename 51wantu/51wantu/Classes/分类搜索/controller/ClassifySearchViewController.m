@@ -44,37 +44,6 @@ static NSString *cellID = @"cell";
 }
 
 
-- (NSString *)encodeToPercentEscapeString: (NSString *) input
-{
-    NSString*
-    outputStr = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(
-                                                                             
-                                                                             NULL, /* allocator */
-                                                                             
-                                                                             (__bridge CFStringRef)input,
-                                                                             
-                                                                             NULL, /* charactersToLeaveUnescaped */
-                                                                             
-                                                                             (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-                                                                             
-                                                                             kCFStringEncodingUTF8);
-    
-    
-    return
-    outputStr;
-}
-- (NSString *)decodeFromPercentEscapeString: (NSString *) input
-{
-    NSMutableString *outputStr = [NSMutableString stringWithString:input];
-    [outputStr replaceOccurrencesOfString:@"+"
-                               withString:@""
-                                  options:NSLiteralSearch
-                                    range:NSMakeRange(0,
-                                                      [outputStr length])];
-    
-    return
-    [outputStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-}
 
 
 #pragma mark - event Response
@@ -85,6 +54,8 @@ static NSString *cellID = @"cell";
     //[[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20&keyword=%@",self.currentPage,self.text] stringByAddingPercentEscapesUsingEncoding:NSUTF16StringEncoding]
     
 //    NSString *xxx = [[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20&keyword=%@",self.currentPage,self.text] stringByAddingPercentEscapesUsingEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)];
+    
+    myLog(@"%@",[[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20&keyword=%@",self.currentPage,self.text] stringByAddingPercentEscapesUsingEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)]);
     [HttpTool httpToolGet:[[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20&keyword=%@",self.currentPage,self.text] stringByAddingPercentEscapesUsingEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.model = [BaseDatasModel objectWithKeyValues:responseObject];
         if (self.arrayList) [self.arrayList removeAllObjects];
@@ -113,7 +84,10 @@ static NSString *cellID = @"cell";
     self.collectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         // 进入刷新状态后会自动调用这个block
         self.currentPage++;
-        [HttpTool httpToolGet:[[NSString stringWithFormat:@"http://www.51wantu.com/?action=gethomedata&page=%ld&pagesize=20&keyword=%@",self.currentPage,self.text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+
+        
+        [HttpTool httpToolGet:[[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20&keyword=%@",self.currentPage,self.text] stringByAddingPercentEscapesUsingEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             BaseDatasModel *model = [BaseDatasModel objectWithKeyValues:responseObject];
             
             
@@ -133,6 +107,7 @@ static NSString *cellID = @"cell";
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             // 结束刷新
+            
             [weakSelf.collectionView.footer endRefreshing];
             
         }];
@@ -239,6 +214,11 @@ static NSString *cellID = @"cell";
     }
     return _arrayList;
 }
+
+//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+//{
+//    [self.searchBar resignFirstResponder];
+//}
 
 
 

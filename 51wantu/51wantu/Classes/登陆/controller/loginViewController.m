@@ -10,6 +10,7 @@
 #import "HTTPService.h"
 #import "MBProgressHUD+MJ.h"
 #import "Util.h"
+#import "NewPresonViewController.h"
 
 @interface loginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *accountTextF;
@@ -31,6 +32,12 @@
     self.title = @"登录";
     // Do any additional setup after loading the view from its nib.
     [self.accountTextF becomeFirstResponder];
+    
+    
+    //左侧关闭
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"close"] style:UIBarButtonItemStyleDone target:self action:@selector(closeClick:)];
+    //右侧注册
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"注册" style:UIBarButtonItemStylePlain target:self action:@selector(registerClick:)];
 
 }
 
@@ -111,6 +118,16 @@
 - (IBAction)loginBtnClick:(UIButton *)sender{
     [self signUpMethod];
     
+}
+
+- (void)closeClick:(UIButton *)button
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)registerClick:(UIButton *)button
+{
     
+    [self.navigationController pushViewController:[[NewPresonViewController alloc] init] animated:YES];
 }
 @end

@@ -15,6 +15,9 @@
 #import "ownAddViewController.h"
 #import "pointViewController.h"
 
+
+#import "loginViewController.h"
+
 @interface ownInfoViewController ()<UITableViewDataSource,UITableViewDelegate>
 - (IBAction)backBtnClick:(UIButton *)sender;
 
@@ -104,4 +107,13 @@
 - (IBAction)backBtnClick:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (IBAction)loginClick:(UIButton *)sender {
+    loginViewController *loginVC = [[loginViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    
+
+    [self presentViewController:nav animated:YES completion:nil];
+}
+
 @end
