@@ -131,17 +131,6 @@ static NSString *cellID = @"cell";
    
 }
 
-//- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-//{
-//    if (searchText.length) {
-//        [self.view addSubview:self.collectionView];
-//        [self loadData];
-//        [self pullUpReRefreshing];
-//    } else {
-//        [self.collectionView removeFromSuperview];
-//    }
-//}
-
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     if (searchBar.text.length) {
@@ -215,12 +204,17 @@ static NSString *cellID = @"cell";
     return _arrayList;
 }
 
-//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-//{
-//    [self.searchBar resignFirstResponder];
-//}
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.searchBar becomeFirstResponder];
+}
 
-
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self.searchBar resignFirstResponder];
+}
 
 
 @end

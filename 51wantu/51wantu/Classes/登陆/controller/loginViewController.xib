@@ -110,6 +110,15 @@
                         <constraint firstItem="QCD-NY-y1g" firstAttribute="centerY" secondItem="gIf-co-STo" secondAttribute="centerY" id="omy-r1-c15"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uar-5Z-9pw">
+                    <rect key="frame" x="95" y="538" width="130" height="30"/>
+                    <state key="normal" backgroundImage="tao_login">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="taobaoClick:" destination="-1" eventType="touchUpInside" id="Cme-Cm-Qec"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -117,8 +126,10 @@
                 <constraint firstItem="NZ7-uL-qdM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="7Pg-Ob-fVD"/>
                 <constraint firstAttribute="trailing" secondItem="Anu-QC-p3j" secondAttribute="trailing" constant="15" id="Ub1-EW-P2S"/>
                 <constraint firstItem="9Em-LE-0dS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="VGK-pL-hs0"/>
+                <constraint firstAttribute="bottom" secondItem="uar-5Z-9pw" secondAttribute="bottom" id="WRi-dV-j84"/>
                 <constraint firstAttribute="trailing" secondItem="9Em-LE-0dS" secondAttribute="trailing" constant="30" id="ZdE-gq-tIJ"/>
                 <constraint firstAttribute="trailing" secondItem="NZ7-uL-qdM" secondAttribute="trailing" id="djF-Sk-aSP"/>
+                <constraint firstAttribute="centerX" secondItem="uar-5Z-9pw" secondAttribute="centerX" id="rsp-gJ-L4T"/>
                 <constraint firstItem="Anu-QC-p3j" firstAttribute="top" secondItem="NZ7-uL-qdM" secondAttribute="bottom" constant="5" id="x5B-ZT-l1p"/>
                 <constraint firstItem="9Em-LE-0dS" firstAttribute="top" secondItem="Anu-QC-p3j" secondAttribute="bottom" constant="10" id="z1G-sw-1Zq"/>
             </constraints>
@@ -129,5 +140,6 @@
     <resources>
         <image name="Tao800AccountLock" width="23" height="23"/>
         <image name="Tao800AccountUserName" width="23" height="23"/>
+        <image name="tao_login" width="130" height="30"/>
     </resources>
 </document>

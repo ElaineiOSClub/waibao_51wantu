@@ -12,6 +12,10 @@
 #import "Util.h"
 #import "NewPresonViewController.h"
 
+#import <TAESDK/TAESDK.h>
+#import <ALBBLoginSDK/ALBBLoginService.h>
+
+
 @interface loginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *accountTextF;
 @property (weak, nonatomic) IBOutlet UITextField *pwdTextF;
@@ -130,4 +134,37 @@
     
     [self.navigationController pushViewController:[[NewPresonViewController alloc] init] animated:YES];
 }
+
+- (IBAction)taobaoClick:(id)sender {
+    //sdk初始化
+    [[TaeSDK sharedInstance] asyncInit:^{
+        myLog(@"初始化成功");
+        [self showLogin];
+        
+
+        
+        
+        
+     
+    } failedCallback:^(NSError *error) {
+        myLog(@"初始化失败:%@",error);
+    }];
+}
+
+-(void)showLogin{
+    id<ALBBLoginService> loginService=[[TaeSDK sharedInstance]getService:@protocol(ALBBLoginService)];
+    if(![[TaeSession sharedInstance] isLogin]){
+        [loginService showLogin:self successCallback:^(TaeSession *session){
+            NSString *tip=[NSString stringWithFormat:@"登录的用户信息:%@,登录时间:%@",[session getUser],[session getLoginTime]];
+            myLog(@"%@", tip);
+        } failedCallback:^(NSError *error){
+            myLog(@"登录失败");
+        }];
+    }else{
+        TaeSession *session=[TaeSession sharedInstance];
+        NSString *tip=[NSString stringWithFormat:@"登录的用户信息:%@,登录时间:%@",[session getUser],[session getLoginTime]];
+        myLog(@"%@", tip);
+    }
+}
+
 @end

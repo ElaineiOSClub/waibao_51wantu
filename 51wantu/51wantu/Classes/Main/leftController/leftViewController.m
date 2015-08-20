@@ -133,4 +133,6 @@
 }
 
 - (IBAction)pointBtnClick:(leftMainBtn *)sender {
-}@end
+}
+
+@end

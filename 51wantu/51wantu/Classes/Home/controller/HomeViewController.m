@@ -37,21 +37,7 @@ static NSString *cellID = @"cell";
 
 @implementation HomeViewController
 
--(void)showLogin{
-    id<ALBBLoginService> loginService=[[TaeSDK sharedInstance]getService:@protocol(ALBBLoginService)];
-    if(![[TaeSession sharedInstance] isLogin]){
-        [loginService showLogin:self successCallback:^(TaeSession *session){
-            NSString *tip=[NSString stringWithFormat:@"登录的用户信息:%@,登录时间:%@",[session getUser],[session getLoginTime]];
-            myLog(@"%@", tip);
-        } failedCallback:^(NSError *error){
-            myLog(@"登录失败");
-        }];
-    }else{
-        TaeSession *session=[TaeSession sharedInstance];
-        NSString *tip=[NSString stringWithFormat:@"登录的用户信息:%@,登录时间:%@",[session getUser],[session getLoginTime]];
-        myLog(@"%@", tip);
-    }
-}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

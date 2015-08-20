@@ -29,13 +29,8 @@
     // 状态栏变色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
-//    //sdk初始化
-//    [[TaeSDK sharedInstance] asyncInit:^{
-//        NSLog(@"初始化成功");
-//    } failedCallback:^(NSError *error) {
-//        NSLog(@"初始化失败:%@",error);
-//    }];
-//    
+
+//
     
 //    loginViewController *newOne = [[loginViewController alloc] init];
     
