@@ -9,14 +9,16 @@
 #import "ownBaseInfoViewController.h"
 #import "UIViewController+MMneed.h"
 #import "Util.h"
+#import "FDActionSheet.h"
 
-@interface ownBaseInfoViewController ()<UITableViewDataSource,UITableViewDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
+@interface ownBaseInfoViewController ()<UITableViewDataSource,UITableViewDelegate,UIPickerViewDataSource,UIPickerViewDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *ownTableview;
 @property (nonatomic,strong) NSArray *infoArr;
 @property (nonatomic,strong) NSArray *sexArr;
 @property (nonatomic,weak) UIPickerView *sexPicker;
 @property (nonatomic,weak) UIPickerView *addPicker;
 @property (nonatomic,strong) UIDatePicker *dataPick;
+@property (nonatomic,strong) UIImagePickerController *imagePicker;;
 @end
 
 @implementation ownBaseInfoViewController
@@ -102,6 +104,14 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSInteger row = [indexPath row];
+    
+    
+    if (row==0) {
+        [self actionSheet];
+    }
+    
+    
+    
     if (row==2) {
         self.dataPick.frame = CGRectMake(0, kScreen_Height, 0, 0);
         [UIView animateWithDuration:.5 animations:^{
@@ -122,8 +132,92 @@
         
     }
     
+}
+#pragma mark-actionSheet
+- (void)actionSheet
+{
+    FDActionSheet *sheet = [[FDActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"拍照", @"从相册选取", nil];
+    [sheet show];
+}
+
+- (void)actionSheet:(FDActionSheet *)sheet clickedButtonIndex:(NSInteger)buttonIndex
+{
+    
+    switch (buttonIndex) {
+        case 1:
+            [self pickImageFromAlbum];
+            break;
+        case 0:
+            [self pickImageFromCamera];
+            break;
+        default:
+            break;
+    }
+    
+}
+
+#pragma mark-imagePicker
+- (void)pickImageFromAlbum
+{
+    _imagePicker = [[UIImagePickerController alloc] init];
+    _imagePicker.delegate = self;
+    _imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    _imagePicker.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    _imagePicker.allowsEditing = YES;
+    
+    [self presentViewController:_imagePicker animated:YES completion:nil];
+}
+
+- (void)pickImageFromCamera
+{
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [Util showAlertWithTitle:@"提示" msg:@"摄像头不可用"];
+        return;
+    }
+    _imagePicker = [[UIImagePickerController alloc] init];
+    _imagePicker.delegate = self;
+    
+    _imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    _imagePicker.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    _imagePicker.allowsEditing = YES;
+    
+    [self presentViewController:_imagePicker animated:YES completion:nil];
+}
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    
+    UIImage *image= [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera)
+    {
+        UIImageWriteToSavedPhotosAlbum (image, nil, nil , nil);    //保存到library
+    }
+    
+    CGSize imagesize = image.size;
+    imagesize.height =200;
+    imagesize.width =200;
+    //对图片大小进行压缩--
+    image = [self imageWithImage:image scaledToSize:imagesize];
+    
+    NSData *imageData = UIImageJPEGRepresentation(image, 1);
+
+    [[NSUserDefaults standardUserDefaults]setObject:imageData forKey:@"imageData"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+//压缩图片大小
+- (UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize
+{
+    UIGraphicsBeginImageContext(newSize);
     
     
+    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 
 #pragma mark pickView delegate and datasoure

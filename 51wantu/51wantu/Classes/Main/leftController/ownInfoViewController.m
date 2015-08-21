@@ -54,6 +54,12 @@
 
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+    
+    NSData *headImageData = [[NSUserDefaults standardUserDefaults]objectForKey:@"imageData"];
+    if (headImageData) {
+        UIImage *headImage = [[UIImage alloc]initWithData:headImageData];
+        [self.logInBtn setImage:headImage forState:UIControlStateNormal];
+    }
 //    [self colseDrawerGesture];
 //    [[Util getAppDelegate].drawerController setMaximumLeftDrawerWidth:kScreen_Width +10];
 
