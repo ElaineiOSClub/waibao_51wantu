@@ -60,6 +60,7 @@
 		0AA85EFC1B79D17100DD855C /* UIViewController+MMneed.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA85EFB1B79D17100DD855C /* UIViewController+MMneed.m */; };
 		0AD47F051B78F92500B0212A /* leftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD47F031B78F92500B0212A /* leftViewController.m */; };
 		0AD47F061B78F92500B0212A /* leftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AD47F041B78F92500B0212A /* leftViewController.xib */; };
+		0ADA8C7C1B8767E700673AA7 /* FDActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA8C7B1B8767E700673AA7 /* FDActionSheet.m */; };
 		B915CFF61B8007F000A9870F /* BrandBreviaryList.m in Sources */ = {isa = PBXBuildFile; fileRef = B915CFF51B8007F000A9870F /* BrandBreviaryList.m */; };
 		B915CFFA1B800B5E00A9870F /* BrandHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B915CFF81B800B5E00A9870F /* BrandHomeCell.m */; };
 		B915CFFB1B800B5E00A9870F /* BrandHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B915CFF91B800B5E00A9870F /* BrandHomeCell.xib */; };
@@ -251,6 +252,8 @@
 		0AD47F021B78F92500B0212A /* leftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = leftViewController.h; sourceTree = "<group>"; };
 		0AD47F031B78F92500B0212A /* leftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = leftViewController.m; sourceTree = "<group>"; };
 		0AD47F041B78F92500B0212A /* leftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = leftViewController.xib; sourceTree = "<group>"; };
+		0ADA8C7A1B8767E700673AA7 /* FDActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDActionSheet.h; sourceTree = "<group>"; };
+		0ADA8C7B1B8767E700673AA7 /* FDActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDActionSheet.m; sourceTree = "<group>"; };
 		B915CFF41B8007F000A9870F /* BrandBreviaryList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandBreviaryList.h; sourceTree = "<group>"; };
 		B915CFF51B8007F000A9870F /* BrandBreviaryList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandBreviaryList.m; sourceTree = "<group>"; };
 		B915CFF71B800B5E00A9870F /* BrandHomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandHomeCell.h; sourceTree = "<group>"; };
@@ -521,6 +524,7 @@
 		0A89D3AF1B75A641003EAFB2 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				0ADA8C791B8767E700673AA7 /* FDActionSheet */,
 				B996B74B1B81C7BC007244A3 /* OneSDK */,
 				B994C2001B7606C5003577FD /* AFNetworking */,
 				B994C2141B7606C5003577FD /* SDWebImage */,
@@ -753,6 +757,15 @@
 				0AA36D351B802443007A5084 /* ownInfoViewController.xib */,
 			);
 			path = leftController;
+			sourceTree = "<group>";
+		};
+		0ADA8C791B8767E700673AA7 /* FDActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				0ADA8C7A1B8767E700673AA7 /* FDActionSheet.h */,
+				0ADA8C7B1B8767E700673AA7 /* FDActionSheet.m */,
+			);
+			path = FDActionSheet;
 			sourceTree = "<group>";
 		};
 		B994C19C1B75AEEF003577FD /* Category */ = {
@@ -1317,6 +1330,7 @@
 				0A89D4151B75A641003EAFB2 /* MMDrawerVisualState.m in Sources */,
 				0A89D4121B75A641003EAFB2 /* UIView+MJExtension.m in Sources */,
 				0AA085F11B76630A00475429 /* Util.m in Sources */,
+				0ADA8C7C1B8767E700673AA7 /* FDActionSheet.m in Sources */,
 				B994C1F81B7604C6003577FD /* NSObject+MJKeyValue.m in Sources */,
 				B994C1A31B75AEEF003577FD /* UIBarButtonItem+Extension.m in Sources */,
 				0A08F58C1B8066A700CB41E5 /* ownAddViewController.m in Sources */,

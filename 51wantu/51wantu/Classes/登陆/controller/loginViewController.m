@@ -82,12 +82,6 @@
     
     //[dict setValue:@"www.baidu.com" forKey:@"gourl"];
     
-    
-    
-   
-    
-    
-
 [HTTPService POSTHttpToServerWith:@"http://www.51wantu.com/api/api.php?action=userlogin" WithParameters:dict success:^(NSDictionary *dic) {
     
     
@@ -130,7 +124,10 @@
     }
     
 } error:^(NSError *error) {
+    myLog(@"登陆错误");
     [MBProgressHUD hideHUD];
+    [Util showAlertWithTitle:@"提示" msg:@"网络好像有问题"];
+
     
 }];
 
