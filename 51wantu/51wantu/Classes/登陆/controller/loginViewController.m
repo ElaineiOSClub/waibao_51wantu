@@ -80,7 +80,7 @@
     [dict setValue:self.accountTextF.text forKey:@"account"];
     [dict setValue:self.pwdTextF.text forKey:@"password"];
     
-    [dict setValue:@"www.baidu.com" forKey:@"gourl"];
+    //[dict setValue:@"www.baidu.com" forKey:@"gourl"];
     
     
     
@@ -91,6 +91,26 @@
 [HTTPService POSTHttpToServerWith:@"http://www.51wantu.com/api/api.php?action=userlogin" WithParameters:dict success:^(NSDictionary *dic) {
     
     
+    [NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=getfavlist&page=1&pagesize=20&token=%@", dic[@"token"]];
+    
+    
+    [HTTPService GetHttpToServerWith:@"http://www.51wantu.com/api/api.php?action=getfavlist&page=1&pagesize=20" WithParameters:nil success:^(NSDictionary *dic) {
+        
+          myLog(@"%@",dic);
+        
+    } error:^(NSError *error) {
+        
+    }];
+    
+    
+    [HTTPService GetHttpToServerWith:@"http://www.51wantu.com/api/api.php?action=getuserinfo" WithParameters:nil success:^(NSDictionary *dic) {
+        
+        myLog(@"%@",dic);
+        
+        
+    } error:^(NSError *error) {
+        
+    }];
     
     
     

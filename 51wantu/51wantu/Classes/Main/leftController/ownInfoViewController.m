@@ -47,24 +47,18 @@
     pointViewController *point = [[pointViewController alloc]init];
     
     self.pushArr = [[NSArray alloc]initWithObjects:base,add,change,point,mine, nil];
-    // Do any additional setup after loading the view from its nib.
+    
 }
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
-//    [self colseDrawerGesture];
-//    [[Util getAppDelegate].drawerController setMaximumLeftDrawerWidth:kScreen_Width +10];
-
 }
 
--(void)viewWillDisappear:(BOOL)animated
+- (void)viewDidDisappear:(BOOL)animated
 {
-    [super viewWillDisappear:animated];
+    [super viewDidDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
-//    [self openDrawerGesture];
-//    [[Util getAppDelegate].drawerController setMaximumLeftDrawerWidth:kScreen_Width -40*kScaleInWith];
 }
 
 #pragma mark - Table view data source
