@@ -21,6 +21,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    //NSURL *url = [NSURL URLWithString:self.urlStr];
+    myLog(@"%@",self.urlStr);
     NSURL *url = [NSURL URLWithString:self.urlStr];
     webView.delegate = self;
     [self.view addSubview:webView];

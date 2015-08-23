@@ -64,7 +64,7 @@
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = kUIColorFromRGB(0x838282);
     NSMutableDictionary *selectTextAttrs = [NSMutableDictionary dictionary];
-    selectTextAttrs[NSForegroundColorAttributeName] = kUIColorFromRGB(0x1ac785);
+    selectTextAttrs[NSForegroundColorAttributeName] = RGBA(252, 0, 67, 1);
     
     [childVc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     

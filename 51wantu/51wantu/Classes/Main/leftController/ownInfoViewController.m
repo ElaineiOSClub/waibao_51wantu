@@ -21,6 +21,7 @@
 @interface ownInfoViewController ()<UITableViewDataSource,UITableViewDelegate>
 - (IBAction)backBtnClick:(UIButton *)sender;
 
+@property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
 @property (weak, nonatomic) IBOutlet UIButton *logInBtn;
 @property (weak, nonatomic) IBOutlet UITableView *ownInfoTabview;
 @property (nonatomic,strong) NSArray *accountSettingArr;
@@ -31,6 +32,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.headerImageView.backgroundColor = RGBA(253,36,109,1);
     
     self.ownInfoTabview.tableFooterView = [[UIView alloc]init];
     [self.logInBtn setTitle:@"登录/注册" forState:UIControlStateNormal];
@@ -55,11 +58,13 @@
     [self.navigationController setNavigationBarHidden:YES];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewDidDisappear:animated];
+    [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
 }
+
+
 
 #pragma mark - Table view data source
 
@@ -104,10 +109,10 @@
 
 - (IBAction)loginClick:(UIButton *)sender {
     loginViewController *loginVC = [[loginViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
-    
 
-    [self presentViewController:nav animated:YES completion:nil];
+    [self.navigationController pushViewController:loginVC animated:YES];
+
+    
 }
 
 @end
