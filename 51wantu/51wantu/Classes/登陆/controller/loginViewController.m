@@ -91,30 +91,36 @@
     myLog(@"dic =====,%@",dic);
     
     
-    [HTTPService GetHttpToServerWith:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=getfavlist&page=1&pagesize=20&token=%@", dic[@"token"]] WithParameters:nil success:^(NSDictionary *dic) {
-        
-        myLog(@"%@",dic);
-        
-    } error:^(NSError *error) {
-        
-    }];
+//    [HTTPService GetHttpToServerWith:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=getfavlist&page=1&pagesize=20&token=%@", dic[@"token"]] WithParameters:nil success:^(NSDictionary *dic) {
+//        
+//        myLog(@"%@",dic);
+//        
+//    } error:^(NSError *error) {
+//        
+//    }];
     
-    NSString *token = [NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=getuserinfo&token=%@",dic[@"token"]];
-    [HTTPService GetHttpToServerWith:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=getuserinfo&token=%@",dic[@"token"]] WithParameters:nil success:^(NSDictionary *dic) {
-        
-        myLog(@"%@",dic);
-        
-        
-    } error:^(NSError *error) {
-        
-    }];
+//    NSString *token = [NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=getuserinfo&token=%@",dic[@"token"]];
+//    [HTTPService GetHttpToServerWith:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=getuserinfo&token=%@",dic[@"token"]] WithParameters:nil success:^(NSDictionary *dic) {
+//        
+//        myLog(@"%@",dic);
+//        
+//        
+//    } error:^(NSError *error) {
+//        
+//    }];
     
 
     [MBProgressHUD hideHUD];
+    NSString *token = [dic objectForKey:@"token"];
     NSString *successStr = [dic objectForKey:@"Success"];
     NSString *codeStr = [dic objectForKey:@"Code"];
     if ([successStr intValue] ==1) {
         [MBProgressHUD showMessage:@"登录成功"];
+        
+        [[NSUserDefaults standardUserDefaults]setObject:token forKey:KEY_TOKEN];
+        [[NSUserDefaults standardUserDefaults]setObject:self.accountTextF.text  forKey:KEY_USERNAME];
+        [[NSUserDefaults standardUserDefaults]setObject:self.pwdTextF.text forKey:KEY_PASSWORD];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     }else{
         if ([codeStr intValue] ==105) {
             [Util showAlertWithTitle:@"提示" msg:@"密码错误"];
@@ -128,8 +134,6 @@
     myLog(@"登陆错误");
     [MBProgressHUD hideHUD];
     [Util showAlertWithTitle:@"提示" msg:@"网络好像有问题"];
-
-    
 }];
 
 }

@@ -29,7 +29,6 @@
     [self colseDrawerGesture];
     [[Util getAppDelegate].drawerController setMaximumLeftDrawerWidth:kScreen_Width +10];
     
-    
 }
 
 -(void)viewWillDisappear:(BOOL)animated

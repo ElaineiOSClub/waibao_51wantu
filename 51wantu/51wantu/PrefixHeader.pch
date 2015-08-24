@@ -28,6 +28,11 @@
 
 #define kScaleInWith ([UIScreen mainScreen].bounds.size.width/320.0)
 
+/*HTTP*/
+#define KEY_USERNAME @"userName"//用户是否登陆
+#define KEY_PASSWORD @"userPWS"//用户密码
+#define KEY_TOKEN @"myToken"//用户密码
+
 //RGB from string
 #define kUIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
