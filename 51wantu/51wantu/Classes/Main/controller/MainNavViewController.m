@@ -8,6 +8,8 @@
 
 #import "MainNavViewController.h"
 #import "UIBarButtonItem+Extension.h"
+#import "MMDrawerController.h"
+#import "Util.h"
 
 @interface MainNavViewController ()
 
@@ -42,16 +44,28 @@
         //设置返回按钮样式
         viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem initWithTarget:self action:@selector(back) image:@"white_backBtn_normal" highImage:@"white_backBtn_selected"];
     }
-    //   else {
-    //       //这里是导航栏下的根控制器
-    //       viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem initWithTarget:self action:@selector(presentLeftMenuViewController:) image:@"nav_home_nomal" highImage:@"nav_home_high"];
-    //   }
+       else {
+           //这里是导航栏下的根控制器
+           viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem initWithTarget:self action:@selector(leftBtnClick) image:@"zhe_menu" highImage:@"zhe_menu_selected"];
+       }
     [super pushViewController:viewController animated:animated];
 }
 
 - (void)back
 {
     [self popViewControllerAnimated:YES];
+    
+}
+
+-(void)leftBtnClick
+{
+    UIViewController * controller = [Util getAppDelegate].window.rootViewController;
+    if ([controller isKindOfClass:[MMDrawerController class]]) {
+        MMDrawerController * drawerController = (MMDrawerController *)controller;
+        [drawerController openDrawerSide:MMDrawerSideLeft animated:YES completion:^(BOOL finished) {
+        }];
+    }
+
 }
 
 @end
