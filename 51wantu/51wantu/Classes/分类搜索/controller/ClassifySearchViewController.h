@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ClassifySearchViewController : UIViewController
-
+@property (nonatomic, copy) NSString *text;
 @end

@@ -12,6 +12,7 @@
 
 
 #import "ClassifyDetailViewController.h"
+#import "ClassifySearchViewController.h"
 
 #import "ClassifyModel.h"
 
@@ -24,6 +25,7 @@ static NSString *cellID = @"cellID";
 @interface ClassifyHomeController ()<UISearchBarDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UISearchBar *searchBar;
+@property (nonatomic, strong) ClassifySearchViewController *classifySearchViewController;
 
 @end
 
@@ -37,6 +39,9 @@ static NSString *cellID = @"cellID";
     self.searchBar.placeholder = @"搜索";
     self.searchBar.delegate = self;
     self.navigationItem.titleView = self.searchBar;
+    
+    
+    self.navigationItem.leftBarButtonItem = nil;
 }
 
 
@@ -85,14 +90,14 @@ static NSString *cellID = @"cellID";
     
 }
 
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
-{
-    
-}
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-   
+    [self.classifySearchViewController.view removeFromSuperview];
+    [self.view addSubview:self.classifySearchViewController.view];
+    
+    self.classifySearchViewController.text = searchBar.text;
+
 }
 
 
@@ -100,6 +105,9 @@ static NSString *cellID = @"cellID";
 {
     [searchBar setShowsCancelButton:NO animated:YES];
     [searchBar resignFirstResponder];
+    [self.classifySearchViewController.view removeFromSuperview];
+    searchBar.text = @"";
+    
 }
 
 
@@ -116,6 +124,17 @@ static NSString *cellID = @"cellID";
     }
     return _collectionView;
 }
+
+- (ClassifySearchViewController *)classifySearchViewController
+{
+    if (!_classifySearchViewController) {
+        _classifySearchViewController = [[ClassifySearchViewController alloc] init];
+        [self addChildViewController:_classifySearchViewController];
+    }
+    return _classifySearchViewController;
+}
+
+
 
 
 

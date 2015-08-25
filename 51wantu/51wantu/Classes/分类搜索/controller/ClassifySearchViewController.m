@@ -21,13 +21,11 @@
 
 static NSString *cellID = @"cell";
 
-@interface ClassifySearchViewController ()<UISearchBarDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
-@property (nonatomic, strong) UISearchBar *searchBar;
+@interface ClassifySearchViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) BaseDatasModel *model;
 @property (nonatomic, strong) NSMutableArray *arrayList;
 @property (nonatomic, assign) NSInteger currentPage;
-@property (nonatomic, copy) NSString *text;
 @end
 
 @implementation ClassifySearchViewController
@@ -36,14 +34,17 @@ static NSString *cellID = @"cell";
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.collectionView];
-    self.searchBar = [[UISearchBar alloc] init];
-    self.searchBar.placeholder = @"搜索";
-    self.searchBar.delegate = self;
-    self.navigationItem.titleView = self.searchBar;
-    //
+
 }
 
 
+- (void)setText:(NSString *)text
+{
+    _text = [text copy];
+    [self loadData];
+    
+    [self pullUpReRefreshing];
+}
 
 
 #pragma mark - event Response
@@ -51,12 +52,8 @@ static NSString *cellID = @"cell";
 {
     self.currentPage = 1;
     
-    //[[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20&keyword=%@",self.currentPage,self.text] stringByAddingPercentEscapesUsingEncoding:NSUTF16StringEncoding]
-    
-//    NSString *xxx = [[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20&keyword=%@",self.currentPage,self.text] stringByAddingPercentEscapesUsingEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)];
-    
-    myLog(@"%@",[[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20&keyword=%@",self.currentPage,self.text] stringByAddingPercentEscapesUsingEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)]);
-    [HttpTool httpToolGet:[[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20&keyword=%@",self.currentPage,self.text] stringByAddingPercentEscapesUsingEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    myLog(@"%@",[[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20&keyword=%@",self.currentPage,_text] stringByAddingPercentEscapesUsingEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)]);
+    [HttpTool httpToolGet:[[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20&keyword=%@",self.currentPage,_text] stringByAddingPercentEscapesUsingEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.model = [BaseDatasModel objectWithKeyValues:responseObject];
         if (self.arrayList) [self.arrayList removeAllObjects];
         
@@ -85,9 +82,8 @@ static NSString *cellID = @"cell";
         // 进入刷新状态后会自动调用这个block
         self.currentPage++;
         
-
         
-        [HttpTool httpToolGet:[[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20&keyword=%@",self.currentPage,self.text] stringByAddingPercentEscapesUsingEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [HttpTool httpToolGet:[[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20&keyword=%@",self.currentPage,_text] stringByAddingPercentEscapesUsingEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             BaseDatasModel *model = [BaseDatasModel objectWithKeyValues:responseObject];
             
             
@@ -116,38 +112,6 @@ static NSString *cellID = @"cell";
 
 
 
-#pragma mark - UISearchBarDelegate
-
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
-{
-    [searchBar setShowsCancelButton:YES animated:YES];
-    UIButton *btn=[searchBar valueForKey:@"_cancelButton"];
-    [btn setTitle:@"取消" forState:UIControlStateNormal];
-    
-}
-
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
-{
-   
-}
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    if (searchBar.text.length) {
-        self.text = searchBar.text;
-        [self loadData];
-        [self pullUpReRefreshing];
-    }
-    
-   
-}
-
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    [searchBar setShowsCancelButton:NO animated:YES];
-    [searchBar resignFirstResponder];
-}
 
 #pragma mark - UICollectionViewDataSource
 
@@ -204,17 +168,6 @@ static NSString *cellID = @"cell";
     return _arrayList;
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self.searchBar becomeFirstResponder];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    [self.searchBar resignFirstResponder];
-}
 
 
 @end
