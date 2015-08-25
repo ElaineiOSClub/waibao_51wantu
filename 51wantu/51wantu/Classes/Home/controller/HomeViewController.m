@@ -22,8 +22,6 @@
 
 #import "ClassifyModel.h"
 
-#import <ALBBLoginSDK/ALBBLoginService.h>
-#import <TAESDK/TAESDK.h>
 
 static NSString *cellID = @"cell";
 
@@ -48,11 +46,6 @@ static NSString *cellID = @"cell";
     [self loadData];
     [self pullDownRefreshing];
     [self pullUpReRefreshing];
-    
-    
-    
-
-
     
 }
 

@@ -35,7 +35,12 @@ static NSString *cellID = @"cell";
 {
     _brandBreviaryList = brandBreviaryList;
     self.brandNameLabel.text = brandBreviaryList.brand_name;
-    self.zhekouLabel.text = [NSString stringWithFormat:@"[%@]",brandBreviaryList.zhekou];
+    myLog(@"%@-%@",brandBreviaryList.brand_name,brandBreviaryList.zhekou);
+    if (![brandBreviaryList.zhekou isEqualToString:@""]) {
+        self.zhekouLabel.text = [NSString stringWithFormat:@"[%@]",brandBreviaryList.zhekou];
+    } else {
+        self.zhekouLabel.text = @"";
+    }
     self.arrList = brandBreviaryList.list;
     for (BaseDataModel *model in self.arrList) {
         model.classifyName = @"包邮";

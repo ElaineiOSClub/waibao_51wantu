@@ -1,59 +1,61 @@
+
 //
-//  ClassifySearchViewController.m
+//  ClassifyDetailViewController.m
 //  51wantu
 //
-//  Created by elaine on 15/8/8.
+//  Created by elaine on 15/8/25.
 //  Copyright (c) 2015年 elaine. All rights reserved.
 //
 
-#import "ClassifySearchViewController.h"
-#import "UIViewController+MMneed.h"
+#import "ClassifyDetailViewController.h"
 
-#import "HomeCell.h"
-#import "BaseDatasModel.h"
-#import "BaseDataModel.h"
 #import "MyFlowLayOut.h"
-#import "ClassifyModel.h"
+#import "HomeCell.h"
 #import "HttpTool.h"
 #import "MJExtension.h"
+#import "BaseDatasModel.h"
+#import "BaseDataModel.h"
+#import "UIViewController+MMneed.h"
+
+
 #import "MJRefresh.h"
 #import "UIWebViewController.h"
 
-static NSString *cellID = @"cell";
+#import "ClassifyModel.h"
 
-@interface ClassifySearchViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
+
+@interface ClassifyDetailViewController()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) BaseDatasModel *model;
 @property (nonatomic, strong) NSMutableArray *arrayList;
 @property (nonatomic, assign) NSInteger currentPage;
 @end
 
-@implementation ClassifySearchViewController
+@implementation ClassifyDetailViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.collectionView];
-
-}
-
-
-- (void)setText:(NSString *)text
+- (void)viewDidLoad
 {
-    _text = [text copy];
-    [self loadData];
+    [super viewDidLoad];
+    //添加集合视图
+    [self.view addSubview:self.collectionView];
+    //    NSMutableArray *arrayList = [NSMutableArray array];
+    if ([self.cate_id isEqualToString:@"0"]) {
+        [self loadData];
+        [self pullDownRefreshing];
+        [self pullUpReRefreshing];
+    } else {
+        [self refresh];
+    }
     
-    [self pullUpReRefreshing];
+    
+    
 }
-
 
 #pragma mark - event Response
 - (void)loadData
 {
     self.currentPage = 1;
-    
-    myLog(@"%@",[[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20&keyword=%@",self.currentPage,_text] stringByAddingPercentEscapesUsingEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)]);
-    [HttpTool httpToolGet:[[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20&keyword=%@",self.currentPage,_text] stringByAddingPercentEscapesUsingEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [HttpTool httpToolGet:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=1&pagesize=20" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.model = [BaseDatasModel objectWithKeyValues:responseObject];
         if (self.arrayList) [self.arrayList removeAllObjects];
         
@@ -74,6 +76,18 @@ static NSString *cellID = @"cell";
     }];
 }
 
+- (void)pullDownRefreshing
+{
+    __weak __typeof(self) weakSelf = self;
+    self.collectionView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        // 模拟延迟加载数据，因此2秒后才调用（真实开发中，可以移除这段gcd代码）
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            // 结束刷新
+            [weakSelf.collectionView.header endRefreshing];
+        });
+    }];
+}
+
 - (void)pullUpReRefreshing
 {
     __weak __typeof(self) weakSelf = self;
@@ -81,9 +95,7 @@ static NSString *cellID = @"cell";
     self.collectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         // 进入刷新状态后会自动调用这个block
         self.currentPage++;
-        
-        
-        [HttpTool httpToolGet:[[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20&keyword=%@",self.currentPage,_text] stringByAddingPercentEscapesUsingEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20",self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             BaseDatasModel *model = [BaseDatasModel objectWithKeyValues:responseObject];
             
             
@@ -103,12 +115,55 @@ static NSString *cellID = @"cell";
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             // 结束刷新
-            
             [weakSelf.collectionView.footer endRefreshing];
             
         }];
     }];
 }
+
+- (void)refresh
+{
+        self.currentPage = 1;
+        [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&pid=%@&page=%ld&pagesize=20",_cate_id,self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            self.model = [BaseDatasModel objectWithKeyValues:responseObject];
+            if (self.arrayList) [self.arrayList removeAllObjects];
+            
+            
+            [self.arrayList addObjectsFromArray:self.model.datas];
+            [self.collectionView reloadData];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+        }];
+        
+        __weak __typeof(self) weakSelf = self;
+        // 上拉刷新
+        self.collectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            // 进入刷新状态后会自动调用这个block
+            self.currentPage++;
+            
+            [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&pid=%@&page=%ld&pagesize=20",_cate_id,self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                BaseDatasModel *model = [BaseDatasModel objectWithKeyValues:responseObject];
+                [weakSelf.arrayList addObjectsFromArray:model.datas];
+                
+                
+                [weakSelf.collectionView reloadData];
+                // 结束刷新
+                [weakSelf.collectionView.footer endRefreshing];
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                // 结束刷新
+                [weakSelf.collectionView.footer endRefreshing];
+                
+            }];
+        }];
+    
+}
+
+
+
+
+
+
 
 
 
@@ -129,7 +184,7 @@ static NSString *cellID = @"cell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    HomeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID   forIndexPath:indexPath];
+    HomeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellID"   forIndexPath:indexPath];
     cell.model = self.arrayList[indexPath.row];
     return cell;
 }
@@ -141,10 +196,13 @@ static NSString *cellID = @"cell";
     BaseDataModel *model = self.arrayList[indexPath.row
                                           ];
     UIWebViewController *vc = [[UIWebViewController alloc] init];
+    vc.itemID = model.ID;
     vc.urlStr = model.item_url;
     
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+
 
 #pragma mark - lazy
 
@@ -155,7 +213,7 @@ static NSString *cellID = @"cell";
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         _collectionView.backgroundColor = RGBA(242, 242, 242, 1);
-        [_collectionView registerNib:[UINib nibWithNibName:@"HomeCell" bundle:nil] forCellWithReuseIdentifier:cellID];
+        [_collectionView registerNib:[UINib nibWithNibName:@"HomeCell" bundle:nil] forCellWithReuseIdentifier:@"cellID"];
     }
     return _collectionView;
 }
