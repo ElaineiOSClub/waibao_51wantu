@@ -14,12 +14,18 @@
 #import "changePwdViewController.h"
 #import "ownAddViewController.h"
 #import "pointViewController.h"
+#import "NewPresonViewController.h"
 
 
 #import "loginViewController.h"
 
 @interface ownInfoViewController ()<UITableViewDataSource,UITableViewDelegate>
 - (IBAction)backBtnClick:(UIButton *)sender;
+- (IBAction)logIN:(UIButton *)sender;
+- (IBAction)registerBtnClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *nameLab;
+
+@property (weak, nonatomic) IBOutlet UIButton *registerBtn;
 
 @property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
 @property (weak, nonatomic) IBOutlet UIButton *logInBtn;
@@ -36,8 +42,6 @@
     self.headerImageView.backgroundColor = RGBA(253,36,109,1);
     
     self.ownInfoTabview.tableFooterView = [[UIView alloc]init];
-    [self.logInBtn setTitle:@"登录/注册" forState:UIControlStateNormal];
-    self.logInBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     self.ownInfoTabview.delegate = self;
     self.ownInfoTabview.dataSource = self;
      self.accountSettingArr = [[NSArray alloc] initWithObjects: @"基本资料", @"收货地址", @"安全中心", @"积分中心", @"我的收藏", nil];
@@ -56,6 +60,32 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+    
+    NSString *userName =  [[NSUserDefaults standardUserDefaults]objectForKey:KEY_USERNAME];
+    NSString *passWord =  [[NSUserDefaults standardUserDefaults]objectForKey:KEY_PASSWORD];
+    
+    if (userName == nil || [userName isEqualToString:@""] || [userName isEqual:[NSNull null]] || passWord == nil || [passWord isEqualToString:@""] || [passWord isEqual:[NSNull null]])
+    {
+        self.nameLab.hidden = YES;
+        self.logInBtn.hidden = NO;
+        self.registerBtn.hidden = NO;
+        
+    }else
+    {
+        self.nameLab.text =userName;
+        self.nameLab.hidden = NO;
+        self.logInBtn.hidden = YES;
+        self.registerBtn.hidden = YES;
+    
+    }
+    
+    
+//    [[NSUserDefaults standardUserDefaults]setObject:token forKey:KEY_TOKEN];
+//    [[NSUserDefaults standardUserDefaults]setObject:self.accountTextF.text  forKey:KEY_USERNAME];
+//    [[NSUserDefaults standardUserDefaults]setObject:self.pwdTextF.text forKey:KEY_PASSWORD];
+//    
+    
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -107,12 +137,17 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)loginClick:(UIButton *)sender {
+- (IBAction)logIN:(UIButton *)sender {
+    
     loginViewController *loginVC = [[loginViewController alloc] init];
-
+    
     [self.navigationController pushViewController:loginVC animated:YES];
 
-    
 }
+
+- (IBAction)registerBtnClick:(id)sender {
+    [self.navigationController pushViewController:[[NewPresonViewController alloc] init] animated:YES];
+}
+
 
 @end
