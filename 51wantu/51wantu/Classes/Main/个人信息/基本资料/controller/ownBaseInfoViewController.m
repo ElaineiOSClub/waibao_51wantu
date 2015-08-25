@@ -10,6 +10,7 @@
 #import "UIViewController+MMneed.h"
 #import "Util.h"
 #import "FDActionSheet.h"
+#import "showInfoCell.h"
 
 @interface ownBaseInfoViewController ()<UITableViewDataSource,UITableViewDelegate,UIPickerViewDataSource,UIPickerViewDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *ownTableview;
@@ -20,6 +21,7 @@
 @property (nonatomic,strong) UIDatePicker *dataPick;
 @property (nonatomic,strong) UIImagePickerController *imagePicker;
 @property (nonatomic,copy) NSString *nameStr;
+@property (nonatomic,strong) NSData *headImageData;
 @end
 
 @implementation ownBaseInfoViewController
@@ -65,6 +67,13 @@
     NSString *nameStr = [[NSUserDefaults standardUserDefaults] objectForKey:KEY_USERNAME];
     self.nameStr = nameStr;
     
+    NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"imageData"];
+    if (imageData) {
+        self.headImageData = imageData;
+        [self.ownTableview reloadData];
+        
+    }
+    
     [self colseDrawerGesture];
     [[Util getAppDelegate].drawerController setMaximumLeftDrawerWidth:kScreen_Width +10];
     
@@ -90,24 +99,29 @@
         return self.infoArr.count;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if (indexPath.row ==0)
+        return 70;
+    else
+        return 44;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger row = [indexPath row];
-    static NSString *cellIdentifier = @"ownTableViewCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
-    cell.textLabel.font = [UIFont systemFontOfSize:14];
-        cell.textLabel.text = self.infoArr[row];
-    if (row ==1) {
-        cell.detailTextLabel.text = self.nameStr;
-        
-    }
     
-    return cell;
+    if (indexPath.row ==0) {
+        showInfoCell * cell = [showInfoCell getshowInfoCell];
+        cell.headImage.image = [[UIImage alloc]initWithData:self.headImageData];
+        cell.textLabel.text = self.infoArr[0];
+        return cell;
+    }else{
+        UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.textLabel.text = self.infoArr[indexPath.row];
+        return cell;
+    }
     
 }
 
@@ -204,13 +218,13 @@
         UIImageWriteToSavedPhotosAlbum (image, nil, nil , nil);    //保存到library
     }
     
-    CGSize imagesize = image.size;
-    imagesize.height =200;
-    imagesize.width =200;
-    //对图片大小进行压缩--
-    image = [self imageWithImage:image scaledToSize:imagesize];
+//    CGSize imagesize = image.size;
+//    imagesize.height =200;
+//    imagesize.width =200;
+//    //对图片大小进行压缩--
+//    image = [self imageWithImage:image scaledToSize:imagesize];
     
-    NSData *imageData = UIImageJPEGRepresentation(image, 1);
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.01);
 
     [[NSUserDefaults standardUserDefaults]setObject:imageData forKey:@"imageData"];
     [[NSUserDefaults standardUserDefaults]synchronize];
