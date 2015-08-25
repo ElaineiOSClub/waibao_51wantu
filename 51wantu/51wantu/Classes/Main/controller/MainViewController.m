@@ -12,9 +12,12 @@
 //五个主控制器
 #import "HomeViewController.h"
 #import "ExemptionPostageViewController.h"
-#import "ClassifySearchViewController.h"
+#import "ClassifyHomeController.h"
 #import "BrandViewController.h"
 #import "AdvanceNoticeViewController.h"
+
+
+
 
 
 @interface MainViewController ()
@@ -33,7 +36,7 @@
     [self addChildVc:postage title:@"9.9包邮" image:@"home_tab_point_btn" selectedImage:@"home_tab_point_selected_btn"];
 
     //分类搜索
-    ClassifySearchViewController *classify = [[ClassifySearchViewController alloc] init];
+    ClassifyHomeController *classify = [[ClassifyHomeController alloc] init];
     [self addChildVc:classify title:@"分类搜索" image:@"home_tab_saunter_btn" selectedImage:@"home_tab_saunter_selected_btn"];
     //品牌团
     BrandViewController *brand = [[BrandViewController alloc] init];

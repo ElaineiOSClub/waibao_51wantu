@@ -169,7 +169,10 @@
     }];
 }
 
+
 -(void)showLogin{
+
+    
     id<ALBBLoginService> loginService=[[TaeSDK sharedInstance]getService:@protocol(ALBBLoginService)];
     if(![[TaeSession sharedInstance] isLogin]){
         [loginService showLogin:self successCallback:^(TaeSession *session){

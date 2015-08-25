@@ -13,12 +13,13 @@
 @interface HomeCell()
 
 @property (weak, nonatomic) IBOutlet UIImageView *productImageView;
-@property (weak, nonatomic) IBOutlet UILabel *classifyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *originalPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *discountLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *productImageHieght;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imagenew;
 
 @property (nonatomic, strong) UIView *tempView;
 
@@ -34,17 +35,21 @@
 {
     _model = model;
     
-    if (![model.pic_url containsString:@"http"]) {
+    NSRange range = [model.pic_url rangeOfString:@"http"];
+    
+    if (range.length == 0) {
         model.pic_url = [NSString stringWithFormat:@"http:%@",model.pic_url];
     }
     NSURL *imageUrl = [NSURL URLWithString:model.pic_url];
     [self.productImageView sd_setImageWithURL:imageUrl];
-    self.classifyLabel.text = [NSString stringWithFormat:@"【%@】",model.classifyName];
+//    self.classifyLabel.text = [NSString stringWithFormat:@"【%@】",model.classifyName];
     self.nameLabel.text = model.title;
     self.priceLabel.text = [NSString stringWithFormat:@"¥%@",model.tuan_price] ;
      self.originalPriceLabel.text = [NSString stringWithFormat:@"¥%@",model.price];
     self.discountLabel.text = [NSString stringWithFormat:@"(%@折)",model.discount];
 
+    self.imagenew.hidden = !model.isnew;
+    
 }
 
 - (void)layoutSubviews

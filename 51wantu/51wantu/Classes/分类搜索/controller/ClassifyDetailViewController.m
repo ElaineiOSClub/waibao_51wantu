@@ -1,12 +1,14 @@
+
 //
-//  HomeViewController.m
+//  ClassifyDetailViewController.m
 //  51wantu
 //
-//  Created by elaine on 15/8/8.
+//  Created by elaine on 15/8/25.
 //  Copyright (c) 2015年 elaine. All rights reserved.
 //
 
-#import "HomeViewController.h"
+#import "ClassifyDetailViewController.h"
+
 #import "MyFlowLayOut.h"
 #import "HomeCell.h"
 #import "HttpTool.h"
@@ -18,37 +20,36 @@
 
 #import "MJRefresh.h"
 #import "UIWebViewController.h"
-#import "UIViewController+PushNotification.h"
 
 #import "ClassifyModel.h"
 
 
-static NSString *cellID = @"cell";
-
-@interface HomeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface ClassifyDetailViewController()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) BaseDatasModel *model;
 @property (nonatomic, strong) NSMutableArray *arrayList;
 @property (nonatomic, assign) NSInteger currentPage;
-
 @end
 
-@implementation HomeViewController
+@implementation ClassifyDetailViewController
 
-
-
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     //添加集合视图
     [self.view addSubview:self.collectionView];
-//    NSMutableArray *arrayList = [NSMutableArray array];
-
-    [self loadData];
-    [self pullDownRefreshing];
-    [self pullUpReRefreshing];
+    //    NSMutableArray *arrayList = [NSMutableArray array];
+    if ([self.cate_id isEqualToString:@"0"]) {
+        [self loadData];
+        [self pullDownRefreshing];
+        [self pullUpReRefreshing];
+    } else {
+        [self refresh];
+    }
+    
+    
     
 }
-
 
 #pragma mark - event Response
 - (void)loadData
@@ -97,7 +98,7 @@ static NSString *cellID = @"cell";
         [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20",self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             BaseDatasModel *model = [BaseDatasModel objectWithKeyValues:responseObject];
             
-         
+            
             
             for (BaseDataModel *m in model.datas) {
                 NSArray *arr = [ClassifyModel getBigCate];
@@ -120,81 +121,42 @@ static NSString *cellID = @"cell";
     }];
 }
 
-
-
-- (void)refresh:(NSNotification *)notification
+- (void)refresh
 {
-    NSString *cate_id = notification.userInfo[@"id"];
-    NSString *cate_name = notification.userInfo[@"cate_name"];
-    
-
-    
-    //刷新所有
-    if ([cate_name isEqualToString:@"全部"]) {
-        [self loadData];
-        [self pullDownRefreshing];
-        [self pullUpReRefreshing];
+        self.currentPage = 1;
+        [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&pid=%@&page=%ld&pagesize=20",_cate_id,self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            self.model = [BaseDatasModel objectWithKeyValues:responseObject];
+            if (self.arrayList) [self.arrayList removeAllObjects];
+            
+            
+            [self.arrayList addObjectsFromArray:self.model.datas];
+            [self.collectionView reloadData];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+        }];
         
-    } else {
-        NSArray *arr = [ClassifyModel getBigCate];
-        for (NSDictionary *dict in arr) {
-            if ([dict[@"cate_name"] isEqualToString:cate_name]) {
-                cate_id = dict[@"id"];
-            }
-        }
-            self.currentPage = 1;
-            [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&pid=%@&page=%ld&pagesize=20",cate_id,self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                self.model = [BaseDatasModel objectWithKeyValues:responseObject];
-                if (self.arrayList) [self.arrayList removeAllObjects];
-                
-                for (BaseDataModel *model in self.model.datas) {
-                    NSArray *arr = [ClassifyModel getBigCate];
-                    for (NSDictionary *dict in arr) {
-                        if ([dict[@"id"] isEqualToString:model.pid]) {
-                            model.classifyName = dict[@"cate_name"];
-                        }
-                    }
-                }
+        __weak __typeof(self) weakSelf = self;
+        // 上拉刷新
+        self.collectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            // 进入刷新状态后会自动调用这个block
+            self.currentPage++;
+            
+            [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&pid=%@&page=%ld&pagesize=20",_cate_id,self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                BaseDatasModel *model = [BaseDatasModel objectWithKeyValues:responseObject];
+                [weakSelf.arrayList addObjectsFromArray:model.datas];
                 
                 
+                [weakSelf.collectionView reloadData];
+                // 结束刷新
+                [weakSelf.collectionView.footer endRefreshing];
                 
-                [self.arrayList addObjectsFromArray:self.model.datas];
-                [self.collectionView reloadData];
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
+                // 结束刷新
+                [weakSelf.collectionView.footer endRefreshing];
+                
             }];
-        
-            __weak __typeof(self) weakSelf = self;
-            // 上拉刷新
-            self.collectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-                // 进入刷新状态后会自动调用这个block
-                self.currentPage++;
-        
-                [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&pid=%@&page=%ld&pagesize=20",cate_id,self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                    BaseDatasModel *model = [BaseDatasModel objectWithKeyValues:responseObject];
-                    [weakSelf.arrayList addObjectsFromArray:model.datas];
-                    
-                    for (BaseDataModel *m in model.datas) {
-                        NSArray *arr = [ClassifyModel getBigCate];
-                        for (NSDictionary *dict in arr) {
-                            if ([dict[@"id"] isEqualToString:m.pid]) {
-                                m.classifyName = dict[@"cate_name"];
-                            }
-                        }
-                    }
-                    
-
-                    [weakSelf.collectionView reloadData];
-                    // 结束刷新
-                    [weakSelf.collectionView.footer endRefreshing];
-        
-                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                    // 结束刷新
-                    [weakSelf.collectionView.footer endRefreshing];
-                    
-                }];
-            }];
-    }
+        }];
+    
 }
 
 
@@ -222,7 +184,7 @@ static NSString *cellID = @"cell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    HomeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID   forIndexPath:indexPath];
+    HomeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellID"   forIndexPath:indexPath];
     cell.model = self.arrayList[indexPath.row];
     return cell;
 }
@@ -240,21 +202,7 @@ static NSString *cellID = @"cell";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self openDrawerGesture];
-    [self registerNotification:@selector(refresh:)];
 
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [self colseDrawerGesture];
-      [self removeNotification];
-    
-}
 
 #pragma mark - lazy
 
@@ -265,7 +213,7 @@ static NSString *cellID = @"cell";
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         _collectionView.backgroundColor = RGBA(242, 242, 242, 1);
-        [_collectionView registerNib:[UINib nibWithNibName:@"HomeCell" bundle:nil] forCellWithReuseIdentifier:cellID];
+        [_collectionView registerNib:[UINib nibWithNibName:@"HomeCell" bundle:nil] forCellWithReuseIdentifier:@"cellID"];
     }
     return _collectionView;
 }
