@@ -35,6 +35,8 @@ static NSString *cellID = @"cellID";
     [super viewDidLoad];
     [self.view addSubview:self.collectionView];
     
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     self.searchBar = [[UISearchBar alloc] init];
     self.searchBar.placeholder = @"搜索";
     self.searchBar.delegate = self;
@@ -95,6 +97,7 @@ static NSString *cellID = @"cellID";
 {
     [self.classifySearchViewController.view removeFromSuperview];
     [self.view addSubview:self.classifySearchViewController.view];
+
     
     self.classifySearchViewController.text = searchBar.text;
 
