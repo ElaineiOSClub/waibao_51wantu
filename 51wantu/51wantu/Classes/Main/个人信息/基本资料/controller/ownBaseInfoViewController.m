@@ -18,7 +18,8 @@
 @property (nonatomic,weak) UIPickerView *sexPicker;
 @property (nonatomic,weak) UIPickerView *addPicker;
 @property (nonatomic,strong) UIDatePicker *dataPick;
-@property (nonatomic,strong) UIImagePickerController *imagePicker;;
+@property (nonatomic,strong) UIImagePickerController *imagePicker;
+@property (nonatomic,copy) NSString *nameStr;
 @end
 
 @implementation ownBaseInfoViewController
@@ -47,6 +48,9 @@
     sexPicker.showsSelectionIndicator=YES;
 //    self.addPicker = addPicker;
     
+    
+    
+    
     [self.view addSubview:sexPicker];
 //    [self.view addSubview:addPicker];
     // Do any additional setup after loading the view from its nib.
@@ -57,6 +61,10 @@
     
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
+    
+    NSString *nameStr = [[NSUserDefaults standardUserDefaults] objectForKey:KEY_USERNAME];
+    self.nameStr = nameStr;
+    
     [self colseDrawerGesture];
     [[Util getAppDelegate].drawerController setMaximumLeftDrawerWidth:kScreen_Width +10];
     
@@ -91,10 +99,13 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-        cell.detailTextLabel.text = self.infoArr[row];
     cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
     cell.textLabel.font = [UIFont systemFontOfSize:14];
         cell.textLabel.text = self.infoArr[row];
+    if (row ==1) {
+        cell.detailTextLabel.text = self.nameStr;
+        
+    }
     
     return cell;
     

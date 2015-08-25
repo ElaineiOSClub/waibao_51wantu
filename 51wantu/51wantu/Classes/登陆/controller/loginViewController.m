@@ -115,12 +115,14 @@
     NSString *successStr = [dic objectForKey:@"Success"];
     NSString *codeStr = [dic objectForKey:@"Code"];
     if ([successStr intValue] ==1) {
-        [MBProgressHUD showMessage:@"登录成功"];
-        
+        [MBProgressHUD showSuccess:@"登录成功"];
         [[NSUserDefaults standardUserDefaults]setObject:token forKey:KEY_TOKEN];
         [[NSUserDefaults standardUserDefaults]setObject:self.accountTextF.text  forKey:KEY_USERNAME];
         [[NSUserDefaults standardUserDefaults]setObject:self.pwdTextF.text forKey:KEY_PASSWORD];
     [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [self.navigationController  popViewControllerAnimated:YES];
+
     }else{
         if ([codeStr intValue] ==105) {
             [Util showAlertWithTitle:@"提示" msg:@"密码错误"];
