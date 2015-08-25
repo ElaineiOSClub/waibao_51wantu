@@ -66,8 +66,17 @@
     
     if (userName == nil || [userName isEqualToString:@""] || [userName isEqual:[NSNull null]] || passWord == nil || [passWord isEqualToString:@""] || [passWord isEqual:[NSNull null]])
     {
+        self.nameLab.hidden = YES;
+        self.logInBtn.hidden = NO;
+        self.registerBtn.hidden = NO;
         
-        
+    }else
+    {
+        self.nameLab.text =userName;
+        self.nameLab.hidden = NO;
+        self.logInBtn.hidden = YES;
+        self.registerBtn.hidden = YES;
+    
     }
     
     
