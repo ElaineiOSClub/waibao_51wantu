@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ClassifySearchViewControllerDelegate <NSObject>
+
+- (void)endEditing;
+
+@end
+
 @interface ClassifySearchViewController : UIViewController
 @property (nonatomic, copy) NSString *text;
+@property (nonatomic, weak) id<ClassifySearchViewControllerDelegate> delegate;
 @end

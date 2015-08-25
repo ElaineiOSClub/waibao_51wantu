@@ -85,7 +85,7 @@ static NSString *cellID = @"cell";
     self.collectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         // 进入刷新状态后会自动调用这个block
         self.currentPage++;
-        [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page_type=yugao&page=%ld&pagesize=20",self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page_type=yugao&page=%ld&pagesize=20",(long)self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             BaseDatasModel *model = [BaseDatasModel objectWithKeyValues:responseObject];
             
             for (BaseDataModel *m in model.datas) {

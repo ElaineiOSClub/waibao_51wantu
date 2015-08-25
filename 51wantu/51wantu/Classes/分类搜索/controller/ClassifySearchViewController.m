@@ -56,7 +56,6 @@ static NSString *cellID = @"cell";
 {
     self.currentPage = 1;
     
-    myLog(@"%@",[[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20&keyword=%@",self.currentPage,_text] stringByAddingPercentEscapesUsingEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)]);
     [HttpTool httpToolGet:[[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=gethomedata&page=%ld&pagesize=20&keyword=%@",self.currentPage,_text] stringByAddingPercentEscapesUsingEncoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.model = [BaseDatasModel objectWithKeyValues:responseObject];
         if (self.arrayList) [self.arrayList removeAllObjects];
@@ -150,12 +149,18 @@ static NSString *cellID = @"cell";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.delegate endEditing];
+}
+
+
 #pragma mark - lazy
 
 - (UICollectionView *)collectionView
 {
     if (!_collectionView) {
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0,self.view.width, self.view.height - 49 - 64) collectionViewLayout:[[MyFlowLayOut alloc] init]];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64,self.view.width, self.view.height - 49 - 64) collectionViewLayout:[[MyFlowLayOut alloc] init]];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         _collectionView.backgroundColor = RGBA(242, 242, 242, 1);

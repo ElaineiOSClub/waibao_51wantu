@@ -22,7 +22,7 @@
 static NSString *cellID = @"cellID";
 
 
-@interface ClassifyHomeController ()<UISearchBarDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
+@interface ClassifyHomeController ()<UISearchBarDelegate,UICollectionViewDataSource,UICollectionViewDelegate,ClassifySearchViewControllerDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) ClassifySearchViewController *classifySearchViewController;
@@ -35,7 +35,7 @@ static NSString *cellID = @"cellID";
     [super viewDidLoad];
     [self.view addSubview:self.collectionView];
     
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.searchBar = [[UISearchBar alloc] init];
     self.searchBar.placeholder = @"搜索";
@@ -112,6 +112,14 @@ static NSString *cellID = @"cellID";
     
 }
 
+- (void)endEditing
+{
+    [self.searchBar resignFirstResponder];
+    UIButton *btn=[self.searchBar valueForKey:@"_cancelButton"];
+    btn.enabled = YES;
+    
+}
+
 
 #pragma mark - lazy
 
@@ -132,11 +140,15 @@ static NSString *cellID = @"cellID";
     if (!_classifySearchViewController) {
         _classifySearchViewController = [[ClassifySearchViewController alloc] init];
         [self addChildViewController:_classifySearchViewController];
+        _classifySearchViewController.delegate = self;
     }
     return _classifySearchViewController;
 }
 
-
+//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+//{
+//   [self.searchBar resignFirstResponder];
+//}
 
 
 
