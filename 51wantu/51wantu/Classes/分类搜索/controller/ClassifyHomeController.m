@@ -97,7 +97,6 @@ static NSString *cellID = @"cellID";
 {
     [self.classifySearchViewController.view removeFromSuperview];
     [self.view addSubview:self.classifySearchViewController.view];
-
     
     self.classifySearchViewController.text = searchBar.text;
 

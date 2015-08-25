@@ -34,10 +34,11 @@ static NSString *cellID = @"cell";
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-
+   
+    
     
     [self.view addSubview:self.collectionView];
-    
+     self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 
@@ -154,7 +155,7 @@ static NSString *cellID = @"cell";
 - (UICollectionView *)collectionView
 {
     if (!_collectionView) {
-        _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:[[MyFlowLayOut alloc] init]];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0,self.view.width, self.view.height - 49 - 64) collectionViewLayout:[[MyFlowLayOut alloc] init]];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         _collectionView.backgroundColor = RGBA(242, 242, 242, 1);
