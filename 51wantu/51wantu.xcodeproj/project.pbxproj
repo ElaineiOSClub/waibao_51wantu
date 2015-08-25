@@ -17,6 +17,8 @@
 		0A08F58B1B8066A700CB41E5 /* ownBaseInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A08F57B1B8066A700CB41E5 /* ownBaseInfoViewController.xib */; };
 		0A08F58C1B8066A700CB41E5 /* ownAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A08F57F1B8066A700CB41E5 /* ownAddViewController.m */; };
 		0A08F58D1B8066A700CB41E5 /* ownAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A08F5801B8066A700CB41E5 /* ownAddViewController.xib */; };
+		0A49D9F11B8CBABD00F8EEF9 /* showInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A49D9EF1B8CBABD00F8EEF9 /* showInfoCell.m */; };
+		0A49D9F21B8CBABD00F8EEF9 /* showInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A49D9F01B8CBABD00F8EEF9 /* showInfoCell.xib */; };
 		0A89D3F81B75A641003EAFB2 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A89D3B21B75A641003EAFB2 /* FMDatabase.m */; };
 		0A89D3F91B75A641003EAFB2 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A89D3B41B75A641003EAFB2 /* FMDatabaseAdditions.m */; };
 		0A89D3FA1B75A641003EAFB2 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A89D3B61B75A641003EAFB2 /* FMDatabasePool.m */; };
@@ -175,6 +177,9 @@
 		0A08F57E1B8066A700CB41E5 /* ownAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ownAddViewController.h; sourceTree = "<group>"; };
 		0A08F57F1B8066A700CB41E5 /* ownAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ownAddViewController.m; sourceTree = "<group>"; };
 		0A08F5801B8066A700CB41E5 /* ownAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ownAddViewController.xib; sourceTree = "<group>"; };
+		0A49D9EE1B8CBABD00F8EEF9 /* showInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = showInfoCell.h; sourceTree = "<group>"; };
+		0A49D9EF1B8CBABD00F8EEF9 /* showInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = showInfoCell.m; sourceTree = "<group>"; };
+		0A49D9F01B8CBABD00F8EEF9 /* showInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = showInfoCell.xib; sourceTree = "<group>"; };
 		0A89D3B11B75A641003EAFB2 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		0A89D3B21B75A641003EAFB2 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		0A89D3B31B75A641003EAFB2 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -486,6 +491,7 @@
 		0A08F5771B8066A700CB41E5 /* 基本资料 */ = {
 			isa = PBXGroup;
 			children = (
+				0A49D9ED1B8CBABD00F8EEF9 /* view */,
 				0A08F5781B8066A700CB41E5 /* controller */,
 			);
 			path = "基本资料";
@@ -534,6 +540,16 @@
 				B996B76A1B832399007244A3 /* mineViewController.m */,
 			);
 			path = controller;
+			sourceTree = "<group>";
+		};
+		0A49D9ED1B8CBABD00F8EEF9 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				0A49D9EE1B8CBABD00F8EEF9 /* showInfoCell.h */,
+				0A49D9EF1B8CBABD00F8EEF9 /* showInfoCell.m */,
+				0A49D9F01B8CBABD00F8EEF9 /* showInfoCell.xib */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		0A89D3AF1B75A641003EAFB2 /* 3rd */ = {
@@ -1321,6 +1337,7 @@
 				B996B75B1B81C7BC007244A3 /* Tae.bundle in Resources */,
 				0AD47F061B78F92500B0212A /* leftViewController.xib in Resources */,
 				B9C2D9191B7C6952005414F4 /* subcate.plist in Resources */,
+				0A49D9F21B8CBABD00F8EEF9 /* showInfoCell.xib in Resources */,
 				B9FA9C6A1B75A22C00E1B03F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1428,6 +1445,7 @@
 				B994C1F91B7604C6003577FD /* NSObject+MJProperty.m in Sources */,
 				B915CFFE1B801F1600A9870F /* BrankHomeLayout.m in Sources */,
 				0A89D4041B75A641003EAFB2 /* MJRefreshHeader.m in Sources */,
+				0A49D9F11B8CBABD00F8EEF9 /* showInfoCell.m in Sources */,
 				0A89D3FC1B75A641003EAFB2 /* FMResultSet.m in Sources */,
 				B994C2361B7606C5003577FD /* AFHTTPRequestOperation.m in Sources */,
 				B994C23A1B7606C5003577FD /* AFSecurityPolicy.m in Sources */,
