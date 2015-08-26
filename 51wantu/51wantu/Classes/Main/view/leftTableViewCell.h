@@ -10,5 +10,7 @@
 
 @interface leftTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *categoryName;
+@property (weak, nonatomic) IBOutlet UIImageView *categoryImageView;
+
 + (leftTableViewCell *)getleftTableViewCell;
 @end

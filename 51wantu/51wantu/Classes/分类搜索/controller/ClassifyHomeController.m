@@ -65,6 +65,7 @@ static NSString *cellID = @"cellID";
     NSDictionary *dict = [ClassifyModel getBigCate][indexPath.row];
     
     cell.cate_name = dict[@"cate_name"];
+    cell.imageStr = [NSString stringWithFormat:@"%@classify",dict[@"cate_name"]];
     return cell;
 }
 

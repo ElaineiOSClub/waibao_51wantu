@@ -28,6 +28,8 @@
 
 @property (nonatomic,strong) NSArray *categoryArray;
 
+@property (nonatomic, strong) NSArray *imageArray;
+
 @end
 
 @implementation leftViewController
@@ -44,6 +46,7 @@
     
     self.navigationController.navigationBarHidden = YES;
     self.categoryArray = [ClassifyModel getSubCate];
+    
     
     
     UIView *footView = [[UIView alloc]init];
@@ -90,6 +93,7 @@
     NSInteger row = [indexPath row];
 //    cell.categoryName.text = self.categoryArray[row];
     cell.categoryName.text = self.categoryArray[row][@"cate_name"];
+    cell.categoryImageView.image = [UIImage imageNamed:cell.categoryName.text];
     return cell;
 
 }
