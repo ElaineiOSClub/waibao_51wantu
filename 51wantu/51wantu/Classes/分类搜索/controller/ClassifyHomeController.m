@@ -56,13 +56,13 @@ static NSString *cellID = @"cellID";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [ClassifyModel getBigCate].count;
+    return [ClassifyModel getBigCateClassify].count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ClassifyHomeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
-    NSDictionary *dict = [ClassifyModel getBigCate][indexPath.row];
+    NSDictionary *dict = [ClassifyModel getBigCateClassify][indexPath.row];
     
     cell.cate_name = dict[@"cate_name"];
     cell.imageStr = [NSString stringWithFormat:@"%@classify",dict[@"cate_name"]];
@@ -74,12 +74,14 @@ static NSString *cellID = @"cellID";
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
 
     ClassifyDetailViewController *vc = [[ClassifyDetailViewController alloc] init];
-     NSDictionary *dict = [ClassifyModel getBigCate][indexPath.row];
+     NSDictionary *dict = [ClassifyModel getBigCateClassify][indexPath.row];
     vc.cate_id = dict[@"id"];
     vc.title = dict[@"cate_name"];
     [self.navigationController pushViewController:vc animated:YES];
 
 
+    //http://www.51wantu.com/api/api.php?action=gethomedata&pid=-1&page=1&pagesize=20
+    
 }
 
 

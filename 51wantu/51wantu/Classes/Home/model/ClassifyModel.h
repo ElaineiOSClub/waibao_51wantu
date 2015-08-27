@@ -13,4 +13,7 @@
 + (NSArray *)getSubCate;
 
 + (NSArray *)getBrandCate;
+
+
++ (NSArray *)getBigCateClassify;
 @end

@@ -75,6 +75,7 @@
 		B9634FEA1B8CAD0800F32F7C /* ClassifyHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9634FE61B8CAD0800F32F7C /* ClassifyHomeController.m */; };
 		B9634FEB1B8CAD0800F32F7C /* ClassifySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9634FE81B8CAD0800F32F7C /* ClassifySearchViewController.m */; };
 		B9634FEE1B8CAD6300F32F7C /* ClassifyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9634FED1B8CAD6300F32F7C /* ClassifyDetailViewController.m */; };
+		B97B11B11B8E995D0041FA84 /* bigcateclassify.plist in Resources */ = {isa = PBXBuildFile; fileRef = B97B11B01B8E995D0041FA84 /* bigcateclassify.plist */; };
 		B994C1A31B75AEEF003577FD /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C19E1B75AEEF003577FD /* UIBarButtonItem+Extension.m */; };
 		B994C1A41B75AEEF003577FD /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C1A01B75AEEF003577FD /* UIView+Extension.m */; };
 		B994C1A51B75AEEF003577FD /* UIViewController+PushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = B994C1A21B75AEEF003577FD /* UIViewController+PushNotification.m */; };
@@ -286,6 +287,7 @@
 		B9634FE81B8CAD0800F32F7C /* ClassifySearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassifySearchViewController.m; sourceTree = "<group>"; };
 		B9634FEC1B8CAD6300F32F7C /* ClassifyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassifyDetailViewController.h; sourceTree = "<group>"; };
 		B9634FED1B8CAD6300F32F7C /* ClassifyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassifyDetailViewController.m; sourceTree = "<group>"; };
+		B97B11B01B8E995D0041FA84 /* bigcateclassify.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bigcateclassify.plist; sourceTree = "<group>"; };
 		B994C19D1B75AEEF003577FD /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		B994C19E1B75AEEF003577FD /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		B994C19F1B75AEEF003577FD /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -1210,6 +1212,7 @@
 		B9FA9C5C1B75A22C00E1B03F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B97B11B01B8E995D0041FA84 /* bigcateclassify.plist */,
 				B915CFFF1B802CDF00A9870F /* brandcate.plist */,
 				B9C2D9171B7C6952005414F4 /* subcate.plist */,
 				B9C2D9181B7C6952005414F4 /* bigcate.plist */,
@@ -1324,6 +1327,7 @@
 				B996B7681B82BD34007244A3 /* loginViewController.xib in Resources */,
 				B915D0001B802CDF00A9870F /* brandcate.plist in Resources */,
 				B9C2D91A1B7C6952005414F4 /* bigcate.plist in Resources */,
+				B97B11B11B8E995D0041FA84 /* bigcateclassify.plist in Resources */,
 				0A08F5871B8066A700CB41E5 /* changePwdViewController.xib in Resources */,
 				0A08F58D1B8066A700CB41E5 /* ownAddViewController.xib in Resources */,
 				B99E0B671B7A3C9200D4C005 /* AdvanceNoticeCell.xib in Resources */,
