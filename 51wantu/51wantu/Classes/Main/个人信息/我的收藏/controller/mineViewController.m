@@ -41,7 +41,7 @@ static NSString *cellID = @"cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     
     
     
@@ -59,8 +59,13 @@ static NSString *cellID = @"cell";
 #pragma mark - event Response
 - (void)loadData
 {
+    NSString *token = [[NSUserDefaults standardUserDefaults] stringForKey:KEY_TOKEN];
+    
     self.currentPage = 1;
-    [HttpTool httpToolGet:@"http://www.51wantu.com/api/api.php?action=getfavlist&page=1&pagesize=20" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+    
+    
+    [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=getfavlist&page=1&pagesize=20&token=%@",token] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.model = [BaseDatasModel objectWithKeyValues:responseObject];
         if (self.arrayList) [self.arrayList removeAllObjects];
         
@@ -95,12 +100,14 @@ static NSString *cellID = @"cell";
 
 - (void)pullUpReRefreshing
 {
+    NSString *token = [[NSUserDefaults standardUserDefaults] stringForKey:KEY_TOKEN];
+    
     __weak __typeof(self) weakSelf = self;
     // 上拉刷新
     self.collectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         // 进入刷新状态后会自动调用这个block
         self.currentPage++;
-        [HttpTool httpToolGet:[NSString stringWithFormat:@"hhttp://www.51wantu.com/api/api.php?action=getfavlist&page=%ld&pagesize=20",self.currentPage] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [HttpTool httpToolGet:[NSString stringWithFormat:@"hhttp://www.51wantu.com/api/api.php?action=getfavlist&page=%ld&pagesize=20&token=%@",self.currentPage,token] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             BaseDatasModel *model = [BaseDatasModel objectWithKeyValues:responseObject];
             
             
@@ -132,8 +139,7 @@ static NSString *cellID = @"cell";
 {
     NSString *cate_id = notification.userInfo[@"id"];
     NSString *cate_name = notification.userInfo[@"cate_name"];
-    
-    
+   
     
     //刷新所有
     if ([cate_name isEqualToString:@"全部"]) {
@@ -254,7 +260,7 @@ static NSString *cellID = @"cell";
     frame.size = CGSizeMake(kScreen_Width, kScreen_Height);
     self.view.frame = frame;
     
-        myLog(@"%@",NSStringFromCGRect(self.view.frame));
+    myLog(@"%@",NSStringFromCGRect(self.view.frame));
     //添加集合视图
     [self.view addSubview:self.collectionView];
     [self loadData];

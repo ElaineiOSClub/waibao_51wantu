@@ -4,13 +4,13 @@
 <array>
 	<dict>
 		<key>cate_name</key>
-		<string>9.9元包邮</string>
+		<string>9.9元</string>
 		<key>id</key>
 		<string>1</string>
 	</dict>
 	<dict>
 		<key>cate_name</key>
-		<string>19.9元包邮</string>
+		<string>19.9元</string>
 		<key>id</key>
 		<string>-1</string>
 	</dict>

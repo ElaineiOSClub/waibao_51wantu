@@ -42,6 +42,10 @@
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"close"] style:UIBarButtonItemStyleDone target:self action:@selector(closeClick:)];
     //右侧注册
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"注册" style:UIBarButtonItemStylePlain target:self action:@selector(registerClick:)];
+    
+    if (self.isPresent) {
+        self.navigationItem.leftBarButtonItem = nil;
+    }
 
 }
 
@@ -120,9 +124,12 @@
         [[NSUserDefaults standardUserDefaults]setObject:self.accountTextF.text  forKey:KEY_USERNAME];
         [[NSUserDefaults standardUserDefaults]setObject:self.pwdTextF.text forKey:KEY_PASSWORD];
     [[NSUserDefaults standardUserDefaults] synchronize];
+        if (!self.isPresent) {
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
         
-        [self.navigationController  popViewControllerAnimated:YES];
-
     }else{
         if ([codeStr intValue] ==105) {
             [Util showAlertWithTitle:@"提示" msg:@"密码错误"];
@@ -158,6 +165,10 @@
     
     [self.navigationController pushViewController:[[NewPresonViewController alloc] init] animated:YES];
 }
+
+
+
+
 
 - (IBAction)taobaoClick:(id)sender {
     //sdk初始化

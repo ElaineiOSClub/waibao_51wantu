@@ -9,6 +9,7 @@
 #import "UIWebViewController.h"
 #import "MBProgressHUD+MJ.h"
 #import "HttpTool.h"
+#import "UIViewController+PushNotification.h"
 
 @interface UIWebViewController ()<UIWebViewDelegate>
 
@@ -30,91 +31,68 @@
     
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setBackgroundImage:[UIImage imageNamed:@"unFavoriteState"] forState:UIControlStateNormal];
-    [button setBackgroundImage:[UIImage imageNamed:@"favoriteState"] forState:UIControlStateSelected];
+    [button setBackgroundImage:[UIImage imageNamed:@"favorite_never"] forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:@"favorite"] forState:UIControlStateSelected];
     button.size = button.currentBackgroundImage.size;
     [button addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     _button = button;
     _button.enabled = NO;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    
-    
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setValue:@"248301344@qq.com" forKey:@"account"];
-    [dict setValue:@"891227" forKey:@"password"];
-    
-    [dict setValue:@"www.baidu.com" forKey:@"gourl"];
-    
-    
-    
-    
-    
-    
+}
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSString *token = [[NSUserDefaults standardUserDefaults] stringForKey:KEY_TOKEN];
     
-//   [HttpTool httpToolPost:@"http://www.51wantu.com/api/api.php?action=userlogin" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//       
-//       
-////       
-//       
-//       
-//   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//       
-//   }];
-
-   
-    
-    
-    [HttpTool httpToolGet: @"http://www.51wantu.com/api/api.php?action=getuserinfo" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-
+    [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=goods_fav_status&g_ids=%@&token=%@",self.itemID,token] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //表示已经收藏
-        myLog(@"%@",responseObject);
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-    }];
-
-    
-    
-    
-    [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=goods_fav_status&g_ids=%@",self.itemID] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.button.enabled = YES;
-        //表示已经收藏
         myLog(@"%@",responseObject);
-        if ([responseObject[@"data"] count]>0) {
-            self.button.selected = YES;
+        if ([responseObject[@"code"] integerValue] == 1001) {
+            if ([responseObject[@"data"] count] >0) {
+                self.button.selected = YES;
+            }
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
 
-    
-    
-    
 }
 
 
 - (void)btnClick:(UIButton *)btn;
 {
+    
+    NSString *token = [[NSUserDefaults standardUserDefaults] stringForKey:KEY_TOKEN];
+    
+    
     if (btn.selected) {//已收藏
         //取消收藏
         
-        [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=deletefav&id=%@",self.itemID] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=deletefav&id=%@&token=%@",self.itemID,token] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             myLog(@"%@",responseObject);
             if ([responseObject[@"code"] integerValue] == 200) {
                 self.button.selected = NO;
+            } else if ([responseObject[@"code"] integerValue] == 0) {
+                [self login];
             }
+            
+            
+            
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             
         }];
         
     } else {
 
-        [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=addfav&id=%@&status=1",self.itemID] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [HttpTool httpToolGet:[NSString stringWithFormat:@"http://www.51wantu.com/api/api.php?action=addfav&id=%@&status=1&token=%@",self.itemID,token] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             myLog(@"%@",responseObject);
             if ([responseObject[@"code"] integerValue] == 200) {
                 self.button.selected = YES;
+            } else if ([responseObject[@"code"] integerValue] == 0) {
+                [self login];
             }
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

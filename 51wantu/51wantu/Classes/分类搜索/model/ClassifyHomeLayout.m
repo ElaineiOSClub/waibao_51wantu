@@ -14,7 +14,7 @@
 {
     self.minimumInteritemSpacing = 0;
     self.minimumLineSpacing = 0;
-    self.itemSize = CGSizeMake(kScreen_Width/3.0,88);
+    self.itemSize = CGSizeMake(kScreen_Width/3.0,120);
 }
 
 @end

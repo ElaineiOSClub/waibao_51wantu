@@ -8,6 +8,8 @@
 
 #import "UIViewController+PushNotification.h"
 #import "Util.h"
+#import "loginViewController.h"
+#import "MainNavViewController.h"
 
 @implementation UIViewController (PushNotification)
 
@@ -38,7 +40,12 @@
 
 - (void)login
 {
-   
+    loginViewController *login = [[loginViewController alloc] init];
+    login.isPresent = YES;
+
+    MainNavViewController *nav = [[MainNavViewController alloc] initWithRootViewController:login];
+    
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 
