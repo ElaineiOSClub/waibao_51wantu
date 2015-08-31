@@ -11,8 +11,10 @@
 #import "Util.h"
 #import "FDActionSheet.h"
 #import "showInfoCell.h"
+#import "UUDatePicker.h"
+#import "UIImageView+WebCache.h"
 
-@interface ownBaseInfoViewController ()<UITableViewDataSource,UITableViewDelegate,UIPickerViewDataSource,UIPickerViewDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,UINavigationControllerDelegate>
+@interface ownBaseInfoViewController ()<UITableViewDataSource,UITableViewDelegate,UIPickerViewDataSource,UIPickerViewDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UUDatePickerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *ownTableview;
 @property (nonatomic,strong) NSArray *infoArr;
 @property (nonatomic,strong) NSArray *sexArr;
@@ -22,6 +24,12 @@
 @property (nonatomic,strong) UIImagePickerController *imagePicker;
 @property (nonatomic,copy) NSString *nameStr;
 @property (nonatomic,strong) NSData *headImageData;
+
+@property (nonatomic,strong) UIImageView *headImage;
+
+@property (nonatomic,strong) UUDatePicker * datePicker;
+
+@property (nonatomic,strong) UIView *bgView;
 @end
 
 @implementation ownBaseInfoViewController
@@ -31,31 +39,46 @@
     self.title = @"我的资料";
     self.ownTableview.dataSource = self;
     self.ownTableview.delegate = self;
-    
-    
     self.infoArr = [[NSArray alloc]initWithObjects: @"头像", @"用户名", @"性别", @"生日",nil];
     self.sexArr = [[NSArray alloc]initWithObjects: @"男", @"女",nil];
-    
-    self.dataPick = [[UIDatePicker alloc]initWithFrame:CGRectMake(0, kScreen_Height, 0, 0)];
-    [self.view addSubview:self.dataPick];
     UIPickerView *sexPicker = [[UIPickerView alloc]initWithFrame:CGRectMake(0, kScreen_Height, 0, 216)];
-//    UIPickerView *addPicker = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 0, 320, 216)];
-//    sexPicker.hidden = YES;
-//    addPicker.hidden = YES;
-//    sexPicker.showsSelectionIndicator=YES;
-//    addPicker.showsSelectionIndicator = YES;
     self.sexPicker = sexPicker;
     sexPicker.dataSource = self;
     sexPicker.delegate = self;
     sexPicker.showsSelectionIndicator=YES;
-//    self.addPicker = addPicker;
-    
-    
-    
     
     [self.view addSubview:sexPicker];
-//    [self.view addSubview:addPicker];
-    // Do any additional setup after loading the view from its nib.
+    NSDate *now = [NSDate date];
+    UIView *bgView = [[UIView alloc]init];
+    bgView.frame = CGRectMake(0, kScreen_Height, kScreen_Width, 220);
+    UUDatePicker *datePicker= [[UUDatePicker alloc]initWithframe:CGRectMake(0, 40, kScreen_Width, 180)
+                                                        Delegate:self
+                                                     PickerStyle:UUDateStyle_YearMonthDay];
+    datePicker.ScrollToDate = now;
+//    datePicker.backgroundColor = [UIColor whiteColor];
+    self.headImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, kScreen_Width, 40)];
+    
+    toolBar.barStyle = UIBarButtonItemStylePlain;
+    UIBarButtonItem* barItem1 = [[UIBarButtonItem alloc] initWithTitle:@"确认" style:UIBarButtonItemStylePlain  target:self action:@selector(buttonPress)];
+    
+    
+    UIBarButtonItem* barItem2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    
+    
+    UIBarButtonItem* barItem3 = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain  target:self action:@selector(cancelPress)];
+    
+    
+    [toolBar setItems:[NSArray arrayWithObjects:barItem1,barItem2,barItem3,nil]];
+    
+    //    [self.view addSubview:toolBar];
+    [bgView addSubview:toolBar];
+
+    [bgView addSubview:datePicker];
+    [self.view addSubview:bgView];
+    bgView.backgroundColor = [UIColor whiteColor];
+    self.bgView = bgView;
+
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -67,12 +90,23 @@
     NSString *nameStr = [[NSUserDefaults standardUserDefaults] objectForKey:KEY_USERNAME];
     self.nameStr = nameStr;
     
-    NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"imageData"];
-    if (imageData) {
-        self.headImageData = imageData;
-        [self.ownTableview reloadData];
+    NSString *headImage = [[NSUserDefaults standardUserDefaults] objectForKey:KEY_HEADPIC];
+    if (headImage) {
         
+        NSString *headUrlStr = [NSString stringWithFormat:@"http://www.51wantu.com/%@",headImage];
+        NSURL *headUrl = [NSURL URLWithString:headUrlStr];
+        
+        [self.headImage sd_setImageWithURL:headUrl];
+        [self.ownTableview reloadData];
     }
+    
+    
+//    NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"imageData"];
+//    if (imageData) {
+//        self.headImageData = imageData;
+//        [self.ownTableview reloadData];
+//        
+//    }
     
     [self colseDrawerGesture];
     [[Util getAppDelegate].drawerController setMaximumLeftDrawerWidth:kScreen_Width +10];
@@ -86,6 +120,42 @@
     [self openDrawerGesture];
     [[Util getAppDelegate].drawerController setMaximumLeftDrawerWidth:kScreen_Width -40*kScaleInWith];
 }
+
+-(void)downHeadImage
+{
+
+
+
+
+}
+
+
+-(void)buttonPress
+{
+    
+}
+
+
+-(void)cancelPress
+{
+    [UIView animateWithDuration:.5 animations:^{
+        self.bgView.frame = CGRectMake(0, kScreen_Height, kScreen_Width, 220);
+        self.sexPicker.frame = CGRectMake(0, kScreen_Height, kScreen_Width, 216);
+        
+    } ];
+    
+}
+- (void)uuDatePicker:(UUDatePicker *)datePicker
+                year:(NSString *)year
+               month:(NSString *)month
+                 day:(NSString *)day
+                hour:(NSString *)hour
+              minute:(NSString *)minute
+             weekDay:(NSString *)weekDay
+{
+    NSLog(@"datePicker==========%@========",[NSString stringWithFormat:@"%@-%@-%@ %@:%@",year,month,day,hour,minute]);
+}
+
 
 #pragma mark - Table view data source
 
@@ -113,7 +183,9 @@
     
     if (indexPath.row ==0) {
         showInfoCell * cell = [showInfoCell getshowInfoCell];
-        cell.headImage.image = [[UIImage alloc]initWithData:self.headImageData];
+        if (self.headImage) {
+           cell.headImage.image = self.headImage.image;
+        }
         cell.textLabel.text = self.infoArr[0];
         return cell;
     }else{
@@ -129,34 +201,42 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSInteger row = [indexPath row];
-    
-    
     if (row==0) {
         [self actionSheet];
     }
     
-    
-    
     if (row==2) {
-        self.dataPick.frame = CGRectMake(0, kScreen_Height, 0, 0);
+        self.bgView.frame = CGRectMake(0, kScreen_Height, kScreen_Width, 220);
         [UIView animateWithDuration:.5 animations:^{
-            self.sexPicker.frame =CGRectMake(0, kScreen_Height-226, 0, 0);
+            self.sexPicker.frame = CGRectMake(0, kScreen_Height-226, kScreen_Width, 216);
         } completion:^(BOOL finished) {
             
         }];
+        
     }
     
     if (row ==3) {
-        self.sexPicker.frame = CGRectMake(0, kScreen_Height, 0, 0);
+        self.sexPicker.frame = CGRectMake(0, kScreen_Height, kScreen_Width, 216);
         [UIView animateWithDuration:.5 animations:^{
-            self.dataPick.frame = CGRectMake(0, kScreen_Height-226, 0, 0);
-        } completion:^(BOOL finished) {
-            
-        }];
+            self.bgView.frame = CGRectMake(0, kScreen_Height - 220, kScreen_Width, 220);
+        } ];
+        
         
         
     }
     
+}
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+
+    [UIView animateWithDuration:.5 animations:^{
+        self.bgView.frame = CGRectMake(0, kScreen_Height, kScreen_Width, 220);
+        self.sexPicker.frame = CGRectMake(0, kScreen_Height, kScreen_Width, 216);
+        
+    } ];
+
+
+
 }
 #pragma mark-actionSheet
 - (void)actionSheet

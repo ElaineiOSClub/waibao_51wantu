@@ -31,7 +31,9 @@
 /*HTTP*/
 #define KEY_USERNAME @"userName"//用户是否登陆
 #define KEY_PASSWORD @"userPWS"//用户密码
-#define KEY_TOKEN @"myToken"//用户密码
+#define KEY_TOKEN @"myToken"//用户token
+#define KEY_HEADPIC @"headPic"
+#define KEY_NICKNAME @"nickName"
 
 //RGB from string
 #define kUIColorFromRGB(rgbValue) [UIColor \
