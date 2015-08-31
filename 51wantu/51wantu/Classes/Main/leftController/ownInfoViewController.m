@@ -46,6 +46,10 @@
     self.ownInfoTabview.delegate = self;
     self.ownInfoTabview.dataSource = self;
      self.accountSettingArr = [[NSArray alloc] initWithObjects: @"基本资料", @"收货地址", @"安全中心", @"积分中心", @"我的收藏", nil];
+    
+     self.accountSettingArr = [[NSArray alloc] initWithObjects: @"基本资料", @"安全中心", @"我的收藏", nil];
+    
+    
     self.ownInfoTabview.scrollEnabled = NO;
 
     ownBaseInfoViewController *base = [[ownBaseInfoViewController alloc]init];
@@ -56,7 +60,7 @@
     
     self.pushArr = [[NSArray alloc]initWithObjects:base,add,change,point,mine, nil];
     
-    
+     self.pushArr = [[NSArray alloc]initWithObjects:base,change,mine, nil];
 
     //footer
     UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, 80)];

@@ -30,6 +30,12 @@
 @property (nonatomic,strong) UUDatePicker * datePicker;
 
 @property (nonatomic,strong) UIView *bgView;
+
+
+@property (nonatomic, copy) NSString *sexText;
+
+@property (nonatomic, copy) NSString *dataText;
+
 @end
 
 @implementation ownBaseInfoViewController
@@ -133,6 +139,14 @@
 -(void)buttonPress
 {
     
+    [UIView animateWithDuration:.5 animations:^{
+        self.bgView.frame = CGRectMake(0, kScreen_Height, kScreen_Width, 220);
+        self.sexPicker.frame = CGRectMake(0, kScreen_Height, kScreen_Width, 216);
+        
+    } ];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
+    [self.ownTableview reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 
@@ -154,6 +168,11 @@
              weekDay:(NSString *)weekDay
 {
     NSLog(@"datePicker==========%@========",[NSString stringWithFormat:@"%@-%@-%@ %@:%@",year,month,day,hour,minute]);
+    
+    self.dataText = [NSString stringWithFormat:@"%@-%@-%@",year,month,day];
+    
+    
+
 }
 
 
@@ -180,20 +199,44 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     
-    if (indexPath.row ==0) {
-        showInfoCell * cell = [showInfoCell getshowInfoCell];
-        if (self.headImage) {
-           cell.headImage.image = self.headImage.image;
+    static NSString *const oneCell = @"oneCell";
+    static NSString *const twoCell = @"twoCell";
+    
+    
+    
+    if (indexPath.row == 0) {
+        showInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:oneCell];
+        if (!cell) {
+            cell = [showInfoCell getshowInfoCell];
+             NSString *headImage = [[NSUserDefaults standardUserDefaults] objectForKey:KEY_HEADPIC];
+            NSString *headUrlStr = [NSString stringWithFormat:@"http://www.51wantu.com/%@",headImage];
+              NSURL *headUrl = [NSURL URLWithString:headUrlStr];
+            [cell.headImage sd_setImageWithURL:headUrl];
+            cell.textLabel.text = self.infoArr[indexPath.row];
         }
-        cell.textLabel.text = self.infoArr[0];
         return cell;
-    }else{
-        UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
+        
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:twoCell];
+        if (!cell) {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:twoCell];
+        }
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = self.infoArr[indexPath.row];
+        
+        if (indexPath.row == 1) {
+            NSString *userName = [[NSUserDefaults standardUserDefaults] objectForKey:KEY_USERNAME];
+            cell.detailTextLabel.text = userName;
+        }  else if (indexPath.row == 2) {
+            cell.detailTextLabel.text = self.sexText == nil?@"男":self.sexText;
+        }  else {
+            cell.detailTextLabel.text = self.dataText == nil ? @"1989-11-01" : self.dataText;
+        }
         return cell;
     }
+    
     
 }
 
@@ -373,6 +416,13 @@ static NSData *imageData = nil;
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     myLog(@"picker=======%@",self.sexArr[row]);
+    
+    self.sexText = self.sexArr[row];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    [self.ownTableview reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    
+    
 
 }
 
