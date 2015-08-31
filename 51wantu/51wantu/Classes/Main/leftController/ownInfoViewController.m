@@ -95,7 +95,9 @@
     [self.navigationController setNavigationBarHidden:YES];
     
     NSString *userName =  [[NSUserDefaults standardUserDefaults]objectForKey:KEY_USERNAME];
+    
     NSString *passWord =  [[NSUserDefaults standardUserDefaults]objectForKey:KEY_PASSWORD];
+    NSString *nickName =  [[NSUserDefaults standardUserDefaults]objectForKey:KEY_NICKNAME];
     
     if (userName == nil || [userName isEqualToString:@""] || [userName isEqual:[NSNull null]] || passWord == nil || [passWord isEqualToString:@""] || [passWord isEqual:[NSNull null]])
     {
@@ -105,7 +107,7 @@
         
     }else
     {
-        self.nameLab.text =userName;
+        self.nameLab.text =nickName;
         self.nameLab.hidden = NO;
         self.logInBtn.hidden = YES;
         self.registerBtn.hidden = YES;

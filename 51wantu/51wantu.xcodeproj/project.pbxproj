@@ -17,6 +17,8 @@
 		0A08F58B1B8066A700CB41E5 /* ownBaseInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A08F57B1B8066A700CB41E5 /* ownBaseInfoViewController.xib */; };
 		0A08F58C1B8066A700CB41E5 /* ownAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A08F57F1B8066A700CB41E5 /* ownAddViewController.m */; };
 		0A08F58D1B8066A700CB41E5 /* ownAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A08F5801B8066A700CB41E5 /* ownAddViewController.xib */; };
+		0A47942D1B94A1D8005C7C8E /* UUDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A47942A1B94A1D8005C7C8E /* UUDatePicker.m */; };
+		0A47942E1B94A1D8005C7C8E /* UUDatePicker_DateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A47942C1B94A1D8005C7C8E /* UUDatePicker_DateModel.m */; };
 		0A49D9F11B8CBABD00F8EEF9 /* showInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A49D9EF1B8CBABD00F8EEF9 /* showInfoCell.m */; };
 		0A49D9F21B8CBABD00F8EEF9 /* showInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A49D9F01B8CBABD00F8EEF9 /* showInfoCell.xib */; };
 		0A89D3F81B75A641003EAFB2 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A89D3B21B75A641003EAFB2 /* FMDatabase.m */; };
@@ -178,6 +180,10 @@
 		0A08F57E1B8066A700CB41E5 /* ownAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ownAddViewController.h; sourceTree = "<group>"; };
 		0A08F57F1B8066A700CB41E5 /* ownAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ownAddViewController.m; sourceTree = "<group>"; };
 		0A08F5801B8066A700CB41E5 /* ownAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ownAddViewController.xib; sourceTree = "<group>"; };
+		0A4794291B94A1D8005C7C8E /* UUDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUDatePicker.h; sourceTree = "<group>"; };
+		0A47942A1B94A1D8005C7C8E /* UUDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUDatePicker.m; sourceTree = "<group>"; };
+		0A47942B1B94A1D8005C7C8E /* UUDatePicker_DateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUDatePicker_DateModel.h; sourceTree = "<group>"; };
+		0A47942C1B94A1D8005C7C8E /* UUDatePicker_DateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUDatePicker_DateModel.m; sourceTree = "<group>"; };
 		0A49D9EE1B8CBABD00F8EEF9 /* showInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = showInfoCell.h; sourceTree = "<group>"; };
 		0A49D9EF1B8CBABD00F8EEF9 /* showInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = showInfoCell.m; sourceTree = "<group>"; };
 		0A49D9F01B8CBABD00F8EEF9 /* showInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = showInfoCell.xib; sourceTree = "<group>"; };
@@ -544,6 +550,17 @@
 			path = controller;
 			sourceTree = "<group>";
 		};
+		0A4794281B94A1D8005C7C8E /* UUDatePicker_Block */ = {
+			isa = PBXGroup;
+			children = (
+				0A4794291B94A1D8005C7C8E /* UUDatePicker.h */,
+				0A47942A1B94A1D8005C7C8E /* UUDatePicker.m */,
+				0A47942B1B94A1D8005C7C8E /* UUDatePicker_DateModel.h */,
+				0A47942C1B94A1D8005C7C8E /* UUDatePicker_DateModel.m */,
+			);
+			path = UUDatePicker_Block;
+			sourceTree = "<group>";
+		};
 		0A49D9ED1B8CBABD00F8EEF9 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -557,6 +574,7 @@
 		0A89D3AF1B75A641003EAFB2 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				0A4794281B94A1D8005C7C8E /* UUDatePicker_Block */,
 				0ADA8C791B8767E700673AA7 /* FDActionSheet */,
 				B996B74B1B81C7BC007244A3 /* OneSDK */,
 				B994C2001B7606C5003577FD /* AFNetworking */,
@@ -1400,6 +1418,7 @@
 				B9F2BE0A1B7810E200A6FAAB /* HomeCell.m in Sources */,
 				0A89D4161B75A641003EAFB2 /* UIViewController+MMDrawerController.m in Sources */,
 				B994C23F1B7606C5003577FD /* MKAnnotationView+WebCache.m in Sources */,
+				0A47942E1B94A1D8005C7C8E /* UUDatePicker_DateModel.m in Sources */,
 				B994C1F51B7604C6003577FD /* MJProperty.m in Sources */,
 				B9FA9C5F1B75A22C00E1B03F /* main.m in Sources */,
 				B915D0031B805DB500A9870F /* BrandDetailViewController.m in Sources */,
@@ -1423,6 +1442,7 @@
 				B994C23C1B7606C5003577FD /* AFURLRequestSerialization.m in Sources */,
 				0A89D4051B75A641003EAFB2 /* MJRefreshAutoGifFooter.m in Sources */,
 				B994C23D1B7606C5003577FD /* AFURLResponseSerialization.m in Sources */,
+				0A47942D1B94A1D8005C7C8E /* UUDatePicker.m in Sources */,
 				B994C1FF1B76067D003577FD /* HttpTool.m in Sources */,
 				B994C23B1B7606C5003577FD /* AFURLConnectionOperation.m in Sources */,
 				0AA085ED1B76605C00475429 /* HTTPService.m in Sources */,

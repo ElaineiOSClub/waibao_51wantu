@@ -123,6 +123,7 @@
         [[NSUserDefaults standardUserDefaults]setObject:token forKey:KEY_TOKEN];
         [[NSUserDefaults standardUserDefaults]setObject:self.accountTextF.text  forKey:KEY_USERNAME];
         [[NSUserDefaults standardUserDefaults]setObject:self.pwdTextF.text forKey:KEY_PASSWORD];
+        [self inquireOwnInfoWithToken:token];
     [[NSUserDefaults standardUserDefaults] synchronize];
         if (!self.isPresent) {
             [self.navigationController popViewControllerAnimated:YES];
@@ -144,6 +145,35 @@
     [MBProgressHUD hideHUD];
     [Util showAlertWithTitle:@"提示" msg:@"网络好像有问题"];
 }];
+
+}
+
+
+-(void)inquireOwnInfoWithToken:(NSString *)token
+{
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:token forKey:@"token"];
+    [HTTPService GetHttpToServerWith:@"http://www.51wantu.com/api/api.php?action=getuserinfo" WithParameters:dict success:^(NSDictionary *dic) {
+        
+        
+        NSString *headImageStr = dic[@"s_pic"];
+        
+        [[NSUserDefaults standardUserDefaults]setObject:headImageStr forKey:KEY_HEADPIC];
+        myLog(@"%@=======headImageStr",headImageStr);
+        
+        NSString *nickName = dic[@"nick"];
+        myLog(@"%@=======nick",nickName);
+        
+        [[NSUserDefaults standardUserDefaults]setObject:nickName forKey:KEY_NICKNAME];
+        
+        
+        
+    } error:^(NSError *error) {
+        
+    }];
+
+
+
+
 
 }
 - (IBAction)showPwdOn:(UISwitch *)sender {
