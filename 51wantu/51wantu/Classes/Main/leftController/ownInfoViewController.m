@@ -18,6 +18,7 @@
 
 
 #import "loginViewController.h"
+#import "UIViewController+PushNotification.h"
 
 @interface ownInfoViewController ()<UITableViewDataSource,UITableViewDelegate>
 - (IBAction)backBtnClick:(UIButton *)sender;
@@ -55,7 +56,39 @@
     
     self.pushArr = [[NSArray alloc]initWithObjects:base,add,change,point,mine, nil];
     
+    
+
+    //footer
+    UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, 80)];
+    UIButton *outBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [outBtn setTitle:@"退出" forState:UIControlStateNormal];
+    outBtn.frame = CGRectMake(20, 30, kScreen_Width - 40, 44);
+    [outBtn addTarget:self action:@selector(outClick:) forControlEvents:UIControlEventTouchUpInside];
+    outBtn.backgroundColor = NAV_COLOR;
+    outBtn.layer.cornerRadius = 4;
+    [footView addSubview:outBtn];
+    self.ownInfoTabview.tableFooterView = footView;
+
+    
+    
+    
+    
 }
+
+
+#pragma mark - event response
+- (void)outClick:(UIButton *)button
+{
+    //退出
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:KEY_USERNAME];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:KEY_PASSWORD];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:KEY_TOKEN];
+    self.ownInfoTabview.tableFooterView.hidden = YES;
+    self.nameLab.hidden = YES;
+    self.logInBtn.hidden = NO;
+    self.registerBtn.hidden = NO;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -84,7 +117,9 @@
 //    [[NSUserDefaults standardUserDefaults]setObject:self.accountTextF.text  forKey:KEY_USERNAME];
 //    [[NSUserDefaults standardUserDefaults]setObject:self.pwdTextF.text forKey:KEY_PASSWORD];
 //    
-    
+
+    self.ownInfoTabview.tableFooterView.hidden = [self getToken] == nil ? YES : NO;
+
     
 }
 
@@ -104,6 +139,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+
     return self.accountSettingArr.count;
     
 }
@@ -129,7 +165,13 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSInteger row = [indexPath row];
-    [self.navigationController pushViewController:self.pushArr[row] animated:YES];
+    
+    //判断是否登录了
+    if (![self getToken]) {
+        [self logIN:nil];
+    } else {
+         [self.navigationController pushViewController:self.pushArr[row] animated:YES];
+    } 
 }
 
 
@@ -147,6 +189,11 @@
 
 - (IBAction)registerBtnClick:(id)sender {
     [self.navigationController pushViewController:[[NewPresonViewController alloc] init] animated:YES];
+}
+
+- (NSString *)getToken
+{
+     return [[NSUserDefaults standardUserDefaults] stringForKey:KEY_TOKEN];
 }
 
 

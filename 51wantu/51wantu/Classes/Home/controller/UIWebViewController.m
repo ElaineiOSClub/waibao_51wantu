@@ -101,22 +101,22 @@
     }
 }
 
-
-#pragma mark - webView代理方法
-- (void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    [MBProgressHUD hideHUD];
-}
-
-- (void)webViewDidStartLoad:(UIWebView *)webView
-{
-    [MBProgressHUD showMessage:@"正在加载..."];
-}
-
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
-{
-    [MBProgressHUD hideHUD];
-}
+//
+//#pragma mark - webView代理方法
+//- (void)webViewDidFinishLoad:(UIWebView *)webView
+//{
+//    [MBProgressHUD hideHUD];
+//}
+//
+//- (void)webViewDidStartLoad:(UIWebView *)webView
+//{
+//    [MBProgressHUD showMessage:@"正在加载..."];
+//}
+//
+//- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+//{
+//    [MBProgressHUD hideHUD];
+//}
 
 
 

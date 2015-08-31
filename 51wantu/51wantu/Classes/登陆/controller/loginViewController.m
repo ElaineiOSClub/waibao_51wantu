@@ -171,19 +171,14 @@
 
 
 - (IBAction)taobaoClick:(id)sender {
-    //sdk初始化
-    [[TaeSDK sharedInstance] asyncInit:^{
-        myLog(@"初始化成功");
-        [self showLogin];
-        
-
-        
-        
-        
-     
-    } failedCallback:^(NSError *error) {
-        myLog(@"初始化失败:%@",error);
-    }];
+//    //sdk初始化
+//    [[TaeSDK sharedInstance] asyncInit:^{
+//        myLog(@"初始化成功");
+//        [self showLogin];
+//        
+//    } failedCallback:^(NSError *error) {
+//        myLog(@"初始化失败:%@",error);
+//    }];
 }
 
 
