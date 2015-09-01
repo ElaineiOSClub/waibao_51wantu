@@ -141,6 +141,7 @@
 		B996B76B1B832399007244A3 /* mineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B996B76A1B832399007244A3 /* mineViewController.m */; };
 		B99E0B661B7A3C9200D4C005 /* AdvanceNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B99E0B641B7A3C9200D4C005 /* AdvanceNoticeCell.m */; };
 		B99E0B671B7A3C9200D4C005 /* AdvanceNoticeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B99E0B651B7A3C9200D4C005 /* AdvanceNoticeCell.xib */; };
+		B9A8B2681B95E7000078CBD5 /* IntegralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B2671B95E7000078CBD5 /* IntegralViewController.m */; };
 		B9A8FB581B78E97B00E46D84 /* UIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A8FB571B78E97B00E46D84 /* UIWebViewController.m */; };
 		B9C2D9131B7C0832005414F4 /* ClassifyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C2D9121B7C0832005414F4 /* ClassifyModel.m */; };
 		B9C2D9191B7C6952005414F4 /* subcate.plist in Resources */ = {isa = PBXBuildFile; fileRef = B9C2D9171B7C6952005414F4 /* subcate.plist */; };
@@ -409,6 +410,8 @@
 		B99E0B631B7A3C9200D4C005 /* AdvanceNoticeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvanceNoticeCell.h; sourceTree = "<group>"; };
 		B99E0B641B7A3C9200D4C005 /* AdvanceNoticeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvanceNoticeCell.m; sourceTree = "<group>"; };
 		B99E0B651B7A3C9200D4C005 /* AdvanceNoticeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvanceNoticeCell.xib; sourceTree = "<group>"; };
+		B9A8B2661B95E7000078CBD5 /* IntegralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegralViewController.h; sourceTree = "<group>"; };
+		B9A8B2671B95E7000078CBD5 /* IntegralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegralViewController.m; sourceTree = "<group>"; };
 		B9A8FB561B78E97B00E46D84 /* UIWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWebViewController.h; sourceTree = "<group>"; };
 		B9A8FB571B78E97B00E46D84 /* UIWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWebViewController.m; sourceTree = "<group>"; };
 		B9C2D9111B7C0832005414F4 /* ClassifyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassifyModel.h; sourceTree = "<group>"; };
@@ -837,6 +840,7 @@
 		B994C1A61B75DBD2003577FD /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B9A8B25F1B95E6210078CBD5 /* 积分商城 */,
 				0AA085C81B765C9C00475429 /* tool */,
 				0AA085C01B764F6D00475429 /* 登陆 */,
 				0AA085C11B764F6D00475429 /* 注册 */,
@@ -1189,6 +1193,23 @@
 			path = OneSDK;
 			sourceTree = "<group>";
 		};
+		B9A8B25F1B95E6210078CBD5 /* 积分商城 */ = {
+			isa = PBXGroup;
+			children = (
+				B9A8B2601B95E6210078CBD5 /* controller */,
+			);
+			path = "积分商城";
+			sourceTree = "<group>";
+		};
+		B9A8B2601B95E6210078CBD5 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				B9A8B2661B95E7000078CBD5 /* IntegralViewController.h */,
+				B9A8B2671B95E7000078CBD5 /* IntegralViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		B9FA9C501B75A22C00E1B03F = {
 			isa = PBXGroup;
 			children = (
@@ -1392,6 +1413,7 @@
 				0A89D4131B75A641003EAFB2 /* MMDrawerBarButtonItem.m in Sources */,
 				B994C2371B7606C5003577FD /* AFHTTPRequestOperationManager.m in Sources */,
 				0A89D4151B75A641003EAFB2 /* MMDrawerVisualState.m in Sources */,
+				B9A8B2681B95E7000078CBD5 /* IntegralViewController.m in Sources */,
 				0A89D4121B75A641003EAFB2 /* UIView+MJExtension.m in Sources */,
 				B9634FEE1B8CAD6300F32F7C /* ClassifyDetailViewController.m in Sources */,
 				0AA085F11B76630A00475429 /* Util.m in Sources */,

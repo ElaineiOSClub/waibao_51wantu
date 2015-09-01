@@ -252,7 +252,7 @@ static NSString *cellID = @"cell";
 {
     [super viewWillDisappear:animated];
     [self colseDrawerGesture];
-      [self removeNotification];
+    [self removeNotification];
     
 }
 
