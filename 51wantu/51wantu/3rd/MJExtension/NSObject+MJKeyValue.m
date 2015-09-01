@@ -208,7 +208,7 @@ static NSNumberFormatter *_numberFormatter;
         }
     } @catch (NSException *exception) {
         MJExtensionBuildError(error, exception.reason);
-        NSLog(@"%@", exception);
+      
     }
     return self;
 }
@@ -407,7 +407,6 @@ static NSNumberFormatter *_numberFormatter;
         }
     } @catch (NSException *exception) {
         MJExtensionBuildError(error, exception.reason);
-        NSLog(@"%@", exception);
     }
     
     return keyValues;

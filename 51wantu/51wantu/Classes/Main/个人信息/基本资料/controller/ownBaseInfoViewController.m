@@ -167,7 +167,7 @@
               minute:(NSString *)minute
              weekDay:(NSString *)weekDay
 {
-    NSLog(@"datePicker==========%@========",[NSString stringWithFormat:@"%@-%@-%@ %@:%@",year,month,day,hour,minute]);
+    myLog(@"datePicker==========%@========",[NSString stringWithFormat:@"%@-%@-%@ %@:%@",year,month,day,hour,minute]);
     
     self.dataText = [NSString stringWithFormat:@"%@-%@-%@",year,month,day];
     
@@ -344,7 +344,7 @@ static NSData *imageData = nil;
     }
     
 
-    NSLog(@"=======上传");
+    myLog(@"=======上传");
     
 //    CGSize imagesize = image.size;
 //    imagesize.height =200;
@@ -368,7 +368,7 @@ static NSData *imageData = nil;
     }];
     
     
-    NSLog(@"=======上传");
+    myLog(@"=======上传");
     //[self postRequestWithpostParems:dir picFilePaths:img1 back:^(NSArray *url, NSArray *names) {
         
         
@@ -492,7 +492,7 @@ static NSString * const FORM_FLE_INPUT = @"pic";
     
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"data:>>>>>>>>\n%@", str);
+        myLog(@"data:>>>>>>>>\n%@", str);
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         
@@ -503,7 +503,7 @@ static NSString * const FORM_FLE_INPUT = @"pic";
                 backs(urls, names);
             });
         } else {
-            NSLog(@"############   dict = nil!   ############");
+            myLog(@"############   dict = nil!   ############");
         }
     }];
     [task resume];
@@ -575,7 +575,7 @@ static NSString * const FORM_FLE_INPUT = @"pic";
             //添加字段的值
             [body appendFormat:@"%@\r\n",[postParems objectForKey:key]];
             
-            NSLog(@"添加字段的值==%@",[postParems objectForKey:key]);
+            myLog(@"添加字段的值==%@",[postParems objectForKey:key]);
         }
         NSString *picFileName = [[picFilePath componentsSeparatedByString:@"/"] lastObject];
         if(picFilePath){
@@ -620,7 +620,7 @@ static NSString * const FORM_FLE_INPUT = @"pic";
     
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"data:>>>>>>>>\n%@", str);
+        myLog(@"data:>>>>>>>>\n%@", str);
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         
@@ -631,7 +631,7 @@ static NSString * const FORM_FLE_INPUT = @"pic";
                 backs(urls, names);
             });
         } else {
-            NSLog(@"############   dict = nil!   ############");
+            myLog(@"############   dict = nil!   ############");
         }
     }];
     [task resume];

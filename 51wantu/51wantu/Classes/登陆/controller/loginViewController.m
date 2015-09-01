@@ -22,6 +22,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *forgetBtn;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property (weak, nonatomic) IBOutlet UISwitch *showPwd;
+
+@property (weak, nonatomic) IBOutlet UIButton *taobaoLogin;
+
 - (IBAction)showPwdOn:(UISwitch *)sender;
 
 - (IBAction)loginBtnClick:(UIButton *)sender;
@@ -37,6 +40,7 @@
     // Do any additional setup after loading the view from its nib.
     [self.accountTextF becomeFirstResponder];
     
+    self.taobaoLogin.hidden = YES;
     
 //    //左侧关闭
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"close"] style:UIBarButtonItemStyleDone target:self action:@selector(closeClick:)];

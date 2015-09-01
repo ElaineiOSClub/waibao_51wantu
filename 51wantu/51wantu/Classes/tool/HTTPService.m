@@ -53,7 +53,7 @@
 #pragma mark-上传图片和数据多上传
 + (void)PostHttpToServerImageAndDataWith:(NSString *)urlString WithParmeters:(NSDictionary *)paras WithFilePath:(NSString *)Path  imageName:(NSString *)name andImageFile:(UIImage *)image success:(void (^) (NSDictionary *dic))result error:(void (^) (NSError *error))error_
 {
-    NSLog(@"dictayt===%@",paras);
+
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:urlString parameters:paras constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -85,9 +85,9 @@
         NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
         return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
-        NSLog(@"File downloaded to: %@", filePath);
+        myLog(@"File downloaded to: %@", filePath);
         
-        NSLog(@"response==%@",response);
+        myLog(@"response==%@",response);
         NSString *tempUrl = [NSString stringWithFormat:@"%@",filePath];
         
         filePath_(tempUrl);
@@ -112,13 +112,13 @@
     NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithRequest:request fromFile:filePath progress:nil completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
             error_(error);
-            NSLog(@"Error: %@", error);
+            myLog(@"Error: %@", error);
         } else {
             
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             result(dic);
 
-            NSLog(@"Success: %@ %@", response, responseObject);
+            myLog(@"Success: %@ %@", response, responseObject);
         }
     }];
     [uploadTask resume];
