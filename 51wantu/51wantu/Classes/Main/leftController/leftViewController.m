@@ -14,6 +14,7 @@
 #import "MainNavViewController.h"
 #import "Util.h"
 #import "ownInfoViewController.h"
+#import "IntegralViewController.h"
 
 @interface leftViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -129,14 +130,17 @@
 //
 //    [self.navigationController pushViewController:ownInfo animated:YES];
 //  
-    [[NSNotificationCenter defaultCenter] postNotificationName: @"kPushLeftVC" object:nil userInfo:@{@"class":[ownInfoViewController class]}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"kPushLeftVC" object:nil userInfo:@{@"class":[ownInfoViewController class]}];
     
 }
 
 - (IBAction)aboutBtnClick:(leftMainBtn *)sender {
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"kPushLeftVC" object:nil userInfo:@{@"class":[IntegralViewController class]}];
 }
 
 - (IBAction)pointBtnClick:(leftMainBtn *)sender {
+    
 }
 
 @end
