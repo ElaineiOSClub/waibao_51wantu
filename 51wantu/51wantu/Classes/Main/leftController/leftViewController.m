@@ -20,11 +20,9 @@
 
 @property (weak, nonatomic) IBOutlet leftMainBtn *ownInfoBtn;
 @property (weak, nonatomic) IBOutlet leftMainBtn *aboutBtn;
-@property (weak, nonatomic) IBOutlet leftMainBtn *pointBtn;
 
 - (IBAction)ownInfoBtnClick:(leftMainBtn *)sender;
 - (IBAction)aboutBtnClick:(leftMainBtn *)sender;
-- (IBAction)pointBtnClick:(leftMainBtn *)sender;
 @property (weak, nonatomic) IBOutlet UITableView *categoryTableView;
 
 @property (nonatomic,strong) NSArray *categoryArray;
@@ -39,7 +37,7 @@
     [super viewDidLoad];
     [self.ownInfoBtn setImage:[UIImage imageNamed:@"username"] forState:UIControlStateNormal];
     [self.aboutBtn setImage:[UIImage imageNamed:@"pointMallicon"] forState:UIControlStateNormal];
-    [self.pointBtn setImage:[UIImage imageNamed:@"username"] forState:UIControlStateNormal];
+//    [self.pointBtn setImage:[UIImage imageNamed:@"username"] forState:UIControlStateNormal];
 
     //self.categoryArray = [[NSMutableArray alloc] initWithObjects: @"全部", @"女装", @"男装", @"鞋包", @"美妆", @"配饰", @"居家",@"母婴",@"美食",@"数码电器",@"文体", nil];
 
@@ -137,10 +135,6 @@
 - (IBAction)aboutBtnClick:(leftMainBtn *)sender {
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"kPushLeftVC" object:nil userInfo:@{@"class":[IntegralViewController class]}];
-}
-
-- (IBAction)pointBtnClick:(leftMainBtn *)sender {
-    
 }
 
 @end
