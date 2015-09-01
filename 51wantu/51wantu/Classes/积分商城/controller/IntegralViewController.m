@@ -26,28 +26,6 @@
     
     [self.view addSubview:topView];
     
-//button    [todayBtn setTitle:@"今日兑换活动" forState:UIControlStateNormal];
-//    [todayBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    todayBtn.backgroundColor = [UIColor redColor];
-//    [todayBtn setTitleColor:NAV_COLOR forState:UIControlStateSelected];
-//    todayBtn.frame = CGRectMake(0, 0, kScreen_Width/3, 43);
-//    
-//    UIButton *tomBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [tomBtn setTitle:@"明日兑换活动" forState:UIControlStateNormal];
-//    [tomBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    [tomBtn setTitleColor:NAV_COLOR forState:UIControlStateSelected];
-//    tomBtn.frame = CGRectMake(kScreen_Width/3, 0, kScreen_Width/3, 43);
-//    
-//    UIButton *hisBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [hisBtn setTitle:@"历史兑换活动" forState:UIControlStateNormal];
-//    [hisBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    [hisBtn setTitleColor:NAV_COLOR forState:UIControlStateSelected];
-//    hisBtn.frame = CGRectMake(CGRectGetMaxX( tomBtn.frame), 0, kScreen_Width/3, 43);
-//    
-//    [topView addSubview:todayBtn];
-//     [topView addSubview:tomBtn];
-//     [topView addSubview:hisBtn];
-    
     CGFloat width = kScreen_Width/3;
     
     
