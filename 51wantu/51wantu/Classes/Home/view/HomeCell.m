@@ -41,7 +41,7 @@
         model.pic_url = [NSString stringWithFormat:@"http:%@",model.pic_url];
     }
     NSURL *imageUrl = [NSURL URLWithString:model.pic_url];
-    [self.productImageView sd_setImageWithURL:imageUrl];
+    [self.productImageView sd_setImageWithURL:imageUrl placeholderImage:[UIImage imageNamed:@"占458"]];
 //    self.classifyLabel.text = [NSString stringWithFormat:@"【%@】",model.classifyName];
     self.nameLabel.text = model.title;
     self.priceLabel.text = [NSString stringWithFormat:@"¥%@",model.tuan_price] ;

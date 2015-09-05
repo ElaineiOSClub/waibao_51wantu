@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NcF-TF-fjL">
+                    <rect key="frame" x="0.0" y="64" width="600" height="211"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookviewBg" translatesAutoresizingMaskIntoConstraints="NO" id="Bqb-WI-hHL">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="211"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总积分:100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xeB-of-Hx0">
+                            <rect key="frame" x="258" y="31" width="85" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="QPg-ds-cBK"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lG3-YF-dAq">
+                            <rect key="frame" x="247" y="65" width="107" height="34"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="nr1-Ex-rjt"/>
+                            </constraints>
+                            <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                            <state key="normal" title="签到 + 35">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Bqb-WI-hHL" secondAttribute="trailing" id="7t3-OJ-VwX"/>
+                        <constraint firstItem="Bqb-WI-hHL" firstAttribute="top" secondItem="NcF-TF-fjL" secondAttribute="top" id="DgX-GC-Ru6"/>
+                        <constraint firstItem="Bqb-WI-hHL" firstAttribute="leading" secondItem="NcF-TF-fjL" secondAttribute="leading" id="MMn-b4-gpi"/>
+                        <constraint firstAttribute="centerX" secondItem="xeB-of-Hx0" secondAttribute="centerX" id="PhR-xo-nFE"/>
+                        <constraint firstItem="xeB-of-Hx0" firstAttribute="top" secondItem="NcF-TF-fjL" secondAttribute="top" constant="31" id="Uyt-ud-rZH"/>
+                        <constraint firstAttribute="height" constant="211" id="Wbg-r5-Af1"/>
+                        <constraint firstAttribute="centerX" secondItem="lG3-YF-dAq" secondAttribute="centerX" id="ig0-CD-t7j"/>
+                        <constraint firstAttribute="bottom" secondItem="Bqb-WI-hHL" secondAttribute="bottom" id="mdx-87-aZp"/>
+                        <constraint firstItem="lG3-YF-dAq" firstAttribute="top" secondItem="xeB-of-Hx0" secondAttribute="bottom" constant="13" id="ov6-m7-4LH"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="NcF-TF-fjL" secondAttribute="trailing" id="68a-Et-bSg"/>
+                <constraint firstItem="NcF-TF-fjL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="TxW-iY-fEZ"/>
+                <constraint firstItem="NcF-TF-fjL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xRK-vT-uNy"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="bookviewBg" width="320" height="211"/>
+    </resources>
+</document>
