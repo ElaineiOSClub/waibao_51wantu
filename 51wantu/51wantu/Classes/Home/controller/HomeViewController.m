@@ -66,7 +66,7 @@ static NSString *cellID = @"cell";
     
     
     //rightItem
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem initWithTarget:self action:@selector(signClick:) image:@"home_right_sign" highImage:@"home_right_sign_press"];
+    //self.navigationItem.rightBarButtonItem = [UIBarButtonItem initWithTarget:self action:@selector(signClick:) image:@"home_right_sign" highImage:@"home_right_sign_press"];
     
     HomeFloatView *floatView = [[HomeFloatView alloc] init];
     floatView.delegate = self;
