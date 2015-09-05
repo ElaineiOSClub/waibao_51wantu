@@ -31,8 +31,8 @@
     
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setBackgroundImage:[UIImage imageNamed:@"favorite_never"] forState:UIControlStateNormal];
-    [button setBackgroundImage:[UIImage imageNamed:@"favorite"] forState:UIControlStateSelected];
+    [button setBackgroundImage:[UIImage imageNamed:@"爱心never"] forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:@"爱心"] forState:UIControlStateSelected];
     button.size = button.currentBackgroundImage.size;
     [button addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     _button = button;
