@@ -23,14 +23,31 @@
 #import "ClassifyModel.h"
 
 
+#import "UIBarButtonItem+Extension.h"
+#import "HomeFloatView.h"
+
+#import "UIViewController+PushNotification.h"
+
+//个人中心
+#import "ownInfoViewController.h"
+//收藏
+#import "mineViewController.h"
+
+#import "SignViewController.h"
+
+#import "DockItem.h"
+
+
 static NSString *cellID = @"cell";
 
-@interface HomeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface HomeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,HomeFloatViewDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) BaseDatasModel *model;
 @property (nonatomic, strong) NSMutableArray *arrayList;
 @property (nonatomic, assign) NSInteger currentPage;
+@property (nonatomic, strong) HomeFloatView *floatView;
 
+@property (nonatomic, weak) DockItem *item;
 @end
 
 @implementation HomeViewController
@@ -47,10 +64,78 @@ static NSString *cellID = @"cell";
     [self pullDownRefreshing];
     [self pullUpReRefreshing];
     
+    
+    //rightItem
+    //self.navigationItem.rightBarButtonItem = [UIBarButtonItem initWithTarget:self action:@selector(signClick:) image:@"home_right_sign" highImage:@"home_right_sign_press"];
+    
+    HomeFloatView *floatView = [[HomeFloatView alloc] init];
+    floatView.delegate = self;
+    [self.view addSubview:floatView];
+    
+    floatView.frame = CGRectMake(10, kScreen_Height - 44 - 49 - 10, 122, 40);
+    _floatView = floatView;
+    
+    
+    
+    DockItem *item = [[DockItem alloc] initWithFrame:CGRectZero];
+    [item setImage:[UIImage imageNamed:@"arrow_top"] forState:UIControlStateNormal];
+    [item setTitle:@"顶部" forState:UIControlStateNormal];
+    [item setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    item.layer.borderWidth = 1;
+    item.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    item.size = CGSizeMake(50, 50);
+    item.backgroundColor = [UIColor whiteColor];
+    item.layer.cornerRadius = 25;
+    item.origin = CGPointMake(kScreen_Width - 50 - 10, kScreen_Height - 50 - 49 - 10);
+    [item addTarget:self action:@selector(top:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:item];
+    _item = item;
+    _item.alpha = 0 ;
+    
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    myLog(@"%@",NSStringFromCGPoint(scrollView.contentOffset));
+    
+    if (scrollView.contentOffset.y > 200) {
+        [UIView animateWithDuration:1 animations:^{
+            self.item.alpha = 1;
+        }];
+        
+    } else {
+        [UIView animateWithDuration:1 animations:^{
+            self.item.alpha = 0;
+        }];
+    }
+    
 }
 
 
 #pragma mark - event Response
+
+//回到顶部
+- (void)top:(UIButton *)button
+{
+    
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+}
+
+
+//签到
+- (void)signClick:(UIButton *)button
+{
+    if (![self getToken]) {
+        [self login];
+    } else {
+
+    SignViewController *sign = [[SignViewController alloc] init];
+    [self.navigationController pushViewController:sign animated:YES];
+    }
+}
+
+
 - (void)loadData
 {
     self.currentPage = 1;
@@ -201,6 +286,41 @@ static NSString *cellID = @"cell";
 
 
 
+#pragma mark - HomeFloatViewDelegate
+- (void)homeFloatView:(HomeFloatView *)homeFloatView didClickBtnWithType:(HomeFloatViewStyle)type
+{
+    switch (type) {
+        case HomeFloatViewStyleUser:{
+
+           [self.navigationController pushViewController:[[ownInfoViewController alloc] init] animated:YES];
+            
+        }
+            break;
+        case HomeFloatViewStyleFavourite:{
+            if (![self getToken]) {
+                [self login];
+            } else {
+                [self.navigationController pushViewController:[[mineViewController alloc] init] animated:YES];
+            }
+        }
+            break;
+        case HomeFloatViewStyleCollection:{
+            if (![self getToken]) {
+                [self login];
+            } else {
+                
+            }
+        }
+            break;
+
+    }
+}
+
+- (NSString *)getToken
+{
+    return [[NSUserDefaults standardUserDefaults] stringForKey:KEY_TOKEN];
+}
+
 
 
 
@@ -224,6 +344,8 @@ static NSString *cellID = @"cell";
 {
     HomeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID   forIndexPath:indexPath];
     cell.model = self.arrayList[indexPath.row];
+    
+    
     return cell;
 }
 
@@ -253,7 +375,7 @@ static NSString *cellID = @"cell";
     [super viewWillDisappear:animated];
     [self colseDrawerGesture];
     [self removeNotification];
-    
+
 }
 
 #pragma mark - lazy

@@ -42,13 +42,14 @@
     
     self.taobaoLogin.hidden = YES;
     
-//    //左侧关闭
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"close"] style:UIBarButtonItemStyleDone target:self action:@selector(closeClick:)];
+
     //右侧注册
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"注册" style:UIBarButtonItemStylePlain target:self action:@selector(registerClick:)];
     
     if (self.isPresent) {
         self.navigationItem.leftBarButtonItem = nil;
+        //左侧关闭
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"close"] style:UIBarButtonItemStyleDone target:self action:@selector(closeClick:)];
     }
 
 }

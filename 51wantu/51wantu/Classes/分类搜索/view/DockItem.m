@@ -49,7 +49,7 @@
 {
     CGFloat titleX = 0;
     CGFloat titleHeight = contentRect.size.height * kTitleRatio;
-    CGFloat titleY = contentRect.size.height - titleHeight - 3;
+    CGFloat titleY = contentRect.size.height - titleHeight - 6;
     CGFloat titleWidth = contentRect.size.width;
     return CGRectMake(titleX,titleY, titleWidth, titleHeight);
 }

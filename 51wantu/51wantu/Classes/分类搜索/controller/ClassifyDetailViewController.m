@@ -23,12 +23,16 @@
 
 #import "ClassifyModel.h"
 
+#import "DockItem.h"
+
 
 @interface ClassifyDetailViewController()<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) BaseDatasModel *model;
 @property (nonatomic, strong) NSMutableArray *arrayList;
 @property (nonatomic, assign) NSInteger currentPage;
+
+@property (nonatomic, weak) DockItem *item;
 @end
 
 @implementation ClassifyDetailViewController
@@ -49,6 +53,49 @@
     
     
     
+    DockItem *item = [[DockItem alloc] initWithFrame:CGRectZero];
+    [item setImage:[UIImage imageNamed:@"arrow_top"] forState:UIControlStateNormal];
+    [item setTitle:@"顶部" forState:UIControlStateNormal];
+    [item setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    item.layer.borderWidth = 1;
+    item.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    item.size = CGSizeMake(50, 50);
+    item.backgroundColor = [UIColor whiteColor];
+    item.layer.cornerRadius = 25;
+    item.origin = CGPointMake(kScreen_Width - 50 - 10, kScreen_Height - 50 - 49 - 10);
+    [item addTarget:self action:@selector(top:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:item];
+    _item = item;
+    _item.alpha = 0 ;
+    
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    myLog(@"%@",NSStringFromCGPoint(scrollView.contentOffset));
+    
+    if (scrollView.contentOffset.y > 200) {
+        [UIView animateWithDuration:1 animations:^{
+            self.item.alpha = 1;
+        }];
+        
+    } else {
+        [UIView animateWithDuration:1 animations:^{
+            self.item.alpha = 0;
+        }];
+    }
+    
+}
+
+
+#pragma mark - event Response
+
+//回到顶部
+- (void)top:(UIButton *)button
+{
+    
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
 }
 
 #pragma mark - event Response

@@ -45,9 +45,9 @@
     self.ownInfoTabview.tableFooterView = [[UIView alloc]init];
     self.ownInfoTabview.delegate = self;
     self.ownInfoTabview.dataSource = self;
-     self.accountSettingArr = [[NSArray alloc] initWithObjects: @"基本资料", @"收货地址", @"安全中心", @"积分中心", @"我的收藏", nil];
+     self.accountSettingArr = [[NSArray alloc] initWithObjects: @"基本资料", @"收货地址", @"安全中心", @"积分中心",@"积分商城",@"我的收藏", nil];
     
-     self.accountSettingArr = [[NSArray alloc] initWithObjects: @"基本资料", @"安全中心", @"我的收藏", nil];
+    //self.accountSettingArr = [[NSArray alloc] initWithObjects: @"基本资料", @"安全中心", @"我的收藏", nil];
     
     
     self.ownInfoTabview.scrollEnabled = NO;
@@ -126,6 +126,12 @@
 
     self.ownInfoTabview.tableFooterView.hidden = [self getToken] == nil ? YES : NO;
 
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     
 }
 
