@@ -27,6 +27,8 @@
 
 @implementation HomeCell
 
+
+
 - (void)awakeFromNib {
     [self.originalPriceLabel addSubview:self.tempView];
 }

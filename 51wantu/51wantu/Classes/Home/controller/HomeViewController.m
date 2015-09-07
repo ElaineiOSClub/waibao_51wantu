@@ -56,6 +56,7 @@ static NSString *cellID = @"cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"爱玩图";
     //添加集合视图
     [self.view addSubview:self.collectionView];
 //    NSMutableArray *arrayList = [NSMutableArray array];
