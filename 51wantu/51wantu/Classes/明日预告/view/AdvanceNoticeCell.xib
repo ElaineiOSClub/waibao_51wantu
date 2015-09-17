@@ -49,13 +49,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9点开抢" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIg-Y1-651">
-                        <rect key="frame" x="208" y="228" width="49" height="21"/>
+                        <rect key="frame" x="202" y="228" width="55" height="21"/>
                         <color key="backgroundColor" red="0.45490196078431372" green="0.87058823529411766" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="OaP-hn-QIG"/>
                             <constraint firstAttribute="height" constant="21" id="Vyf-2i-YVS"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="49" id="iRz-ww-YAR"/>
-                            <constraint firstAttribute="width" constant="49" id="uEL-SD-gkZ"/>
+                            <constraint firstAttribute="width" constant="55" id="uEL-SD-gkZ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -90,6 +90,7 @@
             </constraints>
             <size key="customSize" width="257" height="267"/>
             <connections>
+                <outlet property="dateLabel" destination="QIg-Y1-651" id="yWy-o9-Me1"/>
                 <outlet property="imagenew" destination="HTE-6B-qqK" id="Lre-z5-gVt"/>
                 <outlet property="nameLabel" destination="KBy-bE-zeD" id="8oV-cu-6GH"/>
                 <outlet property="originalPriceLabel" destination="qQP-Yl-Hl8" id="HsM-Wn-Ihe"/>

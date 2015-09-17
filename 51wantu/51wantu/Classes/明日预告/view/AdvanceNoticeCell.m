@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imagenew;
 @property (weak, nonatomic) IBOutlet UILabel *time;
 
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+
 @end
 
 @implementation AdvanceNoticeCell
@@ -50,6 +52,7 @@
     self.originalPriceLabel.text = [NSString stringWithFormat:@"¥%@",model.price] ;
 //    self.discountLabel.text = [NSString stringWithFormat:@"(%@折)",model.discount];
      self.imagenew.hidden = !model.isnew;
+    self.dateLabel.text = [NSString stringWithFormat:@"%@点开抢",model.pdate2];
 }
 
 - (void)layoutSubviews
